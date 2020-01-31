@@ -6,6 +6,7 @@ extends KinematicBody2D
 # var b = "text"
 const gravity = 10
 var velocity = Vector2()
+var interaction_target = null
 const floorUp = Vector2(0, -1)
 export var speed = 200
 onready var anim_Player = $AnimationPlayer
@@ -36,3 +37,16 @@ func _physics_process(delta):
 	velocity.x = movement_direction
 		
 	velocity = move_and_slide(velocity, floorUp)
+	
+	
+	
+	if Input.is_action_pressed("interact") && interaction_target != null:
+		interaction_target.interact_with_player(self);
+		
+
+func on_button(body):
+	print("entered ", body)
+	self.interaction_target = body
+	pass # Replace with function body.
+
+
