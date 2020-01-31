@@ -34,7 +34,8 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 
 [node name="Subfloor" type="StaticBody2D" parent="."]
-position = Vector2( 717.987, 214.592 )
+
+position = Vector2( 724.668, 212.922 )
 scale = Vector2( 9.82036, 0.333333 )
 __meta__ = {
 "_edit_group_": true
