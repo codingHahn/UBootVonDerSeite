@@ -73,6 +73,7 @@ __meta__ = {
 [node name="GO BACK" type="Button" parent="Background"]
 margin_left = 54.8004
 <<<<<<< HEAD
+<<<<<<< HEAD
 margin_top = 725.872
 margin_right = 198.8
 margin_bottom = 848.872
@@ -81,6 +82,11 @@ margin_top = 723.6
 margin_right = 198.8
 margin_bottom = 846.6
 >>>>>>> added some ui elements
+=======
+margin_top = 725.872
+margin_right = 198.8
+margin_bottom = 848.872
+>>>>>>> added select playercount scene and added some buttons to it + lineedit
 rect_pivot_offset = Vector2( 323.953, 131.269 )
 icon = ExtResource( 4 )
 flat = true
