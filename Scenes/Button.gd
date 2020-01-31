@@ -20,7 +20,7 @@ func interact():
 
 
 func _on_Button_body_entered(player):
-	player.on_button(self)
+	player.set_interaction_target(self)
 
 func interact_with_player(player):
 	print("Player  ", player, " interacted with a button")

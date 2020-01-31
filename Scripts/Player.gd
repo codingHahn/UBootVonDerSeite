@@ -44,7 +44,7 @@ func _physics_process(delta):
 		interaction_target.interact_with_player(self);
 		
 
-func on_button(body):
+func set_interaction_target(body):
 	print("entered ", body)
 	self.interaction_target = body
 	pass # Replace with function body.
