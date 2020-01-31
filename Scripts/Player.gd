@@ -2,9 +2,6 @@ extends KinematicBody2D
 
 const World = preload("res://Scripts/World.gd")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 const gravity = 10
 var holding = null
 var velocity = Vector2()
@@ -36,7 +33,7 @@ func _physics_process(delta):
 		movement_direction += speed
 		
 	velocity.x = movement_direction
-		
+
 	velocity = move_and_slide(velocity, floorUp)
 	
 	
@@ -45,7 +42,6 @@ func _physics_process(delta):
 		var areas = $Area2D.get_overlapping_areas()
 		if areas.size() > 0 && areas[0].has_method("interact_with_player"):
 			areas[0].call("interact_with_player", self)
-			print(areas[0])
 			
 	if Input.is_action_pressed("drop_item"):
 		self.set_holding(null)

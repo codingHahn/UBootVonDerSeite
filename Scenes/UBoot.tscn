@@ -33,8 +33,3 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket Provider"]
 position = Vector2( 423.362, 279.117 )
 shape = SubResource( 1 )
-[connection signal="body_entered" from="Gasoline Provider" to="Gasoline Provider" method="_on_Button_body_entered"]
-[connection signal="body_exited" from="Gasoline Provider" to="Gasoline Provider" method="_on_Button_body_exited"]
-[connection signal="body_entered" from="Bucket Provider" to="Bucket Provider" method="_on_Bucket_Provider_body_entered"]
-[connection signal="body_entered" from="Bucket Provider" to="Bucket Provider" method="_on_Button_body_entered"]
-[connection signal="body_exited" from="Bucket Provider" to="Bucket Provider" method="_on_Button_body_exited"]
