@@ -49,6 +49,19 @@ func _physics_process(delta):
 func can_pickup():
 	return holding == null
 		
+func take_item():
+	var item = self.holding
+	self.set_holding(null)
+	return item
+	
+func take_item_if_eq(item):
+	var holding = self.holding
+	if holding == item:
+		self.set_holding(null)
+		return holding
+	else:
+		return null
+		
 func set_holding(item):
 	holding = item
 	
