@@ -19,6 +19,10 @@ config/name="TestUBoot"
 run/main_scene="res://Scenes/UBoot.tscn"
 config/icon="res://Assets/Sprites/icon.png"
 
+[autoload]
+
+W="*res://Scripts/World.gd"
+
 [display]
 
 window/size/width=1600
@@ -56,7 +60,8 @@ interact={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
+drop_item={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
+ ]
+}
