@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Sprites/Gasoline.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Hole.gd" type="Script" id=8]
 
+
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -74,4 +75,8 @@ position = Vector2( 423.362, 279.117 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 339.458, 72.0596 )
+
+position = Vector2( 475.458, 129.06 )
+
+[node name="Geometry" parent="." instance=ExtResource( 2 )]
+
