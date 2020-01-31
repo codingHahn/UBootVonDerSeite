@@ -1,5 +1,6 @@
 
 enum Item {
 	Gasoline,
-	Bucket
+	Bucket,
+	Bedsheet
 }

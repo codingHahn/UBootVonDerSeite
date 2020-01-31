@@ -54,16 +54,17 @@ func set_holding(item):
 	
 	if item == null:
 		$Holding.texture = null
-		return
-	
-	var name = "";
-	match item:
-		World.Item.Gasoline:
-			name = "Gasoline.png"
-		World.Item.Bucket:
-			name = "Bucket.png"
-	
-	
-	$Holding.texture = load("res://Assets/Sprites/" + name)
+	else:
+
+		var name = "";
+		match item:
+			World.Item.Gasoline:
+				name = "Gasoline.png"
+			World.Item.Bucket:
+				name = "Bucket.png"
+			World.Item.Bedsheet:
+				name = "Bedsheet.png"
+		
+		$Holding.texture = load("res://Assets/Sprites/" + name)
 
 
