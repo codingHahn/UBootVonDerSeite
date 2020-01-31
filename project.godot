@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="TestUBoot"
-run/main_scene="res://Scenes/UBoot.tscn"
+run/main_scene="res://Scenes/start_screen.tscn"
 config/icon="res://Assets/Sprites/icon.png"
 
 [display]

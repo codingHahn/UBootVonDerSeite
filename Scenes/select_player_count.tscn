@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/Standardfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/playercount_lineedit_skript.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/start_b_pc_skript.gd" type="Script" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 1 )
+
+[node name="START SCREEN" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+margin_left = -0.048344
+margin_top = -2.05048
+margin_right = 1602.95
+margin_bottom = 894.949
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UBOOTREPAIR" type="RichTextLabel" parent="Background"]
+margin_left = 523.0
+margin_top = 101.0
+margin_right = 1053.0
+margin_bottom = 200.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+tab_size = 3
+text = "U BOOT REPAIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PLAYERCOUNT" type="RichTextLabel" parent="Background"]
+margin_left = 80.7022
+margin_top = 323.074
+margin_right = 610.702
+margin_bottom = 422.074
+size_flags_horizontal = 0
+size_flags_vertical = 2
+tab_size = 3
+text = "PLAYERCOUNT:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playercount_lineedit" type="LineEdit" parent="Background"]
+margin_left = 579.244
+margin_top = 322.008
+margin_right = 1009.24
+margin_bottom = 417.008
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start_button_pc" type="Button" parent="Background"]
+margin_left = 641.974
+margin_top = 723.626
+margin_right = 949.974
+margin_bottom = 814.626
+text = "START"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="Background/playercount_lineedit" to="Background/playercount_lineedit" method="_on_playercount_lineedit_text_changed"]
+[connection signal="pressed" from="Background/start_button_pc" to="Background/start_button_pc" method="_on_start_button_pc_pressed"]

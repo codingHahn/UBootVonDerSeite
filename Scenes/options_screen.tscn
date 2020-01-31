@@ -3,7 +3,8 @@
 [ext_resource path="res://Assets/Fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/goback_b_script.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/sound_slider_skript.gd" type="Script" id=3]
-[ext_resource path="res://Assets/UI/img_320917.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/return_options_button.png" type="Texture" id=4]
+
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -72,9 +73,9 @@ __meta__ = {
 
 [node name="GO BACK" type="Button" parent="Background"]
 margin_left = 54.8004
-margin_top = 723.6
+margin_top = 725.872
 margin_right = 198.8
-margin_bottom = 846.6
+margin_bottom = 848.872
 rect_pivot_offset = Vector2( 323.953, 131.269 )
 icon = ExtResource( 4 )
 flat = true
