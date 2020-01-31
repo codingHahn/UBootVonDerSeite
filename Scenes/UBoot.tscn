@@ -3,10 +3,9 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Level.tscn" type="PackedScene" id=2]
 
-
 [node name="UBoot" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 339.458, 72.0596 )
+position = Vector2( 475.458, 129.06 )
 
 [node name="Geometry" parent="." instance=ExtResource( 2 )]
