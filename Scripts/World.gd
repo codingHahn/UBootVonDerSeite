@@ -1,0 +1,5 @@
+
+enum Item {
+	Gasoline,
+	Bucket
+}

@@ -9,7 +9,6 @@ extents = Vector2( 35, 35 )
 position = Vector2( 1, -11 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 721.668, 385.922 )
 scale = Vector2( 20, 1 )
 __meta__ = {
@@ -23,7 +22,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 
 [node name="Subfloor" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 724.668, 212.922 )
 scale = Vector2( 9.82036, 0.333333 )
 __meta__ = {
@@ -37,7 +35,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 703.668, 38.922 )
 scale = Vector2( 20, 1 )
 __meta__ = {
@@ -51,7 +48,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 
 [node name="Left" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 70.668, 197.922 )
 scale = Vector2( -0.775194, 4.59109 )
 __meta__ = {
@@ -66,7 +62,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 
 [node name="Right" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 1368.67, 196.922 )
 scale = Vector2( -0.775194, 4.59109 )
 __meta__ = {
