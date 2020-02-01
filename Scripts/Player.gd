@@ -3,27 +3,27 @@ extends KinematicBody2D
 const World = preload("res://Scripts/World.gd")
 
 const gravity = 10
-var holding = null
-var velocity = Vector2()
 const floorUp = Vector2(0, -1)
 export var speed = 200
-onready var anim_Player = $AnimationPlayer
+
+# Do not export, because then it cannot be easily nulled at the beginning
+# If this is exported, there is a ghostitem in the players hand that has
+# to be discarded before he can pick up any object
+var holding
+
+var velocity = Vector2()
 
 func _ready():
-	pass
+	self.add_to_group("players")
 
 
 func _physics_process(delta):
-	
 	var movement_direction = 0;
 	
 	velocity.y += gravity
-	
-	
 	if is_on_floor():
 		velocity.y = gravity
 		if Input.is_action_pressed('jump'):
-			anim_Player.play("Scale")
 			velocity.y = -300
 	
 	if Input.is_action_pressed("ui_left"):
@@ -35,8 +35,6 @@ func _physics_process(delta):
 	velocity.x = movement_direction
 
 	velocity = move_and_slide(velocity, floorUp)
-	
-	
 	
 	if Input.is_action_pressed("interact"):
 		var areas = $Area2D.get_overlapping_areas()
@@ -68,7 +66,6 @@ func set_holding(item):
 	if item == null:
 		$Holding.texture = null
 	else:
-
 		var name = "";
 		match item:
 			World.Item.Gasoline:

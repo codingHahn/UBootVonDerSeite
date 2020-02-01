@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "interactable",
+"language": "GDScript",
+"path": "res://Scripts/classes/interactable.gd"
+}, {
+"base": "Sprite",
+"class": "pickupable",
+"language": "GDScript",
+"path": "res://Scripts/classes/pickupable.gd"
+} ]
 _global_script_class_icons={
-
+"interactable": "",
+"pickupable": ""
 }
 
 [application]
