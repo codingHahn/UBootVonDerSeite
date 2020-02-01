@@ -24,9 +24,9 @@ func _physics_process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9.67732, 146.115 )
 
 [sub_resource type="RectangleShape2D" id=3]
+
 extents = Vector2( 35, 35 )
 
 [node name="Level" type="Node2D"]
@@ -90,6 +90,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
+
+[node name="Floor" type="StaticBody2D" parent="." groups=[
+"uboot",
+]]
 [node name="Ladder" type="Area2D" parent="."]
 position = Vector2( 319.157, 224.398 )
 script = ExtResource( 6 )
@@ -108,7 +112,6 @@ __meta__ = {
 scale = Vector2( 1, 5 )
 texture = ExtResource( 1 )
 
-[node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 721.668, 385.922 )
 scale = Vector2( 20, 1 )
 __meta__ = {
@@ -121,7 +124,9 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="Floor"]
 texture = ExtResource( 1 )
 
-[node name="Subfloor" type="StaticBody2D" parent="."]
+[node name="Subfloor" type="StaticBody2D" parent="." groups=[
+"uboot",
+]]
 position = Vector2( 724.668, 212.922 )
 scale = Vector2( 9.82036, 0.333333 )
 __meta__ = {
@@ -134,7 +139,9 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="Subfloor"]
 texture = ExtResource( 1 )
 
-[node name="Ceiling" type="StaticBody2D" parent="."]
+[node name="Ceiling" type="StaticBody2D" parent="." groups=[
+"uboot",
+]]
 position = Vector2( 703.668, 38.922 )
 scale = Vector2( 20, 1 )
 __meta__ = {
@@ -147,7 +154,9 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="Ceiling"]
 texture = ExtResource( 1 )
 
-[node name="Left" type="StaticBody2D" parent="."]
+[node name="Left" type="StaticBody2D" parent="." groups=[
+"uboot",
+]]
 position = Vector2( 70.668, 197.922 )
 scale = Vector2( -0.775194, 4.59109 )
 __meta__ = {
@@ -161,7 +170,9 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="Left"]
 texture = ExtResource( 1 )
 
-[node name="Right" type="StaticBody2D" parent="."]
+[node name="Right" type="StaticBody2D" parent="." groups=[
+"uboot",
+]]
 position = Vector2( 1368.67, 196.922 )
 scale = Vector2( -0.775194, 4.59109 )
 __meta__ = {
