@@ -8,6 +8,7 @@ const TILE_PLAYER = 3 # ??
 const TILE_BACKGROUND = 5
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
+const World = preload("res://levels/World.gd")
 export (NodePath) onready var PlayerRoot
 
 var max_size = null
@@ -21,6 +22,11 @@ func _ready():
 	hole_timer.set_wait_time(10.0)
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
+	
+	var to_drop = pickupable.new(Vector2(24, 42), World.Item.Bucket)
+	$Tiles.add_child(to_drop)
+	to_drop = pickupable.new(Vector2(168, 102), World.Item.Bucket)
+	$Tiles.add_child(to_drop)
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
