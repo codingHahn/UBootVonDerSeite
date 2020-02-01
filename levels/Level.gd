@@ -49,3 +49,5 @@ func generate_new_hole():
 func _process(_delta):
 	var tile = $Tiles.get_cellv($Tiles.world_to_map($Player.position))
 	$Player.is_on_ladder = tile == TILE_LADDER
+
+

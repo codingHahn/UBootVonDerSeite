@@ -6,7 +6,6 @@
 [ext_resource path="res://items/ItemSpawner.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node2D"]
-scale = Vector2( 2, 2 )
 script = ExtResource( 4 )
 
 [node name="Tiles" type="TileMap" parent="."]
@@ -35,3 +34,4 @@ position = Vector2( 163.33, 63.0171 )
 
 [node name="player_4" type="Node2D" parent="SpawnPoints"]
 position = Vector2( 219.488, 80.1646 )
+[connection signal="draw" from="." to="." method="_on_Level_draw"]
