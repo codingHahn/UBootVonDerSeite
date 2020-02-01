@@ -1,12 +1,12 @@
 extends Node2D
 
 const TILE_NONE = -1
-const TILE_ROOM  = 0 # ??
-const TILE_LEAK = 1 # ??
-const TILE_LADDER = 2 # ??
-const TILE_PLAYER = 3 # ??
-const TILE_BACKGROUND = 5
-const TILE_HOLE = 7
+#const TILE_ROOM  = 0 # ??
+#const TILE_LEAK = 1 # ??
+const TILE_LADDER = 11 # ??
+#const TILE_PLAYER = 3 # ??
+const TILE_BACKGROUND = 14
+const TILE_HOLE = 16
 
 const BUCKET_SIZE = 50.0
 

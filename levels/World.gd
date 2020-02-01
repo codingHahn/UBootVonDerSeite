@@ -1,5 +1,5 @@
 
-const ItemSize = Vector2(8, 8)
+const ItemSize = Vector2(32, 32)
 
 enum Item {
 	Gasoline,

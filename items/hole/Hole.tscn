@@ -5,7 +5,7 @@
 [ext_resource path="res://items/hole/Hole_Base.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.9986, 16.3616 )
+extents = Vector2( 31.7909, 63.7128 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -35,7 +35,7 @@ script = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2( 8, 8 )
+position = Vector2( 32, 32 )
 scale = Vector2( 1, 0.5 )
 shape = SubResource( 1 )
 
@@ -53,17 +53,21 @@ autoplay = "water"
 anims/water = SubResource( 2 )
 
 [node name="Particles2D" type="CPUParticles2D" parent="."]
-position = Vector2( 8.12383, 5.77945 )
+position = Vector2( 32.0336, 31.6725 )
 rotation = 0.349066
+amount = 32
+lifetime = 1.5
 emission_shape = 1
-emission_sphere_radius = 1.0
+emission_sphere_radius = 4.0
 gravity = Vector2( 0, 20 )
 angular_velocity = 100.0
 angular_velocity_curve = SubResource( 3 )
 
 [node name="Particles2D2" type="CPUParticles2D" parent="."]
-position = Vector2( 7.27743, 5.93334 )
+position = Vector2( 32.1788, 31.8264 )
 rotation = -0.349066
+amount = 32
+lifetime = 1.5
 emission_shape = 1
 emission_sphere_radius = 1.0
 gravity = Vector2( 0, 20 )
