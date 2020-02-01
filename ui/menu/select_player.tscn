@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://ui/icon.png" type="Texture" id=2]
 [ext_resource path="res://ui/menu/start_b_pc_skript.gd" type="Script" id=3]
 [ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://ui/menu/player4_image_script.gd" type="Script" id=5]
@@ -9,20 +8,81 @@
 [ext_resource path="res://ui/menu/player3_image_script.gd" type="Script" id=7]
 [ext_resource path="res://ui/menu/return_options_button.png" type="Texture" id=8]
 [ext_resource path="res://ui/menu/return_from_player_select_script.gd" type="Script" id=9]
-
+[ext_resource path="res://characters/players/Character.png" type="Texture" id=10]
+[ext_resource path="res://ui/menu/PlayerAnimation.gd" type="Script" id=11]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 
+[sub_resource type="Animation" id=5]
+resource_name = "player_1_animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
 [sub_resource type="DynamicFont" id=3]
 size = 40
 font_data = ExtResource( 4 )
 
+[sub_resource type="Animation" id=6]
+resource_name = "player_1_animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
 [sub_resource type="DynamicFont" id=4]
 size = 23
 font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "player_1_animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "player_1_animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
 
 [node name="START SCREEN" type="Control"]
 anchor_right = 1.0
@@ -75,17 +135,24 @@ margin_bottom = 656.786
 size_flags_horizontal = 3
 custom_styles/panel = SubResource( 2 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="player_image" type="TextureRect" parent="Player_1_Panel"]
-margin_left = 79.6556
-margin_top = 46.5975
-margin_right = 219.656
-margin_bottom = 190.598
-texture = ExtResource( 2 )
-expand = true
+[node name="Player_1" type="KinematicBody2D" parent="Player_1_Panel"]
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Player_1_Panel/Player_1"]
+position = Vector2( 125.574, 313.3 )
+scale = Vector2( 4.34816, 4.19597 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( -32, -64 )
+vframes = 8
+hframes = 8
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player_1_Panel/Player_1"]
+anims/player_1_animation = SubResource( 5 )
 
 [node name="Player_1_Text" type="RichTextLabel" parent="Player_1_Panel"]
 margin_left = 60.5919
@@ -110,13 +177,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="player_image" type="TextureRect" parent="Player_2_Panel"]
-margin_left = 79.6556
-margin_top = 46.5975
-margin_right = 219.656
-margin_bottom = 190.598
-texture = ExtResource( 2 )
-expand = true
+[node name="Player_2" type="KinematicBody2D" parent="Player_2_Panel"]
+position = Vector2( -325.778, -1.67 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Player_2_Panel/Player_2"]
+position = Vector2( 454.831, 311.249 )
+scale = Vector2( 4.34816, 4.19597 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( -32, -64 )
+vframes = 8
+hframes = 8
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player_2_Panel/Player_2"]
+anims/player_1_animation = SubResource( 6 )
 
 [node name="Player_2_Text" type="RichTextLabel" parent="Player_2_Panel"]
 margin_left = 60.5919
@@ -130,10 +206,10 @@ __meta__ = {
 }
 
 [node name="Join_Player2_Text" type="RichTextLabel" parent="Player_2_Panel"]
-margin_left = 38.0
-margin_top = 272.0
-margin_right = 264.0
-margin_bottom = 317.0
+margin_left = 48.2527
+margin_top = 292.505
+margin_right = 274.253
+margin_bottom = 337.505
 custom_fonts/normal_font = SubResource( 4 )
 tab_size = 2
 text = "Press \"I\" to join"
@@ -153,16 +229,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="player_image" type="TextureRect" parent="Player_3_Panel"]
-margin_left = 79.6556
-margin_top = 46.5975
-margin_right = 219.656
-margin_bottom = 190.598
-texture = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Player_3" type="KinematicBody2D" parent="Player_3_Panel"]
+position = Vector2( -646.541, -1.67 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Player_3_Panel/Player_3"]
+position = Vector2( 783.594, 314.766 )
+scale = Vector2( 4.34816, 4.19597 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( -32, -64 )
+vframes = 8
+hframes = 8
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player_3_Panel/Player_3"]
+anims/player_1_animation = SubResource( 7 )
 
 [node name="Player_3_Text" type="RichTextLabel" parent="Player_3_Panel"]
 margin_left = 60.5919
@@ -176,10 +258,10 @@ __meta__ = {
 }
 
 [node name="Join_Player3_Text" type="RichTextLabel" parent="Player_3_Panel"]
-margin_left = 27.8234
-margin_top = 272.0
-margin_right = 279.823
-margin_bottom = 341.0
+margin_left = 17.2748
+margin_top = 291.339
+margin_right = 269.274
+margin_bottom = 360.339
 custom_fonts/normal_font = SubResource( 4 )
 tab_size = 2
 text = "Press \"Num 9\" to join"
@@ -199,13 +281,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="player_image" type="TextureRect" parent="Player_4_Panel"]
-margin_left = 79.6556
-margin_top = 46.5975
-margin_right = 219.656
-margin_bottom = 190.598
-texture = ExtResource( 2 )
-expand = true
+[node name="Player_4" type="KinematicBody2D" parent="Player_4_Panel"]
+position = Vector2( -969.171, -1.67 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Player_4_Panel/Player_4"]
+position = Vector2( 1098.29, 313.007 )
+scale = Vector2( 4.34816, 4.19597 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( -32, -64 )
+vframes = 8
+hframes = 8
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player_4_Panel/Player_4"]
+anims/player_1_animation = SubResource( 8 )
 
 [node name="Player_4_Text" type="RichTextLabel" parent="Player_4_Panel"]
 margin_left = 60.5919
@@ -219,10 +310,10 @@ __meta__ = {
 }
 
 [node name="Join_Player4_Text" type="RichTextLabel" parent="Player_4_Panel"]
-margin_left = 19.2867
-margin_top = 273.277
-margin_right = 281.287
-margin_bottom = 311.277
+margin_left = 35.1095
+margin_top = 294.374
+margin_right = 297.11
+margin_bottom = 332.374
 custom_fonts/normal_font = SubResource( 4 )
 tab_size = 2
 text = "Press \"DEL\" to join"
