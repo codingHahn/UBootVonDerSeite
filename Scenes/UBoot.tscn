@@ -18,6 +18,7 @@
 script = ExtResource( 6 )
 
 [node name="Geometry" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2.97083, 3.79424 )
 
 [node name="bucket_source" type="Area2D" parent="."]
 position = Vector2( 347.351, 275.743 )

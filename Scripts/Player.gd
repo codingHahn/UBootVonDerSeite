@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const World = preload("res://Scripts/World.gd")
 
-const gravity = 10
+var gravity = 10
 const floorUp = Vector2(0, -1)
 export var speed = 200
 
@@ -14,12 +14,14 @@ export (NodePath) onready var drop_item_to
 var holding
 
 var velocity = Vector2()
+var ladder_on = false
 
 func _ready():
 	self.add_to_group("players")
 
 func _physics_process(delta):
 	var movement_direction = 0;
+	gravity = 10
 	
 	velocity.y += gravity
 	if is_on_floor():
@@ -27,11 +29,19 @@ func _physics_process(delta):
 		if Input.is_action_pressed('jump'):
 			velocity.y = -300
 	
+	print(ladder_on)
+	
 	if Input.is_action_pressed("ui_left"):
 		movement_direction -= speed
 	
 	if Input.is_action_pressed("ui_right"):
 		movement_direction += speed
+	if ladder_on == true:
+		gravity = 0
+		if Input.is_action_pressed(("ui_down")):
+			velocity.y = speed
+		elif Input.is_action_pressed(("ui_up")):
+			velocity.y = -speed
 		
 	velocity.x = movement_direction
 
@@ -85,5 +95,6 @@ func set_holding(item):
 				name = "Bedsheet.png"
 		
 		$Holding.texture = load("res://Assets/Sprites/" + name)
+
 
 
