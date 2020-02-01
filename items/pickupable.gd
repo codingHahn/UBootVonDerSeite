@@ -10,6 +10,11 @@ var velocity = Vector2()
 onready var collision = CollisionShape2D.new()
 onready var shape = CircleShape2D.new()
 
+func _init(position: Vector2, item):
+	self.position = position
+	self.item_type = item
+	self.icon = World.load_texture_for_item(item)
+
 func _ready():
 	shape.radius = 10
 	collision.set_shape(shape)
@@ -23,13 +28,13 @@ func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	var overlapping_bodies = get_overlapping_bodies()
 	if !overlapping_bodies.empty():
-		if overlapping_bodies.pop_front().is_in_group("uboot"):
-			velocity = Vector2(0,0)
+		velocity = Vector2(0,0)
 	
 	position += velocity
 
 func interact_with_player(player):
 	# Call interact_with_player from class interactable first,
 	# because we destroy this object here.
-	.interact_with_player(player)
-	self.queue_free()
+	if player.can_pickup():
+		player.set_holding(item_type)
+		self.queue_free()

@@ -53,10 +53,10 @@ func _physics_process(delta):
 	# Check for overlapping players and display the tooltip to them
 	var overlapping_bodies = self.get_overlapping_bodies()
 	if !overlapping_bodies.empty():
-		if overlapping_bodies.pop_back().is_in_group("players"):
-			tooltip.show()
-			if timer.is_stopped():
-				timer.start()
+		#if overlapping_bodies.pop_back().is_in_group("players"):
+		tooltip.show()
+		if timer.is_stopped():
+			timer.start()
 
 func _on_tooltip_timeout():
 	tooltip.hide()

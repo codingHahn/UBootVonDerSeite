@@ -25,3 +25,4 @@ item_type = 2
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 87.752, 51.6886 )
+drop_item_to = NodePath("../Tiles")

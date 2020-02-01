@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-const World = preload("res://levels/World.gd")
-
 var gravity = 800
 onready var velocity:Vector2 = Vector2.ZERO
 
@@ -16,6 +14,8 @@ export (NodePath) onready var drop_item_to
 # If this is exported, there is a ghostitem in the players hand that has
 # to be discarded before he can pick up any object
 var holding
+
+const World = preload("res://levels/World.gd")
 
 func _ready():
 	pass
@@ -54,13 +54,8 @@ func _process(_delta):
 			
 	if Input.is_action_pressed("drop_item"):
 		if holding != null:
-			var itemtodrop = pickupable.new()
-			itemtodrop.texture = load("res://items/interactables/bed/Bedsheet.png")
-			itemtodrop.item_type = holding
-			# Set itemposition to player position. Otherwise it will spawn
-			# at (0,0)
-			itemtodrop.position = self.position
-			get_node(drop_item_to).add_child(itemtodrop)
+			var to_drop = pickupable.new(self.position, self.take_item())
+			get_node(drop_item_to).add_child(to_drop)
 		self.set_holding(null)
 		
 func can_pickup():
@@ -85,15 +80,7 @@ func set_holding(item):
 	if item == null:
 		$Holding.texture = null
 	else:
-		var asset = "";
-		match item:
-			World.Item.Gasoline:
-				asset = "gasoline/Gasoline.png"
-			World.Item.Bucket:
-				asset = "bucket/Bucket.png"
-			World.Item.Bedsheet:
-				asset = "bed/Bedsheet.png"
-		$Holding.texture = load("res://items/interactables/" + asset)
+		$Holding.texture = World.load_texture_for_item(item)
 
 
 func _physics_process(delta):
