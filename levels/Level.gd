@@ -13,6 +13,8 @@ export (NodePath) onready var PlayerRoot
 var max_size = null
 
 func _ready():
+	randomize()
+
 	var hole_timer = Timer.new()
 	add_child(hole_timer)
 	hole_timer.connect("timeout", self, "generate_new_hole")
