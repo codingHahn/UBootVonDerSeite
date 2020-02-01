@@ -22,10 +22,8 @@ func _ready():
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
 	
-	var to_drop = pickupable.new(Vector2(24, 42), World.Item.Bucket)
-	$Tiles.add_child(to_drop)
-	to_drop = pickupable.new(Vector2(168, 102), World.Item.Bucket)
-	$Tiles.add_child(to_drop)
+	create_bucket(24, 42)
+	create_bucket(168, 102)
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
@@ -35,7 +33,26 @@ func _ready():
 		newPlayer.position = get_node("SpawnPoints").get_child(int(player) - 1).position
 		newPlayer.drop_item_to = $Tiles.get_path()
 		get_node(PlayerRoot).add_child(newPlayer)
+
+func create_bucket(x, y):
+	var to_drop = pickupable.new(Vector2(x, y), World.Item.Bucket)
+
+	var rect = ColorRect.new()
+	rect.name = "Back"
+	rect.set_position(Vector2(-4, 5))
+	rect.set_size(Vector2(8, 1))
+	rect.color = Color(0.5,0.5,0.5)
+	to_drop.add_child(rect)
+
+	rect = ColorRect.new()
+	rect.name = "Progress"
+	rect.set_position(Vector2(-4, 5))
+	rect.set_size(Vector2(5, 1))
+	rect.color = Color(1,0,0)	
+	to_drop.add_child(rect)
 	
+	$Tiles.add_child(to_drop)
+
 func generate_new_hole():
 	if self.max_size != null:
 		var tile_x = rand_range(0, self.max_size.x)
