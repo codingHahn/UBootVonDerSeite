@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://characters/players/TilePlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://items/hole/Hole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/Level.gd" type="Script" id=4]
 [ext_resource path="res://items/ItemSpawner.tscn" type="PackedScene" id=5]
@@ -9,6 +8,7 @@
 [node name="Level" type="Node2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 4 )
+spawn_points = NodePath("SpawnPoints")
 
 [node name="Tiles" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -23,6 +23,16 @@ position = Vector2( 136, 64 )
 position = Vector2( 88.1817, 105.357 )
 item_type = 2
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 87.752, 51.6886 )
-drop_item_to = NodePath("../Tiles")
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="player_1" type="Node2D" parent="SpawnPoints"]
+position = Vector2( 86.1662, 83.1654 )
+
+[node name="player_2" type="Node2D" parent="SpawnPoints"]
+position = Vector2( 55.7294, 47.1557 )
+
+[node name="player_3" type="Node2D" parent="SpawnPoints"]
+position = Vector2( 163.33, 63.0171 )
+
+[node name="player_4" type="Node2D" parent="SpawnPoints"]
+position = Vector2( 219.488, 80.1646 )

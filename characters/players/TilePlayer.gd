@@ -8,6 +8,8 @@ export var speed = 65
 var is_on_ladder = false
 var can_jump = false
 
+var prefix
+
 export (NodePath) onready var drop_item_to
 
 # Do not export, because then it cannot be easily nulled at the beginning
@@ -29,15 +31,15 @@ func _process(_delta):
 	else:
 		gravity = 800
 
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed(prefix + "_left"):
 		velocity.x = -speed
 		$Sprite.flip_h = true
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed(prefix + "_right"):
 		velocity.x = speed
 		$Sprite.flip_h = false
-	if Input.is_action_pressed("ui_up") and (is_on_floor() or is_on_ladder):
+	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or is_on_ladder):
 		velocity.y = -speed * 2
-	if Input.is_action_pressed("ui_down") and is_on_ladder:
+	if Input.is_action_pressed(prefix + "_down") and is_on_ladder:
 		velocity.y = speed
 	
 	if velocity.x == 0:
@@ -46,13 +48,13 @@ func _process(_delta):
 		$Animation.play("walk")
 
 
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_pressed(prefix + "_interact"):
 		var areas = $InteractableArea.get_overlapping_areas()
 		if areas.size() > 0 && areas[0].has_method("interact_with_player"):
 			print("Interacting with ", areas[0]);
 			areas[0].call("interact_with_player", self)
 			
-	if Input.is_action_pressed("drop_item"):
+	if Input.is_action_pressed(prefix + "_drop_item"):
 		if holding != null:
 			var to_drop = pickupable.new(self.position, self.take_item())
 			get_node(drop_item_to).add_child(to_drop)
