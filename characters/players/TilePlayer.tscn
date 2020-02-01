@@ -177,5 +177,5 @@ position = Vector2( 0, -32 )
 shape = SubResource( 10 )
 
 [node name="Holding" type="Sprite" parent="."]
-position = Vector2( 0, -5 )
+position = Vector2( 0, -35 )
 scale = Vector2( 0.3, 0.3 )
