@@ -87,14 +87,30 @@ func generate_new_hole():
 
 
 func calculate_health():
-	var count_holes = get_node(hole_holder).get_child_count()
-	print(count_holes)
-	if health - count_holes > 0:
-		health -= count_holes
+	var dripping_holes = 0
+	for hole in get_node(hole_holder).get_children():
+		print(hole)
+		var n = Node2D.new()
+		var overlapping_bodies = hole.get_overlapping_bodies()
+		var bucket = find_bucket(overlapping_bodies)
+		if bucket != null:
+			bucket.value += 1
+		else:
+			dripping_holes += 1
+	
+	print(dripping_holes)
+	if health - dripping_holes > 0:
+		health -= dripping_holes
 	else:
 		health = 0
 		$"RichTextLabel".show()
+
+func find_bucket(elements):
+	for element in elements:
+		if element is pickupable && element.item_type == World.Item.Bucket:
+			return element
 	
+	return null
 	
 func _process(_delta):
 	if Input.is_action_pressed("stop"):
