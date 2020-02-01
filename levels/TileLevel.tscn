@@ -1,27 +1,25 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
-[ext_resource path="res://items/hole/Hole.tscn" type="PackedScene" id=3]
-
 [ext_resource path="res://levels/Level.gd" type="Script" id=4]
 [ext_resource path="res://items/ItemSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/risingwater.gd" type="Script" id=6]
 
-[sub_resource type="VisualShaderNodeInput" id=9]
+[sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeVectorOp" id=10]
+[sub_resource type="VisualShaderNodeVectorOp" id=2]
 output_port_for_preview = 0
 operator = 10
 
-[sub_resource type="VisualShaderNodeColorConstant" id=11]
+[sub_resource type="VisualShaderNodeColorConstant" id=3]
 constant = Color( 0, 0.207214, 0.757812, 1 )
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=13]
+[sub_resource type="VisualShaderNodeScalarConstant" id=4]
 constant = 0.2
 
-[sub_resource type="VisualShader" id=12]
+[sub_resource type="VisualShader" id=5]
 code = "shader_type canvas_item;
 
 
@@ -65,32 +63,32 @@ graph_offset = Vector2( 0, -75 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 1020, 20 )
-nodes/fragment/2/node = SubResource( 9 )
+nodes/fragment/2/node = SubResource( 1 )
 nodes/fragment/2/position = Vector2( 100, 140 )
-nodes/fragment/3/node = SubResource( 10 )
+nodes/fragment/3/node = SubResource( 2 )
 nodes/fragment/3/position = Vector2( 360, 0 )
-nodes/fragment/4/node = SubResource( 11 )
+nodes/fragment/4/node = SubResource( 3 )
 nodes/fragment/4/position = Vector2( 120, -40 )
-nodes/fragment/5/node = SubResource( 13 )
+nodes/fragment/5/node = SubResource( 4 )
 nodes/fragment/5/position = Vector2( 340, 240 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 3, 1, 4, 0, 3, 0, 3, 0, 0, 0, 5, 0, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 12 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 
-[sub_resource type="OpenSimplexNoise" id=5]
+[sub_resource type="OpenSimplexNoise" id=7]
 seed = 4154545
 
-[sub_resource type="NoiseTexture" id=6]
+[sub_resource type="NoiseTexture" id=8]
 seamless = true
 as_normalmap = true
 bump_strength = 10.0
-noise = SubResource( 5 )
+noise = SubResource( 7 )
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=9]
 
-[sub_resource type="DynamicFont" id=8]
-font_data = SubResource( 7 )
+[sub_resource type="DynamicFont" id=10]
+font_data = SubResource( 9 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
@@ -129,6 +127,7 @@ position = Vector2( 215.008, 103.618 )
 
 [node name="PlayerRoot" type="Node2D" parent="."]
 
+[node name="dropped_items" type="Node2D" parent="."]
 
 [node name="holes" type="Node2D" parent="."]
 
@@ -137,11 +136,11 @@ process_mode = 0
 autostart = true
 
 [node name="risingwater" type="Sprite" parent="."]
-material = SubResource( 4 )
+material = SubResource( 6 )
 position = Vector2( 16.5372, 111.413 )
 scale = Vector2( 0.116567, -0.0666147 )
 texture = ExtResource( 2 )
-normal_map = SubResource( 6 )
+normal_map = SubResource( 8 )
 centered = false
 script = ExtResource( 6 )
 
@@ -151,7 +150,7 @@ margin_left = 25.5199
 margin_top = 27.4592
 margin_right = 132.52
 margin_bottom = 67.4592
-custom_fonts/mono_font = SubResource( 8 )
+custom_fonts/mono_font = SubResource( 10 )
 custom_colors/default_color = Color( 0.568627, 1, 0.0941176, 1 )
 text = "YOU DEAD"
 __meta__ = {
@@ -159,4 +158,3 @@ __meta__ = {
 }
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
-

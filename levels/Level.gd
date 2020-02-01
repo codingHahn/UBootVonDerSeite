@@ -38,7 +38,7 @@ func _ready():
 		var newPlayer = PlayerScene.instance()
 		newPlayer.prefix = player
 		newPlayer.position = get_node("SpawnPoints").get_child(int(player) - 1).position
-		newPlayer.drop_item_to = $Tiles.get_path()
+		newPlayer.drop_item_to = get_node("dropped_items").get_path()
 		newPlayer.level = self
 		get_node(PlayerRoot).add_child(newPlayer)
 
@@ -63,7 +63,7 @@ func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 	rect.color = Color(1,0,0)	
 	to_drop.add_child(rect)
 	
-	$Tiles.add_child(to_drop)
+	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_hole():
 	if self.max_size != null:
