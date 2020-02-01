@@ -1,4 +1,4 @@
 extends HSlider
 
 func _ready():
-	connect("changed", $"/root/Global", "_on_volume_change")
+	connect("value_changed", $"/root/Global/AudioController", "_on_volume_changed")
