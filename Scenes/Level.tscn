@@ -24,10 +24,10 @@ func _physics_process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 35, 35 )
 
 [sub_resource type="RectangleShape2D" id=3]
-
-extents = Vector2( 35, 35 )
+extents = Vector2( 32.3437, 34.272 )
 
 [node name="Level" type="Node2D"]
 position = Vector2( 0.416016, -10.416 )
@@ -90,29 +90,26 @@ __meta__ = {
 "_edit_group_": true
 }
 
-
-[node name="Floor" type="StaticBody2D" parent="." groups=[
-"uboot",
-]]
 [node name="Ladder" type="Area2D" parent="."]
-position = Vector2( 319.157, 224.398 )
+position = Vector2( 329.496, 177.873 )
+scale = Vector2( 1, 5 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
-scale = Vector2( 3, 1 )
+position = Vector2( 6.51657, 1.76424 )
 shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Ladder"]
-scale = Vector2( 1, 5 )
+position = Vector2( 6.51657, 1.76424 )
 texture = ExtResource( 1 )
 
-position = Vector2( 721.668, 385.922 )
+[node name="Floor" type="StaticBody2D" parent="." groups=[
+"uboot",
+]]
+position = Vector2( 741.812, 381.245 )
 scale = Vector2( 20, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -134,7 +131,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Subfloor"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Subfloor"]
 texture = ExtResource( 1 )
@@ -149,7 +146,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Ceiling"]
 texture = ExtResource( 1 )
@@ -165,7 +162,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
 position = Vector2( -0.0499992, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Left"]
 texture = ExtResource( 1 )
@@ -181,7 +178,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
 position = Vector2( -0.0499992, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Right"]
 texture = ExtResource( 1 )
