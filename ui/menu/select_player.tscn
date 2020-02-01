@@ -18,6 +18,7 @@ default_font = ExtResource( 1 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "player_1_animation"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -95,10 +96,9 @@ __meta__ = {
 }
 
 [node name="Background" type="Panel" parent="."]
-margin_left = -1.89884
-margin_top = 16.3064
-margin_right = 1601.1
-margin_bottom = 913.306
+margin_top = 13.0
+margin_right = 1600.0
+margin_bottom = 913.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -142,11 +142,11 @@ __meta__ = {
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_1_Panel/Player_1"]
-position = Vector2( 125.574, 313.3 )
+position = Vector2( 151.483, 313.3 )
 scale = Vector2( 4.34816, 4.19597 )
 texture = ExtResource( 10 )
 centered = false
-offset = Vector2( -32, -64 )
+offset = Vector2( -30, -64 )
 vframes = 8
 hframes = 8
 frame = 6
