@@ -48,9 +48,6 @@ func generate_new_hole():
 
 
 func _process(_delta):
-	var tile = $Tiles.get_cellv($Tiles.world_to_map($Player.position))
-	$Player.is_on_ladder = tile == TILE_LADDER
-	
 	if Input.is_action_pressed("stop"):
 		get_tree().paused = true
 		$"Panel".show()

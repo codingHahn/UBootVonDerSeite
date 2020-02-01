@@ -36,8 +36,9 @@ position = Vector2( 35.7512, 106.476 )
 position = Vector2( 160.871, 101.744 )
 
 [node name="player_4" type="Node2D" parent="SpawnPoints"]
-
 position = Vector2( 219.488, 80.1646 )
+
+[node name="PlayerRoot" type="Node2D" parent="."]
 
 [node name="Panel" type="Panel" parent="."]
 margin_right = 800.0
