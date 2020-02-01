@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "interactable",
+"language": "GDScript",
+"path": "res://Scripts/classes/interactable.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "pickupable",
+"language": "GDScript",
+"path": "res://Scripts/classes/pickupable.gd"
+} ]
 _global_script_class_icons={
-
+"interactable": "",
+"pickupable": ""
 }
 
 [application]
@@ -65,3 +76,9 @@ drop_item={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Players"
+2d_physics/layer_3="pickupables"

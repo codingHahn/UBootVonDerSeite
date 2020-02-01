@@ -1,6 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Sprites/icon.png" type="Texture" id=1]
+
 [ext_resource path="res://Assets/Sprites/unterwasserwelt.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Hintergrund.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Sprites/fischschwarm.jpg" type="Texture" id=4]
@@ -23,6 +24,7 @@ func _physics_process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id=2]
+
 extents = Vector2( 35, 35 )
 
 [node name="Level" type="Node2D"]
