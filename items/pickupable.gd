@@ -36,5 +36,5 @@ func interact_with_player(player):
 	# Call interact_with_player from class interactable first,
 	# because we destroy this object here.
 	if player.can_pickup():
-		player.set_holding(item_type)
+		player.set_holding(item_type, value)
 		self.queue_free()

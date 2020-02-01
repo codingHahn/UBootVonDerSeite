@@ -29,8 +29,8 @@ func _ready():
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
 	
-	create_bucket(24, 42)
-	create_bucket(168, 102)
+	create_bucket(Vector2(24, 42), 7)
+	create_bucket(Vector2(168, 102), 2)
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
@@ -39,10 +39,15 @@ func _ready():
 		newPlayer.prefix = player
 		newPlayer.position = get_node("SpawnPoints").get_child(int(player) - 1).position
 		newPlayer.drop_item_to = $Tiles.get_path()
+		newPlayer.level = self
 		get_node(PlayerRoot).add_child(newPlayer)
 
-func create_bucket(x, y):
-	var to_drop = pickupable.new(Vector2(x, y), World.Item.Bucket)
+func create_bucket(pos, fillsize): # fillsize in litre (10l max)
+	var to_drop = pickupable.new(pos, World.Item.Bucket)
+	to_drop.value = fillsize
+	
+	if fillsize > 10:
+		fillsize = 10
 
 	var rect = ColorRect.new()
 	rect.name = "Back"
@@ -54,7 +59,7 @@ func create_bucket(x, y):
 	rect = ColorRect.new()
 	rect.name = "Progress"
 	rect.set_position(Vector2(-4, 5))
-	rect.set_size(Vector2(5, 1))
+	rect.set_size(Vector2(fillsize / 10.0 * 8, 1))
 	rect.color = Color(1,0,0)	
 	to_drop.add_child(rect)
 	

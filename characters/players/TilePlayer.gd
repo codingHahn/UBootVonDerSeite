@@ -9,6 +9,7 @@ var is_on_ladder = false
 var can_jump = false
 
 var prefix
+var level
 
 export (NodePath) onready var drop_item_to
 export (NodePath) onready var tilemap
@@ -17,6 +18,7 @@ export (NodePath) onready var tilemap
 # If this is exported, there is a ghostitem in the players hand that has
 # to be discarded before he can pick up any object
 var holding
+var holdingValue
 
 const World = preload("res://levels/World.gd")
 
@@ -56,28 +58,37 @@ func _process(_delta):
 			
 	if Input.is_action_pressed(prefix + "_drop_item"):
 		if holding != null:
-			var to_drop = pickupable.new(self.position + $Holding.position, self.take_item())
-			get_node(drop_item_to).add_child(to_drop)
-		self.set_holding(null)
+			var itemValue = self.get_item_value()
+			var item = self.take_item()
+			if item == World.Item.Bucket:
+				level.create_bucket(self.position + $Holding.position, itemValue)
+			else:
+				var to_drop = pickupable.new(self.position + $Holding.position, item)
+				get_node(drop_item_to).add_child(to_drop)
+		self.set_holding(null, null)
 		
 func can_pickup():
 	return holding == null
-		
+
+func get_item_value():
+	return holdingValue
+
 func take_item():
 	var item = self.holding
-	self.set_holding(null)
+	self.set_holding(null, null)
 	return item
 	
 func take_item_if_eq(item):
 	var holding = self.holding
 	if holding == item:
-		self.set_holding(null)
+		self.set_holding(null, null)
 		return holding
 	else:
 		return null
 		
-func set_holding(item):
+func set_holding(item, value):
 	holding = item
+	holdingValue = value
 	
 	if item == null:
 		$Holding.texture = null
