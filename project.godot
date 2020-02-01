@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "interactable",
 "language": "GDScript",
-"path": "res://Scripts/classes/interactable.gd"
+"path": "res://items/interactable.gd"
 }, {
 "base": "interactable",
 "class": "pickupable",
 "language": "GDScript",
-"path": "res://Scripts/classes/pickupable.gd"
+"path": "res://items/pickupable.gd"
 } ]
 _global_script_class_icons={
 "interactable": "",
@@ -27,12 +27,12 @@ _global_script_class_icons={
 [application]
 
 config/name="TestUBoot"
-run/main_scene="res://Scenes/start_screen.tscn"
-config/icon="res://Assets/Sprites/icon.png"
+run/main_scene="res://ui/menu/start_screen.tscn"
+config/icon="res://ui/icon.png"
 
 [autoload]
 
-W="*res://Scripts/World.gd"
+W="*res://levels/World.gd"
 
 [display]
 

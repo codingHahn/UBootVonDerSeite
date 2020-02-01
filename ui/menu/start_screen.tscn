@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/menu/options_b_script.gd" type="Script" id=1]
+[ext_resource path="res://ui/menu/start_b_script.gd" type="Script" id=2]
+[ext_resource path="res://ui/Fonts/Standardfont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 3 )
+
+[node name="START SCREEN" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+margin_left = -1.89893
+margin_top = -2.05054
+margin_right = 1601.1
+margin_bottom = 894.949
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UBOOTREPAIR" type="RichTextLabel" parent="Background"]
+margin_left = 523.0
+margin_top = 101.0
+margin_right = 1053.0
+margin_bottom = 200.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+tab_size = 3
+text = "U BOOT REPAIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="START" type="Button" parent="Background"]
+margin_left = 568.123
+margin_top = 351.675
+margin_right = 1003.12
+margin_bottom = 525.675
+rect_pivot_offset = Vector2( 323.953, 131.269 )
+text = "START"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OPTIONS" type="Button" parent="Background"]
+margin_left = 567.415
+margin_top = 597.033
+margin_right = 1002.42
+margin_bottom = 771.033
+rect_pivot_offset = Vector2( 323.953, 131.269 )
+text = "OPTIONS"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Background/START" to="Background/START" method="_on_START_pressed"]
+[connection signal="pressed" from="Background/OPTIONS" to="Background/OPTIONS" method="_on_OPTIONS_pressed"]
