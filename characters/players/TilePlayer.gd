@@ -34,10 +34,8 @@ func _process(_delta):
 
 	if Input.is_action_pressed(prefix + "_left"):
 		velocity.x = -speed
-		$Sprite.flip_h = true
 	if Input.is_action_pressed(prefix + "_right"):
 		velocity.x = speed
-		$Sprite.flip_h = false
 	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or is_on_ladder):
 		velocity.y = -speed * 2
 	if Input.is_action_pressed(prefix + "_down") and is_on_ladder:
@@ -45,9 +43,10 @@ func _process(_delta):
 	
 	if velocity.x == 0:
 		$Animation.play("idle")
+	elif velocity.x > 0:
+		$Animation.play("walk_right")
 	else:
-		$Animation.play("walk")
-
+		$Animation.play("walk_left")
 
 	if Input.is_action_pressed(prefix + "_interact"):
 		var areas = $InteractableArea.get_overlapping_areas()

@@ -46,3 +46,4 @@ func _process(_delta):
 	for player in get_node(PlayerRoot).get_children():
 		var tile = $Tiles.get_cellv($Tiles.world_to_map(player.position))
 		player.is_on_ladder = tile == TILE_LADDER
+
