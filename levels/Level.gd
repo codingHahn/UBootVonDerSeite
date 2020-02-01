@@ -13,8 +13,8 @@ export (NodePath) onready var PlayerRoot
 var max_size = null
 
 func _ready():
+	$"Panel".hide()
 	randomize()
-
 	var hole_timer = Timer.new()
 	add_child(hole_timer)
 	hole_timer.connect("timeout", self, "generate_new_hole")
@@ -48,7 +48,13 @@ func generate_new_hole():
 
 
 func _process(_delta):
+	var tile = $Tiles.get_cellv($Tiles.world_to_map($Player.position))
+	$Player.is_on_ladder = tile == TILE_LADDER
+	
+	if Input.is_action_pressed("stop"):
+		get_tree().paused = true
+		$"Panel".show()
+	
 	for player in get_node(PlayerRoot).get_children():
 		var tile = $Tiles.get_cellv($Tiles.world_to_map(player.position))
 		player.is_on_ladder = tile == TILE_LADDER
-

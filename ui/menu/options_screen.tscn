@@ -5,7 +5,6 @@
 [ext_resource path="res://ui/menu/sound_slider_skript.gd" type="Script" id=3]
 [ext_resource path="res://ui/menu/return_options_button.png" type="Texture" id=4]
 
-
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
 
@@ -35,10 +34,8 @@ __meta__ = {
 }
 
 [node name="Background" type="Panel" parent="."]
-margin_left = 0.0209618
-margin_top = 0.461942
-margin_right = 1603.02
-margin_bottom = 897.461
+margin_right = 1600.0
+margin_bottom = 900.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,10 +69,10 @@ __meta__ = {
 }
 
 [node name="GO BACK" type="Button" parent="Background"]
-margin_left = 54.8004
-margin_top = 725.872
-margin_right = 198.8
-margin_bottom = 848.872
+margin_left = 55.0
+margin_top = 725.0
+margin_right = 199.0
+margin_bottom = 848.0
 rect_pivot_offset = Vector2( 323.953, 131.269 )
 icon = ExtResource( 4 )
 flat = true

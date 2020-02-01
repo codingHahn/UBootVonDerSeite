@@ -36,7 +36,36 @@ position = Vector2( 35.7512, 106.476 )
 position = Vector2( 160.871, 101.744 )
 
 [node name="player_4" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 216.107, 100.758 )
 
-[node name="PlayerRoot" type="Node2D" parent="."]
-[connection signal="draw" from="." to="." method="_on_Level_draw"]
+position = Vector2( 219.488, 80.1646 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 800.0
+margin_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart_button" type="Button" parent="Panel"]
+margin_left = 289.495
+margin_top = 204.065
+margin_right = 494.495
+margin_bottom = 272.065
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Home_button" type="Button" parent="Panel"]
+margin_left = 287.444
+margin_top = 298.39
+margin_right = 492.444
+margin_bottom = 366.39
+text = "Home"
+
+[node name="Game_paused_text" type="RichTextLabel" parent="Panel"]
+margin_left = 349.0
+margin_top = 115.0
+margin_right = 446.0
+margin_bottom = 141.0
+text = "Game Paused"
