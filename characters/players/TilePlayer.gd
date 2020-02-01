@@ -11,6 +11,7 @@ var can_jump = false
 var prefix
 
 export (NodePath) onready var drop_item_to
+export (NodePath) onready var tilemap
 
 # Do not export, because then it cannot be easily nulled at the beginning
 # If this is exported, there is a ghostitem in the players hand that has
@@ -20,8 +21,8 @@ var holding
 const World = preload("res://levels/World.gd")
 
 func _ready():
-	pass
-	
+	self.add_to_group("players")
+
 	
 func _process(_delta):
 	velocity.x = 0
