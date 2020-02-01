@@ -36,8 +36,9 @@ tracks/0/keys = {
 size = 40
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=9]
 resource_name = "player_1_animation"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -55,8 +56,9 @@ tracks/0/keys = {
 size = 23
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=10]
 resource_name = "player_1_animation"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -70,8 +72,9 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
 resource_name = "player_1_animation"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -142,8 +145,8 @@ __meta__ = {
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_1_Panel/Player_1"]
-position = Vector2( 151.483, 313.3 )
-scale = Vector2( 4.34816, 4.19597 )
+position = Vector2( 33.3586, 106.844 )
+scale = Vector2( 1.17114, 1.13015 )
 texture = ExtResource( 10 )
 centered = false
 offset = Vector2( -30, -64 )
@@ -182,17 +185,17 @@ position = Vector2( -325.778, -1.67 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_2_Panel/Player_2"]
-position = Vector2( 454.831, 311.249 )
-scale = Vector2( 4.34816, 4.19597 )
+position = Vector2( 362.708, 106.844 )
+scale = Vector2( 1.17114, 1.13015 )
 texture = ExtResource( 10 )
 centered = false
-offset = Vector2( -32, -64 )
+offset = Vector2( -30, -64 )
 vframes = 8
 hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_2_Panel/Player_2"]
-anims/player_1_animation = SubResource( 5 )
+anims/player_1_animation = SubResource( 9 )
 
 [node name="Player_2_Text" type="RichTextLabel" parent="Player_2_Panel"]
 margin_left = 60.5919
@@ -234,17 +237,17 @@ position = Vector2( -646.541, -1.67 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_3_Panel/Player_3"]
-position = Vector2( 783.594, 314.766 )
-scale = Vector2( 4.34816, 4.19597 )
+position = Vector2( 677.847, 106.844 )
+scale = Vector2( 1.17114, 1.13015 )
 texture = ExtResource( 10 )
 centered = false
-offset = Vector2( -32, -64 )
+offset = Vector2( -30, -64 )
 vframes = 8
 hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_3_Panel/Player_3"]
-anims/player_1_animation = SubResource( 7 )
+anims/player_1_animation = SubResource( 10 )
 
 [node name="Player_3_Text" type="RichTextLabel" parent="Player_3_Panel"]
 margin_left = 60.5919
@@ -286,17 +289,17 @@ position = Vector2( -969.171, -1.67 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_4_Panel/Player_4"]
-position = Vector2( 1098.29, 313.007 )
-scale = Vector2( 4.34816, 4.19597 )
+position = Vector2( 1002.61, 104.327 )
+scale = Vector2( 1.17114, 1.13015 )
 texture = ExtResource( 10 )
 centered = false
-offset = Vector2( -32, -64 )
+offset = Vector2( -30, -64 )
 vframes = 8
 hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_4_Panel/Player_4"]
-anims/player_1_animation = SubResource( 8 )
+anims/player_1_animation = SubResource( 11 )
 
 [node name="Player_4_Text" type="RichTextLabel" parent="Player_4_Panel"]
 margin_left = 60.5919
