@@ -10,8 +10,7 @@
 [ext_resource path="res://Scripts/classes/interactable.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Sprites/e-button.svg.png" type="Texture" id=10]
 
-[sub_resource type="CircleShape2D" id=3]
-
+[sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -29,7 +28,7 @@ tooltip_texture = ExtResource( 10 )
 item_type = 1
 
 [node name="collision" type="CollisionShape2D" parent="bucket_source"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="bed_source" type="Area2D" parent="."]
 position = Vector2( 609.978, 281.158 )
@@ -42,7 +41,7 @@ tooltip_texture = ExtResource( 10 )
 item_type = 2
 
 [node name="collision" type="CollisionShape2D" parent="bed_source"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Hole" type="Area2D" parent="."]
 position = Vector2( 1072.58, 277.009 )
@@ -71,4 +70,3 @@ collision_layer = 4
 script = ExtResource( 3 )
 icon = ExtResource( 4 )
 item_type = 2
-
