@@ -18,7 +18,7 @@ export (Texture) onready var tooltip_texture
 export (World.Item) var item_type
 
 # The duration the tooltip is show to the player
-export (float) var show_duration = 1.0
+export (float) var show_duration = 0.5
 
 # Allocate helper nodes. A sprite for the tooltip and a time for the
 # tooltip timeout
@@ -27,6 +27,7 @@ onready var texture = Sprite.new()
 onready var timer = Timer.new()
 
 func _ready():
+	
 	if icon != null:
 		texture.texture = icon
 		add_child(texture)
@@ -47,7 +48,8 @@ func _ready():
 	add_child(timer)
 	
 	
-func _process(delta):
+	
+func _physics_process(delta):
 	# Check for overlapping players and display the tooltip to them
 	var overlapping_bodies = self.get_overlapping_bodies()
 	if !overlapping_bodies.empty():

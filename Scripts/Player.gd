@@ -6,6 +6,8 @@ const gravity = 10
 const floorUp = Vector2(0, -1)
 export var speed = 200
 
+export (NodePath) onready var drop_item_to
+
 # Do not export, because then it cannot be easily nulled at the beginning
 # If this is exported, there is a ghostitem in the players hand that has
 # to be discarded before he can pick up any object
@@ -15,7 +17,6 @@ var velocity = Vector2()
 
 func _ready():
 	self.add_to_group("players")
-
 
 func _physics_process(delta):
 	var movement_direction = 0;
@@ -42,6 +43,14 @@ func _physics_process(delta):
 			areas[0].call("interact_with_player", self)
 			
 	if Input.is_action_pressed("drop_item"):
+		if holding != null:
+			var itemtodrop = pickupable.new()
+			itemtodrop.texture = load("res://Assets/Sprites/Bedsheet.png")
+			itemtodrop.item_type = holding
+			# Set itemposition to player position. Otherwise it will spawn
+			# at (0,0)
+			itemtodrop.position = self.position
+			get_node(drop_item_to).add_child(itemtodrop)
 		self.set_holding(null)
 		
 func can_pickup():
