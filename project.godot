@@ -33,6 +33,7 @@ config/icon="res://ui/icon.png"
 [autoload]
 
 W="*res://levels/World.gd"
+Global="*res://Global.tscn"
 
 [display]
 

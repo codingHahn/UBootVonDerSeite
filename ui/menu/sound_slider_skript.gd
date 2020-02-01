@@ -1,4 +1,4 @@
 extends HSlider
 
-func _on_sound_slider_value_changed(value):
-	print(value)
+func _ready():
+	connect("changed", $"/root/Global", "_on_volume_change")

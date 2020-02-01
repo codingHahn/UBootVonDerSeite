@@ -96,4 +96,3 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Background/GO BACK" to="Background/GO BACK" method="_on_GO_BACK_pressed"]
-[connection signal="value_changed" from="Background/sound_slider" to="Background/sound_slider" method="_on_sound_slider_value_changed"]
