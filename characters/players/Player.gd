@@ -7,6 +7,7 @@ const floorUp = Vector2(0, -1)
 export var speed = 200
 
 export (NodePath) onready var drop_item_to
+export (Array) var keymap
 
 # Do not export, because then it cannot be easily nulled at the beginning
 # If this is exported, there is a ghostitem in the players hand that has
@@ -30,28 +31,28 @@ func _physics_process(delta):
 			velocity.y = -300
 	
 		
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed(keymap[2]):
 		movement_direction -= speed
 	
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed(keymap[3]):
 		movement_direction += speed
 	if ladder_on == true:
 		gravity = 0
-		if Input.is_action_pressed(("ui_down")):
+		if Input.is_action_pressed(keymap[1]):
 			velocity.y = speed
-		elif Input.is_action_pressed(("ui_up")):
+		elif Input.is_action_pressed(keymap[0]):
 			velocity.y = -speed
 		
 	velocity.x = movement_direction
 
 	velocity = move_and_slide(velocity, floorUp)
 	
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_pressed(keymap[4]):
 		var areas = $Area2D.get_overlapping_areas()
 		if areas.size() > 0 && areas[0].has_method("interact_with_player"):
 			areas[0].call("interact_with_player", self)
 			
-	if Input.is_action_pressed("drop_item"):
+	if Input.is_action_pressed(keymap[5]):
 		if holding != null:
 			var itemtodrop = pickupable.new()
 			itemtodrop.texture = load("res://items/interactables/bed/Bedsheet.png")
@@ -71,7 +72,7 @@ func take_item():
 	return item
 	
 func take_item_if_eq(item):
-	var holding = self.holding
+	holding = self.holding
 	if holding == item:
 		self.set_holding(null)
 		return holding
