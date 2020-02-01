@@ -30,7 +30,7 @@ item_type = 2
 position = Vector2( 58.1967, 104.68 )
 
 [node name="player_2" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 35.7512, 106.476 )
+position = Vector2( 38.9134, 104.368 )
 
 [node name="player_3" type="Node2D" parent="SpawnPoints"]
 position = Vector2( 167.195, 104.643 )
