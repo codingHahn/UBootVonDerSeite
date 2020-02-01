@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
 [ext_resource path="res://ui/menu/start_b_pc_skript.gd" type="Script" id=3]
 [ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://ui/menu/player4_image_script.gd" type="Script" id=5]
@@ -10,6 +11,8 @@
 [ext_resource path="res://ui/menu/return_from_player_select_script.gd" type="Script" id=9]
 [ext_resource path="res://characters/players/Character.png" type="Texture" id=10]
 [ext_resource path="res://ui/menu/PlayerAnimation.gd" type="Script" id=11]
+[ext_resource path="res://characters/players/Character4.png" type="Texture" id=12]
+[ext_resource path="res://characters/players/Character2.png" type="Texture" id=13]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -187,7 +190,7 @@ script = ExtResource( 11 )
 [node name="Sprite" type="Sprite" parent="Player_2_Panel/Player_2"]
 position = Vector2( 362.708, 106.844 )
 scale = Vector2( 1.17114, 1.13015 )
-texture = ExtResource( 10 )
+texture = ExtResource( 13 )
 centered = false
 offset = Vector2( -30, -64 )
 vframes = 8
@@ -239,7 +242,7 @@ script = ExtResource( 11 )
 [node name="Sprite" type="Sprite" parent="Player_3_Panel/Player_3"]
 position = Vector2( 677.847, 106.844 )
 scale = Vector2( 1.17114, 1.13015 )
-texture = ExtResource( 10 )
+texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -30, -64 )
 vframes = 8
@@ -291,7 +294,7 @@ script = ExtResource( 11 )
 [node name="Sprite" type="Sprite" parent="Player_4_Panel/Player_4"]
 position = Vector2( 1002.61, 104.327 )
 scale = Vector2( 1.17114, 1.13015 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 centered = false
 offset = Vector2( -30, -64 )
 vframes = 8
