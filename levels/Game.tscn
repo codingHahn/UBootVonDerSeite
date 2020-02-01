@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/TileLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/Game.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="UBoot" type="ReferenceRect" parent="."]
+anchor_bottom = 10.0
+margin_right = 255.0
+margin_bottom = 125.0
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" parent="UBoot" instance=ExtResource( 1 )]
+[connection signal="draw" from="." to="." method="_on_Node2D_draw"]
