@@ -8,6 +8,8 @@ const TILE_PLAYER = 3 # ??
 const TILE_BACKGROUND = 5
 const TILE_HOLE = 7
 
+const BUCKET_SIZE = 50.0
+
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 
 export (NodePath) onready var hole_holder
@@ -29,6 +31,7 @@ func _ready():
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
 	
+	place_new_hole(Vector2(140, 102))
 	create_bucket(Vector2(24, 42), 7)
 	create_bucket(Vector2(168, 102), 2)
 	
@@ -42,12 +45,21 @@ func _ready():
 		newPlayer.level = self
 		get_node(PlayerRoot).add_child(newPlayer)
 
+func is_bucket_full(bucket):
+	return bucket.value >= BUCKET_SIZE
+	
+func fill_bucket(bucket):
+	bucket.value += 1
+	var rect = bucket.get_node("Progress")
+	rect.set_size(Vector2(bucket.value / BUCKET_SIZE * 8, 1))
+
 func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 	var to_drop = pickupable.new(pos, World.Item.Bucket)
 	to_drop.value = fillsize
 	
-	if fillsize > 10:
-		fillsize = 10
+	if is_bucket_full(to_drop):
+		fillsize = BUCKET_SIZE
+		to_drop.value = fillsize
 
 	var rect = ColorRect.new()
 	rect.name = "Back"
@@ -59,7 +71,7 @@ func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 	rect = ColorRect.new()
 	rect.name = "Progress"
 	rect.set_position(Vector2(-4, 5))
-	rect.set_size(Vector2(fillsize / 10.0 * 8, 1))
+	rect.set_size(Vector2(fillsize / BUCKET_SIZE * 8, 1))
 	rect.color = Color(1,0,0)	
 	to_drop.add_child(rect)
 	
@@ -69,32 +81,33 @@ func generate_new_hole():
 	if self.max_size != null:
 		var tile_x = rand_range(0, self.max_size.x)
 		var tile_y = rand_range(0, self.max_size.y)
-		
-		var cell = $Tiles.world_to_map(Vector2(tile_x, tile_y))
-		var background_tile = $Tiles.get_cellv(cell)
-		var foreground_tile = $ForegroundTiles.get_cellv(cell)
-		
-		if background_tile == TILE_BACKGROUND && foreground_tile == TILE_NONE:
-			var hole = load("res://items/hole/Hole.tscn");
-			var instance = hole.instance()
-			print(instance)
-			instance.call("initialize", cell, $ForegroundTiles)
-			instance.position = $Tiles.map_to_world(cell)
+		place_new_hole(Vector2(tile_x, tile_y))
 
-			get_node(hole_holder).add_child(instance)
+func place_new_hole(pos):
+	var cell = $Tiles.world_to_map(pos)
+	var background_tile = $Tiles.get_cellv(cell)
+	var foreground_tile = $ForegroundTiles.get_cellv(cell)
+	
+	if background_tile == TILE_BACKGROUND && foreground_tile == TILE_NONE:
+		var hole = load("res://items/hole/Hole.tscn");
+		var instance = hole.instance()
+		print(instance)
+		instance.call("initialize", cell, $ForegroundTiles)
+		instance.position = $Tiles.map_to_world(cell)
 
-			$ForegroundTiles.set_cellv(cell, TILE_HOLE)
+		get_node(hole_holder).add_child(instance)
+
+		$ForegroundTiles.set_cellv(cell, TILE_HOLE)
 
 
 func calculate_health():
 	var dripping_holes = 0
 	for hole in get_node(hole_holder).get_children():
-		print(hole)
-		var n = Node2D.new()
-		var overlapping_bodies = hole.get_overlapping_bodies()
-		var bucket = find_bucket(overlapping_bodies)
-		if bucket != null:
-			bucket.value += 1
+		var bucket = find_bucket(hole)
+		print("found: ")
+		print(bucket)
+		if bucket != null && !is_bucket_full(bucket):
+			fill_bucket(bucket)
 		else:
 			dripping_holes += 1
 	
@@ -105,11 +118,12 @@ func calculate_health():
 		health = 0
 		$"RichTextLabel".show()
 
-func find_bucket(elements):
-	for element in elements:
+func find_bucket(hole):
+	for element in get_node("dropped_items").get_children():
 		if element is pickupable && element.item_type == World.Item.Bucket:
-			return element
-	
+			if abs(element.position.x - (hole.position.x + 10))<10 && abs(element.position.y - hole.position.y)<40: 
+				return element
+
 	return null
 	
 func _process(_delta):
