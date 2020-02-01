@@ -24,8 +24,8 @@ func _ready():
 	collision.set_shape(shape)
 	add_child(collision)
 	
-	self.set_collision_layer(2^3)
-	self.set_collision_mask(2^1)
+	self.set_collision_layer(4)
+	self.set_collision_mask(1)
 	
 func _physics_process(delta):
 	velocity.y += GRAVITY * delta
