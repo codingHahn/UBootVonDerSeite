@@ -30,4 +30,5 @@ func _on_Node2D_draw():
 	var mins = min(scalex, scaley)
 	$UBoot.rect_scale = Vector2(mins, mins)
 	$UBoot.rect_position = Vector2(0, (vsize.y / 2.0) - (lsize.y * mins / 2.0))
+	$UBoot/Level.max_size = Vector2(lsize.x, lsize.y)
 	

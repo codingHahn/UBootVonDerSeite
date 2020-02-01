@@ -10,6 +10,8 @@ const TILE_BACKGROUND = -1 # TODO add Tile
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 export (NodePath) onready var PlayerRoot
 
+var max_size = null
+
 func _ready():
 	var hole_timer = Timer.new()
 	add_child(hole_timer)
@@ -29,6 +31,9 @@ func _ready():
 	
 func generate_new_hole():
 	var scene_size = get_viewport().size
+	if self.max_size != null:
+		scene_size = max_size
+		print(scene_size)
 	var tile_x = rand_range(0, scene_size.x)
 	var tile_y = rand_range(0, scene_size.y)
 	

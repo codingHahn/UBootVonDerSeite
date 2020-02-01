@@ -37,6 +37,4 @@ position = Vector2( 163.33, 63.0171 )
 position = Vector2( 219.488, 80.1646 )
 
 [node name="PlayerRoot" type="Node2D" parent="."]
-
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
-
