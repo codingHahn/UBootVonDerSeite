@@ -102,8 +102,8 @@ tile_data = PoolIntArray( 65537, 14, 0, 65538, 14, 0, 65539, 14, 0, 65540, 14, 0
 
 [node name="risingwater" type="Sprite" parent="."]
 material = SubResource( 6 )
-position = Vector2( 51.6974, 404.192 )
-scale = Vector2( 0.448942, -0.245625 )
+position = Vector2( 45.0474, 381.392 )
+scale = Vector2( 0.452406, -0.229792 )
 texture = ExtResource( 2 )
 normal_map = SubResource( 8 )
 centered = false

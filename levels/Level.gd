@@ -51,7 +51,7 @@ func is_bucket_full(bucket):
 func fill_bucket(bucket):
 	bucket.value += 1
 	var rect = bucket.get_node("Progress")
-	rect.set_size(Vector2(bucket.value / BUCKET_SIZE * 8, 1))
+	rect.set_size(Vector2(bucket.value / BUCKET_SIZE * 32, 4))
 
 func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 	var to_drop = pickupable.new(pos, World.Item.Bucket)
@@ -63,15 +63,15 @@ func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 
 	var rect = ColorRect.new()
 	rect.name = "Back"
-	rect.set_position(Vector2(-4, 5))
-	rect.set_size(Vector2(8, 1))
+	rect.set_position(Vector2(-16, 20))
+	rect.set_size(Vector2(32, 4))
 	rect.color = Color(0.5,0.5,0.5)
 	to_drop.add_child(rect)
 
 	rect = ColorRect.new()
 	rect.name = "Progress"
-	rect.set_position(Vector2(-4, 5))
-	rect.set_size(Vector2(fillsize / BUCKET_SIZE * 8, 1))
+	rect.set_position(Vector2(-16, 20))
+	rect.set_size(Vector2(fillsize / BUCKET_SIZE * 32, 4))
 	rect.color = Color(1,0,0)	
 	to_drop.add_child(rect)
 	
@@ -121,7 +121,7 @@ func calculate_health():
 func find_bucket(hole):
 	for element in get_node("dropped_items").get_children():
 		if element is pickupable && element.item_type == World.Item.Bucket:
-			if abs(element.position.x - (hole.position.x + 10))<10 && abs(element.position.y - hole.position.y)<40: 
+			if abs(element.position.x - (hole.position.x + 40))<40 && abs(element.position.y - hole.position.y)<160: 
 				return element
 
 	return null
