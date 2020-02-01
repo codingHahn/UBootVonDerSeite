@@ -8,8 +8,6 @@ export var speed = 65
 var is_on_ladder = false
 var can_jump = false
 
-var prefix
-
 export (NodePath) onready var drop_item_to
 export (NodePath) onready var tilemap
 
@@ -32,13 +30,13 @@ func _process(_delta):
 	else:
 		gravity = 800
 
-	if Input.is_action_pressed(prefix + "_left"):
+	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 	if Input.is_action_pressed(prefix + "_right"):
 		velocity.x = speed
 	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or is_on_ladder):
 		velocity.y = -speed * 2
-	if Input.is_action_pressed(prefix + "_down") and is_on_ladder:
+	if Input.is_action_pressed("ui_down") and is_on_ladder:
 		velocity.y = speed
 	
 	if velocity.x == 0:
@@ -48,13 +46,13 @@ func _process(_delta):
 	else:
 		$Animation.play("walk_left")
 
-	if Input.is_action_pressed(prefix + "_interact"):
+	if Input.is_action_pressed("interact"):
 		var areas = $InteractableArea.get_overlapping_areas()
 		if areas.size() > 0 && areas[0].has_method("interact_with_player"):
 			print("Interacting with ", areas[0]);
 			areas[0].call("interact_with_player", self)
 			
-	if Input.is_action_pressed(prefix + "_drop_item"):
+	if Input.is_action_pressed("drop_item"):
 		if holding != null:
 			var to_drop = pickupable.new(self.position + $Holding.position, self.take_item())
 			get_node(drop_item_to).add_child(to_drop)
@@ -83,6 +81,7 @@ func set_holding(item):
 		$Holding.texture = null
 	else:
 		$Holding.texture = World.load_texture_for_item(item)
+
 		var sx = World.ItemSize.x /  $Holding.texture.get_size().x 
 		var sy = World.ItemSize.y /  $Holding.texture.get_size().y 
 		$Holding.scale = Vector2(sx, sy)
