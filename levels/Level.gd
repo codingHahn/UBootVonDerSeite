@@ -7,6 +7,8 @@ const TILE_LADDER = 2
 const TILE_PLAYER = 3
 const TILE_BACKGROUND = -1 # TODO add Tile
 
+onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
+
 func _ready():
 	var hole_timer = Timer.new()
 	add_child(hole_timer)
@@ -14,6 +16,15 @@ func _ready():
 	hole_timer.set_wait_time(1.0)
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
+	
+	var PlayerList = get_node("/root/Global").PlayerList
+	
+	for player in PlayerList:
+		var newPlayer = PlayerScene.instance()
+		newPlayer.prefix = player
+		newPlayer.position = get_node("SpawnPoints").get_child(int(player) - 1).position
+		newPlayer.drop_item_to = $Tiles.get_path()
+		add_child(newPlayer)
 	
 func generate_new_hole():
 	var scene_size = get_viewport().size
