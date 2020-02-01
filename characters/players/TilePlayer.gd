@@ -87,10 +87,6 @@ func set_holding(item):
 		var sy = World.ItemSize.y /  $Holding.texture.get_size().y 
 		$Holding.scale = Vector2(sx, sy)
 
-		var sx = World.ItemSize.x /  $Holding.texture.get_size().x 
-		var sy = World.ItemSize.y /  $Holding.texture.get_size().y 
-		$Holding.scale = Vector2(sx, sy)
-
 
 func _physics_process(delta):
 	velocity.y += gravity * delta;
