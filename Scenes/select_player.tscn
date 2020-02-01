@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/icon.png" type="Texture" id=2]
@@ -15,6 +15,10 @@ default_font = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 23
 font_data = ExtResource( 4 )
 
 [node name="START SCREEN" type="Control"]
@@ -100,7 +104,6 @@ size_flags_horizontal = 3
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 6 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -123,6 +126,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Join_Player2_Text" type="RichTextLabel" parent="Player_2_Panel"]
+margin_left = 38.0
+margin_top = 272.0
+margin_right = 264.0
+margin_bottom = 317.0
+custom_fonts/normal_font = SubResource( 4 )
+tab_size = 2
+text = "Press \"ESC\" to join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player_3_Panel" type="Panel" parent="."]
 margin_left = 827.87
 margin_top = 196.456
@@ -132,7 +147,6 @@ size_flags_horizontal = 3
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 7 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -158,6 +172,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Join_Player3_Text" type="RichTextLabel" parent="Player_3_Panel"]
+margin_left = 45.5062
+margin_top = 272.0
+margin_right = 256.506
+margin_bottom = 321.0
+custom_fonts/normal_font = SubResource( 4 )
+tab_size = 2
+text = "Press \"I\" to join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player_4_Panel" type="Panel" parent="."]
 margin_left = 1150.5
 margin_top = 196.456
@@ -167,7 +193,6 @@ size_flags_horizontal = 3
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 5 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -186,6 +211,18 @@ margin_right = 242.592
 margin_bottom = 443.592
 custom_fonts/normal_font = SubResource( 3 )
 text = "Player 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join_Player4_Text" type="RichTextLabel" parent="Player_4_Panel"]
+margin_left = 19.2867
+margin_top = 273.277
+margin_right = 281.287
+margin_bottom = 311.277
+custom_fonts/normal_font = SubResource( 4 )
+tab_size = 2
+text = "Press \"Num 9\" to join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
