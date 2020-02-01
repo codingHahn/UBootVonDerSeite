@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://levels/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/interactables/bed/Bed.png" type="Texture" id=5]
+[ext_resource path="res://items/hole/HoleGenerator.gd" type="Script" id=6]
+[ext_resource path="res://items/interactables/gasoline/Gasoline.png" type="Texture" id=7]
+[ext_resource path="res://items/hole/Hole.gd" type="Script" id=8]
+[ext_resource path="res://items/interactable.gd" type="Script" id=9]
+[ext_resource path="res://ui/hud/e-button.svg.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="UBoot" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Geometry" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5.24292, 3.79424 )
+
+[node name="bucket_source" type="Area2D" parent="."]
+position = Vector2( 347.351, 275.743 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+tooltip_texture = ExtResource( 10 )
+item_type = 1
+
+[node name="collision" type="CollisionShape2D" parent="bucket_source"]
+shape = SubResource( 1 )
+
+[node name="bed_source" type="Area2D" parent="."]
+position = Vector2( 609.978, 281.158 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+icon = ExtResource( 5 )
+tooltip_texture = ExtResource( 10 )
+item_type = 2
+
+[node name="collision" type="CollisionShape2D" parent="bed_source"]
+shape = SubResource( 1 )
+
+[node name="Hole" type="Area2D" parent="."]
+position = Vector2( 1072.58, 277.009 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole"]
+position = Vector2( 0.124176, 0.450928 )
+scale = Vector2( 10, 6 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HoleSprite" type="Sprite" parent="Hole"]
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="droppable_items" type="Node" parent="."]
