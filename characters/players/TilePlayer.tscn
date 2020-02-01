@@ -157,7 +157,7 @@ centered = false
 offset = Vector2( -32, -64 )
 vframes = 8
 hframes = 8
-frame = 56
+frame = 41
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -177,5 +177,5 @@ position = Vector2( 0, -32 )
 shape = SubResource( 10 )
 
 [node name="Holding" type="Sprite" parent="."]
-position = Vector2( 0, -35 )
+position = Vector2( 0, -5 )
 scale = Vector2( 0.3, 0.3 )

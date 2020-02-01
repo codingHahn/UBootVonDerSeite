@@ -34,10 +34,8 @@ __meta__ = {
 }
 
 [node name="Background" type="Panel" parent="."]
-margin_left = 0.0209618
-margin_top = 0.461942
-margin_right = 1603.02
-margin_bottom = 897.461
+margin_right = 1600.0
+margin_bottom = 900.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
