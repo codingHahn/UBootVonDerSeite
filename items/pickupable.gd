@@ -16,7 +16,7 @@ func _init(position: Vector2, item):
 	self.icon = World.load_texture_for_item(item)
 
 func _ready():
-	shape.radius = 10
+	shape.radius = World.ItemSize.length() / 2
 	collision.set_shape(shape)
 	add_child(collision)
 	

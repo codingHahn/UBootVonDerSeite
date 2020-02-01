@@ -30,6 +30,9 @@ func _ready():
 	
 	if icon != null:
 		texture.texture = icon
+		var sx = World.ItemSize.x / texture.texture.get_size().x
+		var sy = World.ItemSize.y / texture.texture.get_size().y
+		texture.scale = Vector2(sx, sy)
 		add_child(texture)
 	# Initializes the tooltip texture
 	tooltip.texture = tooltip_texture

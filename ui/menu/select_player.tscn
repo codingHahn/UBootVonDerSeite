@@ -1,5 +1,4 @@
 [gd_scene load_steps=22 format=2]
-
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
 [ext_resource path="res://ui/menu/start_b_pc_skript.gd" type="Script" id=3]
@@ -38,7 +37,6 @@ tracks/0/keys = {
 [sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 4 )
-
 [sub_resource type="Animation" id=9]
 resource_name = "player_1_animation"
 length = 0.7
@@ -97,6 +95,7 @@ anchor_bottom = 1.0
 margin_top = -13.0
 margin_bottom = -13.0
 theme = SubResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,7 +154,6 @@ centered = false
 offset = Vector2( -30, -64 )
 vframes = 8
 hframes = 8
-frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_1_Panel/Player_1"]
 anims/player_1_animation = SubResource( 3 )
@@ -199,7 +197,6 @@ frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_2_Panel/Player_2"]
 anims/player_1_animation = SubResource( 9 )
-
 [node name="Player_2_Text" type="RichTextLabel" parent="Player_2_Panel"]
 margin_left = 60.5919
 margin_top = 382.592

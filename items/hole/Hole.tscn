@@ -28,12 +28,13 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2( 8, 16 )
 shape = SubResource( 1 )
 
 [node name="Water" type="Sprite" parent="InteractionArea"]
+position = Vector2( -0.257019, -0.128513 )
 texture = ExtResource( 1 )
 centered = false
-offset = Vector2( -8, -16 )
 region_enabled = true
 region_rect = Rect2( 96, 48, 16, 32 )
 
