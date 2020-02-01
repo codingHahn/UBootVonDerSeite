@@ -12,6 +12,7 @@
 
 [sub_resource type="CircleShape2D" id=3]
 
+
 [sub_resource type="RectangleShape2D" id=2]
 
 [node name="UBoot" type="Node2D"]
@@ -70,3 +71,4 @@ collision_layer = 4
 script = ExtResource( 3 )
 icon = ExtResource( 4 )
 item_type = 2
+
