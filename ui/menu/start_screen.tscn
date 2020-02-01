@@ -10,17 +10,17 @@ default_font = ExtResource( 3 )
 [node name="START SCREEN" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -6.0
 theme = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" type="Panel" parent="."]
-margin_left = -1.89893
-margin_top = -2.05054
-margin_right = 1601.1
-margin_bottom = 894.949
+margin_right = 1600.0
+margin_bottom = 900.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
