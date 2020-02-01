@@ -1,9 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Fonts/Standardfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scripts/goback_b_script.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/sound_slider_skript.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/UI_Scripts/goback_b_script.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UI_Scripts/sound_slider_skript.gd" type="Script" id=3]
 [ext_resource path="res://Assets/UI/return_options_button.png" type="Texture" id=4]
+
+
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -72,27 +74,9 @@ __meta__ = {
 
 [node name="GO BACK" type="Button" parent="Background"]
 margin_left = 54.8004
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 margin_top = 725.872
 margin_right = 198.8
 margin_bottom = 848.872
-=======
-margin_top = 723.6
-margin_right = 198.8
-margin_bottom = 846.6
->>>>>>> added some ui elements
-=======
-margin_top = 725.872
-margin_right = 198.8
-margin_bottom = 848.872
->>>>>>> added select playercount scene and added some buttons to it + lineedit
-=======
-margin_top = 725.872
-margin_right = 198.8
-margin_bottom = 848.872
->>>>>>> 34ad443dfd208d973492e4277309a4e329a939d3
 rect_pivot_offset = Vector2( 323.953, 131.269 )
 icon = ExtResource( 4 )
 flat = true
