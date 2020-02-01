@@ -23,11 +23,10 @@ tracks/0/keys = {
 "values": [ Rect2( 64, 48, 16, 32 ), Rect2( 80, 48, 16, 32 ), Rect2( 96, 48, 16, 32 ) ]
 }
 
-[sub_resource type="ParticlesMaterial" id=3]
-flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
+[sub_resource type="Curve" id=3]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 360 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Hole" type="Node2D"]
 script = ExtResource( 3 )
@@ -53,6 +52,20 @@ root_node = NodePath("../..")
 autoplay = "water"
 anims/water = SubResource( 2 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 7.4537, 6.81115 )
-process_material = SubResource( 3 )
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 8.12383, 5.77945 )
+rotation = 0.349066
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2( 0, 20 )
+angular_velocity = 100.0
+angular_velocity_curve = SubResource( 3 )
+
+[node name="Particles2D2" type="CPUParticles2D" parent="."]
+position = Vector2( 7.27743, 5.93334 )
+rotation = -0.349066
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2( 0, 20 )
+angular_velocity = 100.0
+angular_velocity_curve = SubResource( 3 )
