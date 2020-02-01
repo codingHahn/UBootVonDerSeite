@@ -83,6 +83,8 @@ func set_holding(item):
 		$Holding.texture = null
 	else:
 		$Holding.texture = World.load_texture_for_item(item)
+		var sx = 0.6 * $Sprite.get_rect().size.x / $Holding.texture.get_size().x 
+		$Holding.scale = Vector2(sx, sx)
 
 
 func _physics_process(delta):
