@@ -33,9 +33,9 @@ position = Vector2( 58.1967, 104.68 )
 position = Vector2( 35.7512, 106.476 )
 
 [node name="player_3" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 160.871, 101.744 )
+position = Vector2( 167.195, 104.643 )
 
 [node name="player_4" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 219.488, 80.1646 )
+position = Vector2( 215.008, 103.618 )
 
 [node name="PlayerRoot" type="Node2D" parent="."]
