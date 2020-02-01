@@ -8,8 +8,8 @@ script = ExtResource( 2 )
 
 [node name="UBoot" type="ReferenceRect" parent="."]
 anchor_bottom = 10.0
-margin_right = 260.0
-margin_bottom = 135.0
+margin_right = 255.0
+margin_bottom = 125.0
 editor_only = false
 __meta__ = {
 "_edit_use_anchors_": false
