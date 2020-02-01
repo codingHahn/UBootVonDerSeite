@@ -3,7 +3,7 @@ extends KinematicBody2D
 var gravity = 800
 onready var velocity:Vector2 = Vector2.ZERO
 
-export var speed = 65
+export var speed = 150
 
 var is_on_ladder = false
 var can_jump = false
