@@ -15,7 +15,9 @@ func _on_Timer_timeout():
 	if(randi()%101+1 > 75):
 		var particles = Particles2D.new()
 		particles.process_material = ParticlesMaterial.new()
+		particles.process_material.scale = 5
+		particles.process_material.color = Color(30, 200, 90)
 		particles.emitting = true
-		particles.position = Vector2(randi() % 400,randi() % 400);
+		particles.position = Vector2(randi() % 800,randi() % 400+50);
 		add_child(particles)
 		print("hole!!")
