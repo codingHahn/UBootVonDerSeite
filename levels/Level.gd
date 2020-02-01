@@ -14,7 +14,6 @@ export (NodePath) onready var PlayerRoot
 var max_size = null
 
 func _ready():
-	$"Panel".hide()
 	randomize()
 	var hole_timer = Timer.new()
 	add_child(hole_timer)
