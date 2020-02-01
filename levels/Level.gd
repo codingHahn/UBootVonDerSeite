@@ -30,21 +30,18 @@ func _ready():
 		get_node(PlayerRoot).add_child(newPlayer)
 	
 func generate_new_hole():
-	var scene_size = get_viewport().size
 	if self.max_size != null:
-		scene_size = max_size
-		print(scene_size)
-	var tile_x = rand_range(0, scene_size.x)
-	var tile_y = rand_range(0, scene_size.y)
-	
-	var cell = $Tiles.world_to_map(Vector2(tile_x, tile_y))
-	var tile = $Tiles.get_cellv(cell)
-	
-	if tile == TILE_BACKGROUND:
-		var hole = load("res://items/hole/Hole.tscn");
-		var instance = hole.instance()
-		instance.position = $Tiles.map_to_world(cell)
-		add_child(instance)
+		var tile_x = rand_range(0, self.max_size.x)
+		var tile_y = rand_range(0, self.max_size.y)
+		
+		var cell = $Tiles.world_to_map(Vector2(tile_x, tile_y))
+		var tile = $Tiles.get_cellv(cell)
+		
+		if tile == TILE_BACKGROUND:
+			var hole = load("res://items/hole/Hole.tscn");
+			var instance = hole.instance()
+			instance.position = $Tiles.map_to_world(cell)
+			add_child(instance)
 
 
 func _process(_delta):
