@@ -8,7 +8,10 @@ const TILE_PLAYER = 3
 const TILE_BACKGROUND = -1 # TODO add Tile
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
+export (NodePath) onready var hole_holder
 export (NodePath) onready var PlayerRoot
+
+export (int) var health = 1000
 
 var max_size = null
 
@@ -41,11 +44,20 @@ func generate_new_hole():
 			var hole = load("res://items/hole/Hole.tscn");
 			var instance = hole.instance()
 			instance.position = $Tiles.map_to_world(cell)
-			add_child(instance)
+			get_node(hole_holder).add_child(instance)
 
-
+func calculate_health():
+	var count_holes = get_node(hole_holder).get_child_count()
+	print(count_holes)
+	health -= count_holes
+	
 func _process(_delta):
 	for player in get_node(PlayerRoot).get_children():
 		var tile = $Tiles.get_cellv($Tiles.world_to_map(player.position))
 		player.is_on_ladder = tile == TILE_LADDER
 
+
+
+func _on_Timer_timeout():
+	print("Decreased health")
+	calculate_health()

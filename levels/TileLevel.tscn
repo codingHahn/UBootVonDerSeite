@@ -7,6 +7,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
+hole_holder = NodePath("holes")
 PlayerRoot = NodePath("PlayerRoot")
 
 [node name="Tiles" type="TileMap" parent="."]
@@ -37,4 +38,11 @@ position = Vector2( 163.33, 63.0171 )
 position = Vector2( 219.488, 80.1646 )
 
 [node name="PlayerRoot" type="Node2D" parent="."]
+
+[node name="holes" type="Node2D" parent="."]
+
+[node name="DamageTimer" type="Timer" parent="."]
+process_mode = 0
+autostart = true
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
