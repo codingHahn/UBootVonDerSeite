@@ -1,14 +1,15 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://ui/Fonts/Standardfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/icon.png" type="Texture" id=2]
 [ext_resource path="res://ui/menu/start_b_pc_skript.gd" type="Script" id=3]
-[ext_resource path="res://ui/Fonts/atwriter.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://ui/menu/player4_image_script.gd" type="Script" id=5]
 [ext_resource path="res://ui/menu/player2_image_script.gd" type="Script" id=6]
 [ext_resource path="res://ui/menu/player3_image_script.gd" type="Script" id=7]
 [ext_resource path="res://ui/menu/return_options_button.png" type="Texture" id=8]
 [ext_resource path="res://ui/menu/return_from_player_select_script.gd" type="Script" id=9]
+
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )

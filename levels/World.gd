@@ -1,4 +1,3 @@
-
 enum Item {
 	Gasoline,
 	Bucket,

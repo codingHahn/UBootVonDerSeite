@@ -1,9 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://ui/Fonts/Standardfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/menu/goback_b_script.gd" type="Script" id=2]
 [ext_resource path="res://ui/menu/sound_slider_skript.gd" type="Script" id=3]
 [ext_resource path="res://ui/menu/return_options_button.png" type="Texture" id=4]
+
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )

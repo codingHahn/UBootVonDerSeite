@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/menu/options_b_script.gd" type="Script" id=1]
 [ext_resource path="res://ui/menu/start_b_script.gd" type="Script" id=2]
-[ext_resource path="res://ui/Fonts/Standardfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 3 )
