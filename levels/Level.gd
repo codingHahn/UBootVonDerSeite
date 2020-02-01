@@ -6,6 +6,7 @@ const TILE_LEAK = 1 # ??
 const TILE_LADDER = 2 # ??
 const TILE_PLAYER = 3 # ??
 const TILE_BACKGROUND = 5
+const TILE_HOLE = 7
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 const World = preload("res://levels/World.gd")
@@ -42,13 +43,16 @@ func generate_new_hole():
 		var tile_y = rand_range(0, self.max_size.y)
 		
 		var cell = $Tiles.world_to_map(Vector2(tile_x, tile_y))
-		var tile = $Tiles.get_cellv(cell)
+		var background_tile = $Tiles.get_cellv(cell)
+		var foreground_tile = $ForegroundTiles.get_cellv(cell)
 		
-		print(tile)
-		if tile == TILE_BACKGROUND:
+		if background_tile == TILE_BACKGROUND && foreground_tile == TILE_NONE:
 			var hole = load("res://items/hole/Hole.tscn");
 			var instance = hole.instance()
+			print(instance)
+			instance.call("initialize", cell, $ForegroundTiles)
 			instance.position = $Tiles.map_to_world(cell)
+			$ForegroundTiles.set_cellv(cell, TILE_HOLE)
 			add_child(instance)
 
 
