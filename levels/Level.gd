@@ -1,11 +1,11 @@
 extends Node2D
 
 const TILE_NONE = -1
-const TILE_ROOM  = 0
-const TILE_LEAK = 1
-const TILE_LADDER = 2
-const TILE_PLAYER = 3
-const TILE_BACKGROUND = -1 # TODO add Tile
+const TILE_ROOM  = 0 # ??
+const TILE_LEAK = 1 # ??
+const TILE_LADDER = 2 # ??
+const TILE_PLAYER = 3 # ??
+const TILE_BACKGROUND = 5
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 export (NodePath) onready var PlayerRoot
@@ -37,6 +37,7 @@ func generate_new_hole():
 		var cell = $Tiles.world_to_map(Vector2(tile_x, tile_y))
 		var tile = $Tiles.get_cellv(cell)
 		
+		print(tile)
 		if tile == TILE_BACKGROUND:
 			var hole = load("res://items/hole/Hole.tscn");
 			var instance = hole.instance()
