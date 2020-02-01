@@ -31,12 +31,16 @@ func _process(_delta):
 	else:
 		gravity = 800
 
-	if Input.is_action_pressed(prefix + "_left"):
-		velocity.x = -speed
+	velocity.x = Input.get_action_strength(prefix + "_right") - Input.get_action_strength(prefix + "_left")
+	
+	velocity.x *= speed
+	
+	if velocity.x < 0:
 		$Sprite.flip_h = true
-	if Input.is_action_pressed(prefix + "_right"):
-		velocity.x = speed
+	if velocity.x > 0:
 		$Sprite.flip_h = false
+		
+		
 	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or is_on_ladder):
 		velocity.y = -speed * 2
 	if Input.is_action_pressed(prefix + "_down") and is_on_ladder:
