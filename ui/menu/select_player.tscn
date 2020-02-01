@@ -16,26 +16,7 @@ default_font = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 
-[sub_resource type="Animation" id=5]
-resource_name = "player_1_animation"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
-}
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
-font_data = ExtResource( 4 )
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "player_1_animation"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -51,6 +32,25 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "player_1_animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="DynamicFont" id=6]
 size = 23
 font_data = ExtResource( 4 )
 
@@ -96,9 +96,9 @@ __meta__ = {
 
 [node name="Background" type="Panel" parent="."]
 margin_left = -1.89884
-margin_top = 18.3064
+margin_top = 16.3064
 margin_right = 1601.1
-margin_bottom = 915.306
+margin_bottom = 913.306
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -152,14 +152,14 @@ hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_1_Panel/Player_1"]
-anims/player_1_animation = SubResource( 5 )
+anims/player_1_animation = SubResource( 3 )
 
 [node name="Player_1_Text" type="RichTextLabel" parent="Player_1_Panel"]
 margin_left = 60.5919
 margin_top = 382.592
 margin_right = 242.592
 margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Player 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -192,14 +192,14 @@ hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_2_Panel/Player_2"]
-anims/player_1_animation = SubResource( 6 )
+anims/player_1_animation = SubResource( 5 )
 
 [node name="Player_2_Text" type="RichTextLabel" parent="Player_2_Panel"]
 margin_left = 60.5919
 margin_top = 382.592
 margin_right = 242.592
 margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Player 2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -210,7 +210,7 @@ margin_left = 48.2527
 margin_top = 292.505
 margin_right = 274.253
 margin_bottom = 337.505
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 6 )
 tab_size = 2
 text = "Press \"I\" to join"
 __meta__ = {
@@ -251,7 +251,7 @@ margin_left = 60.5919
 margin_top = 382.592
 margin_right = 242.592
 margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Player 3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -262,7 +262,7 @@ margin_left = 17.2748
 margin_top = 291.339
 margin_right = 269.274
 margin_bottom = 360.339
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 6 )
 tab_size = 2
 text = "Press \"Num 9\" to join"
 __meta__ = {
@@ -303,7 +303,7 @@ margin_left = 60.5919
 margin_top = 382.592
 margin_right = 242.592
 margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Player 4"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -314,7 +314,7 @@ margin_left = 35.1095
 margin_top = 294.374
 margin_right = 297.11
 margin_bottom = 332.374
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 6 )
 tab_size = 2
 text = "Press \"DEL\" to join"
 __meta__ = {
@@ -322,10 +322,10 @@ __meta__ = {
 }
 
 [node name="return_from_player_select" type="Button" parent="."]
-margin_left = 42.7279
-margin_top = 746.0
-margin_right = 179.728
-margin_bottom = 862.0
+margin_left = 55.0
+margin_top = 725.0
+margin_right = 192.0
+margin_bottom = 841.0
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true
