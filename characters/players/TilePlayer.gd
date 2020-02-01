@@ -56,7 +56,7 @@ func _process(_delta):
 			
 	if Input.is_action_pressed(prefix + "_drop_item"):
 		if holding != null:
-			var to_drop = pickupable.new(self.position, self.take_item())
+			var to_drop = pickupable.new(self.position + $Holding.position, self.take_item())
 			get_node(drop_item_to).add_child(to_drop)
 		self.set_holding(null)
 		
@@ -83,6 +83,9 @@ func set_holding(item):
 		$Holding.texture = null
 	else:
 		$Holding.texture = World.load_texture_for_item(item)
+		var sx = World.ItemSize.x /  $Holding.texture.get_size().x 
+		var sy = World.ItemSize.y /  $Holding.texture.get_size().y 
+		$Holding.scale = Vector2(sx, sy)
 
 
 func _physics_process(delta):
