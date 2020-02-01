@@ -25,7 +25,7 @@ grow_begin = 0.0
 grow_end = 8.0
 thickness = 10
 
-[node name="START SCREEN" type="Control"]
+[node name="OPTIONSSCREEN" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 1 )
