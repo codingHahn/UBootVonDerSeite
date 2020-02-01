@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ui/Fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/icon.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://ui/menu/player4_image_script.gd" type="Script" id=5]
 [ext_resource path="res://ui/menu/player2_image_script.gd" type="Script" id=6]
 [ext_resource path="res://ui/menu/player3_image_script.gd" type="Script" id=7]
+[ext_resource path="res://ui/menu/return_options_button.png" type="Texture" id=8]
+[ext_resource path="res://ui/menu/return_from_player_select_script.gd" type="Script" id=9]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -133,7 +135,7 @@ margin_right = 264.0
 margin_bottom = 317.0
 custom_fonts/normal_font = SubResource( 4 )
 tab_size = 2
-text = "Press \"ESC\" to join"
+text = "Press \"I\" to join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,13 +175,13 @@ __meta__ = {
 }
 
 [node name="Join_Player3_Text" type="RichTextLabel" parent="Player_3_Panel"]
-margin_left = 45.5062
+margin_left = 27.8234
 margin_top = 272.0
-margin_right = 256.506
-margin_bottom = 321.0
+margin_right = 279.823
+margin_bottom = 341.0
 custom_fonts/normal_font = SubResource( 4 )
 tab_size = 2
-text = "Press \"I\" to join"
+text = "Press \"Num 9\" to join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -222,8 +224,22 @@ margin_right = 281.287
 margin_bottom = 311.277
 custom_fonts/normal_font = SubResource( 4 )
 tab_size = 2
-text = "Press \"Num 9\" to join"
+text = "Press \"DEL\" to join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="return_from_player_select" type="Button" parent="."]
+margin_left = 42.7279
+margin_top = 746.0
+margin_right = 179.728
+margin_bottom = 862.0
+icon = ExtResource( 8 )
+flat = true
+expand_icon = true
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Background/start_button_pc" to="Background/start_button_pc" method="_on_start_button_pc_pressed"]
+[connection signal="pressed" from="return_from_player_select" to="return_from_player_select" method="_on_return_from_player_select_pressed"]

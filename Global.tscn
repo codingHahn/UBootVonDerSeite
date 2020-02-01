@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://music/Hintergrund_Test.wav" type="AudioStream" id=1]
 [ext_resource path="res://ui/menu/sound_skript.gd" type="Script" id=2]
+[ext_resource path="res://Global_skript.gd" type="Script" id=3]
 
 [node name="Global" type="Node"]
+script = ExtResource( 3 )
 
 [node name="AudioController" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
