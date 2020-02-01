@@ -49,7 +49,12 @@ func generate_new_hole():
 func calculate_health():
 	var count_holes = get_node(hole_holder).get_child_count()
 	print(count_holes)
-	health -= count_holes
+	if health - count_holes > 0:
+		health -= count_holes
+	else:
+		health = 0
+		$"RichTextLabel".show()
+	
 	
 func _process(_delta):
 	for player in get_node(PlayerRoot).get_children():

@@ -1,14 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://levels/water.png" type="Texture" id=2]
 [ext_resource path="res://items/hole/Hole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/Level.gd" type="Script" id=4]
 [ext_resource path="res://items/ItemSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/risingwater.gd" type="Script" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = SubResource( 2 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
 hole_holder = NodePath("holes")
 PlayerRoot = NodePath("PlayerRoot")
+
+[node name="risingwater" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 16.5372, 111.413 )
+scale = Vector2( 0.116567, -0.0666147 )
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 6 )
 
 [node name="Tiles" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -44,5 +61,18 @@ position = Vector2( 219.488, 80.1646 )
 [node name="DamageTimer" type="Timer" parent="."]
 process_mode = 0
 autostart = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 25.5199
+margin_top = 27.4592
+margin_right = 132.52
+margin_bottom = 67.4592
+custom_fonts/mono_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.568627, 1, 0.0941176, 1 )
+text = "YOU DEAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
