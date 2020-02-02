@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://items/interactables/bed/Bed.png" type="Texture" id=18]
 [ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://levels/BackTOMenu.gd" type="Script" id=20]
+[ext_resource path="res://items/interactables/motor/broken.wav" type="AudioStream" id=21]
+[ext_resource path="res://items/interactables/motor/running.wav" type="AudioStream" id=22]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -361,10 +363,12 @@ __meta__ = {
 }
 
 [node name="EnginePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
 autoplay = true
 bus = "Soundeffects"
 
 [node name="BrokenEnginePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
 bus = "Soundeffects"
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
