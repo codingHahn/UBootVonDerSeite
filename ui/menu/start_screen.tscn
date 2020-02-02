@@ -49,6 +49,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+fast_mode = true
 
 [node name="OPTIONS" type="Button" parent="Background"]
 margin_left = 567.415
