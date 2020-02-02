@@ -111,7 +111,7 @@ position = Vector2( 224, 224 )
 other = NodePath("../Elevator2")
 
 [node name="Elevator2" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 224, 88 )
+position = Vector2( 224, 99 )
 other = NodePath("../Elevator")
 
 [node name="Elevator3" parent="Tiles" instance=ExtResource( 3 )]
