@@ -145,7 +145,7 @@ func calculate_health():
 		if bucket != null && !bucket.is_bucket_full():
 			bucket.fill_bucket()
 		else:
-			dripping_holes += 100
+			dripping_holes += 1
 	
 	print(dripping_holes)
 	if health - dripping_holes > 0:
