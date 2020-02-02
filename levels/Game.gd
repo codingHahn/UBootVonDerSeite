@@ -24,6 +24,7 @@ func update_score():
 	$Score.text = "Distance: " + str(score)
 
 
+
 func _on_Node2D_draw():
 	var vsize = self.get_viewport_rect().size
 	var lsize = $UBoot.get_rect().size
