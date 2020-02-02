@@ -120,6 +120,8 @@ func find_bucket(hole):
 func _process(_delta):
 	if Input.is_action_pressed("stop"):
 		get_tree().paused = true
+		$"Panel".pause_mode = 2
+		
 		$"Panel".show()
 	
 	for player in get_node(PlayerRoot).get_children():
