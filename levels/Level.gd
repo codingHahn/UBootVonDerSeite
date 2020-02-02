@@ -7,7 +7,12 @@ const TILE_LADDER = 11 # ??
 const TILE_LADDER_TOP = 36
 const TILE_LADDER_BOTTOM = 37
 #const TILE_PLAYER = 3 # ??
+
 const TILE_BACKGROUND = 14
+const TILE_WINDOW = 16
+const TILE_LIGHT = 43
+const TILE_PIPES_UP = 33
+
 const TILE_HOLE = 48
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
@@ -19,6 +24,9 @@ const World = preload("res://levels/World.gd")
 export (NodePath) onready var PlayerRoot
 
 export (int) var health = 1000
+
+var music_stage_2 = false
+var music_stage_3 = false
 
 var currentMotor
 
@@ -45,6 +53,7 @@ func _ready():
 	
 	# test code
 	place_new_hole(Vector2(740, 102))
+	create_fire(Vector2(300, 128))
 	create_obstacle()
 		
 	for player in PlayerList:
@@ -84,6 +93,25 @@ func create_wrench(pos):
 	var to_drop = pickupable.new(pos, World.Item.Wrench)
 	get_node("dropped_items").add_child(to_drop)
 
+func generate_new_fire():
+	print("FIRE!")
+	print(max_size)
+	if self.max_size != null:
+		var tile_x = rand_range(0, self.max_size.x)
+		var tile_y = rand_range(0, self.max_size.y)
+		create_fire(Vector2(tile_x, tile_y))
+
+func create_fire(pos):
+	var fireBounds = Rect2(Vector2(pos.x, pos.y), World.ItemSize)
+	for element in get_node("dropped_items").get_children():
+		var elemenBounds = Rect2(element.position, World.ItemSize)
+		if(fireBounds.intersects(elemenBounds)):
+			return
+	
+	var to_drop = fire.new(pos)
+	to_drop.currentLevel = self
+	get_node("dropped_items").add_child(to_drop)
+
 func generate_new_hole():
 	if self.max_size != null:
 		var tile_x = rand_range(0, self.max_size.x)
@@ -95,7 +123,7 @@ func place_new_hole(pos):
 	var background_tile = $Tiles.get_cellv(cell)
 	var foreground_tile = $ForegroundTiles.get_cellv(cell)
 	
-	if background_tile == TILE_BACKGROUND && foreground_tile == TILE_NONE:
+	if self.is_hole_placable_on(background_tile) && foreground_tile == TILE_NONE:
 		var hole = load("res://items/hole/Hole.tscn");
 		var instance = hole.instance()
 		print(instance)
@@ -105,6 +133,9 @@ func place_new_hole(pos):
 		get_node(hole_holder).add_child(instance)
 
 		$ForegroundTiles.set_cellv(cell, TILE_HOLE)
+		
+func is_hole_placable_on(tile):
+	return tile == TILE_BACKGROUND || tile == TILE_WINDOW || tile == TILE_LIGHT || tile == TILE_PIPES_UP
 
 
 func calculate_health():
@@ -119,6 +150,14 @@ func calculate_health():
 	print(dripping_holes)
 	if health - dripping_holes > 0:
 		health -= dripping_holes
+		if(health < 600 && health >= 300 && !music_stage_2):
+			music_stage_2 = true
+			music_stage_3 = false
+			$"/root/Global/AudioManager".call("_music_stage_2")
+		if(health < 300 && health <= 600  && !music_stage_3):
+			music_stage_3 = true
+			music_stage_2 = false
+			$"/root/Global/AudioManager".call("_music_stage_3")
 	else:
 		health = 0
 		$"gameoverPanel".show()
@@ -146,10 +185,12 @@ func _process(_delta):
 
 func _on_Timer_timeout():
 	calculate_health()
-	if randi()%101>96 && currentMotor.broken == false:
+	if randi()%101>98 && currentMotor.broken == false:
 		currentMotor.breakMotor()
-	if randi()%101>95:
+	if randi()%101>98:
 		create_obstacle()
+	if randi()%101>95:
+		generate_new_fire()
 
 func _on_Level_draw():
 	pass

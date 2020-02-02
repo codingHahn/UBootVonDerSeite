@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Toilette.wav-75912107798b2c4dfbbc82ca3908610f.sample"
+
+[deps]
+
+source_file="res://sounds/Toilette.wav"
+dest_files=[ "res://.import/Toilette.wav-75912107798b2c4dfbbc82ca3908610f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

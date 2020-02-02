@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Motor_Kaputt.wav-15c1def1a42fcc0d072f85c1d681d142.sample"
+
+[deps]
+
+source_file="res://sounds/UBoot/Motor/Motor_Kaputt.wav"
+dest_files=[ "res://.import/Motor_Kaputt.wav-15c1def1a42fcc0d072f85c1d681d142.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
