@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=31 format=2]
-
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -12,8 +10,6 @@
 [ext_resource path="res://levels/ResumeGame.gd" type="Script" id=8]
 [ext_resource path="res://levels/RestartGame.gd" type="Script" id=9]
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=10]
-[ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=19]
-[ext_resource path="res://levels/BackTOMenu.gd" type="Script" id=20]
 [ext_resource path="res://levels/background_1.png" type="Texture" id=11]
 [ext_resource path="res://levels/background_2.png" type="Texture" id=12]
 [ext_resource path="res://levels/background_2.gd" type="Script" id=13]
@@ -22,7 +18,8 @@
 [ext_resource path="res://levels/background_4.png" type="Texture" id=16]
 [ext_resource path="res://levels/background_4.gd" type="Script" id=17]
 [ext_resource path="res://items/interactables/bed/Bed.png" type="Texture" id=18]
-
+[ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://levels/BackTOMenu.gd" type="Script" id=20]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -137,15 +134,15 @@ font_data = SubResource( 10 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 150
-font_data = ExtResource( 11 )
+font_data = ExtResource( 19 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 70
-font_data = ExtResource( 11 )
+font_data = ExtResource( 19 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 80
-font_data = ExtResource( 11 )
+font_data = ExtResource( 19 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
@@ -314,7 +311,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-
 [node name="gameoverPanel" type="Panel" parent="."]
 visible = false
 margin_left = -15.0
@@ -359,7 +355,7 @@ margin_right = 1100.25
 margin_bottom = 992.207
 custom_fonts/font = SubResource( 15 )
 text = "Back To Menu"
-script = ExtResource( 12 )
+script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -370,7 +366,6 @@ bus = "Soundeffects"
 
 [node name="BrokenEnginePlayer" type="AudioStreamPlayer" parent="."]
 bus = "Soundeffects"
-
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Panel/ResumeGame" to="Panel/ResumeGame" method="_on_ResumeGame_pressed"]
