@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=2]
+[gd_resource type="TileSet" load_steps=16 format=2]
 
 [ext_resource path="res://levels/Artboard 1.png" type="Texture" id=2]
 
@@ -40,6 +40,9 @@ segments = PoolVector2Array( 46.8039, -0.973663, 64, 0, 64, 0, 64, 64, 64, 64, 4
 
 [sub_resource type="ConcavePolygonShape2D" id=13]
 segments = PoolVector2Array( -0.330292, 21.8266, 64.1373, 21.692, 64.1373, 21.692, 64.2719, 36.3621, 64.2719, 36.3621, -0.330292, 36.2275, -0.330292, 36.2275, -0.330292, 21.8266 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 64, 64, 2, 64, 2, 49, 64, 49 )
 
 [resource]
 9/name = "room"
@@ -379,3 +382,29 @@ segments = PoolVector2Array( -0.330292, 21.8266, 64.1373, 21.692, 64.1373, 21.69
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 35/z_index = 0
+36/name = "ladder_top"
+36/texture = ExtResource( 2 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 448, 64, 64, 64 )
+36/tile_mode = 0
+36/occluder_offset = Vector2( 0, 0 )
+36/navigation_offset = Vector2( 0, 0 )
+36/shapes = [  ]
+36/z_index = 0
+37/name = "ladder_bottom"
+37/texture = ExtResource( 2 )
+37/tex_offset = Vector2( 0, 0 )
+37/modulate = Color( 1, 1, 1, 1 )
+37/region = Rect2( 448, 192, 64, 64 )
+37/tile_mode = 0
+37/occluder_offset = Vector2( 0, 0 )
+37/navigation_offset = Vector2( 0, 0 )
+37/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+37/z_index = 0
