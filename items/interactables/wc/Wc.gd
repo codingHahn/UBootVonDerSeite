@@ -5,6 +5,8 @@ onready var collision = CollisionShape2D.new()
 onready var shape = CircleShape2D.new()
 var broken
 
+var asp: AudioStreamPlayer
+
 func _ready():
 	shape.radius = World.ItemSize.length() / 2
 	collision.set_shape(shape)
@@ -13,6 +15,10 @@ func _ready():
 	
 	self.set_collision_layer(5)
 	self.set_collision_mask(3)
+
+	asp = AudioStreamPlayer.new()
+	add_child(asp)
+	asp.stream = load("res://items/interactables/wc/Toilette.wav")
 
 func _init(position: Vector2):
 	var item = World.Item.Toilet
@@ -30,6 +36,7 @@ func unbreakWc():
 
 func interact_with_player(player):
 	if player.holding == World.Item.Bucket && broken == false && self.is_interaction_allowed_again() && player.holdingValue > 0:
+		asp.play(0)
 		player.holdingValue = 0 
 		if rand_range(0,100)>75:
 			breakWc()
