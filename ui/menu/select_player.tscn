@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
+[ext_resource path="res://characters/players/player_3.png" type="Texture" id=2]
 [ext_resource path="res://ui/menu/start_b_pc_skript.gd" type="Script" id=3]
 [ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://ui/menu/player4_image_script.gd" type="Script" id=5]
@@ -9,11 +9,17 @@
 [ext_resource path="res://ui/menu/player3_image_script.gd" type="Script" id=7]
 [ext_resource path="res://ui/menu/Return Button.png" type="Texture" id=8]
 [ext_resource path="res://ui/menu/return_from_player_select_script.gd" type="Script" id=9]
-[ext_resource path="res://characters/players/Character.png" type="Texture" id=10]
+[ext_resource path="res://characters/players/player_1.png" type="Texture" id=10]
 [ext_resource path="res://ui/menu/PlayerAnimation.gd" type="Script" id=11]
-[ext_resource path="res://characters/players/Character4.png" type="Texture" id=12]
-[ext_resource path="res://characters/players/Character2.png" type="Texture" id=13]
+[ext_resource path="res://characters/players/player_4.png" type="Texture" id=12]
+[ext_resource path="res://characters/players/player_2.png" type="Texture" id=13]
 [ext_resource path="res://ui/menu/Plattform.png" type="Texture" id=14]
+
+
+
+
+
+
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
