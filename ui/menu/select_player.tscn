@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://ui/menu/PlayerAnimation.gd" type="Script" id=11]
 [ext_resource path="res://characters/players/Character4.png" type="Texture" id=12]
 [ext_resource path="res://characters/players/Character2.png" type="Texture" id=13]
+[ext_resource path="res://ui/menu/Plattform.png" type="Texture" id=14]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -145,10 +146,9 @@ __meta__ = {
 }
 
 [node name="Background" type="Panel" parent="."]
-margin_left = 6.36985
-margin_top = 20.533
-margin_right = 1606.38
-margin_bottom = 920.534
+margin_top = 13.0
+margin_right = 1600.01
+margin_bottom = 913.001
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -184,6 +184,17 @@ margin_right = 478.251
 margin_bottom = 659.786
 size_flags_horizontal = 3
 custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Player_1_Panel"]
+margin_left = 23.6323
+margin_top = 162.935
+margin_right = 218.632
+margin_bottom = 252.935
+texture = ExtResource( 14 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -935,7 +946,6 @@ margin_right = 278.763
 margin_bottom = 457.738
 custom_styles/panel = SubResource( 5 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -1018,9 +1028,9 @@ __meta__ = {
 
 [node name="right_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4/Right_key"]
 margin_left = 4.7312
-margin_top = 6.08521
+margin_top = 10.0852
 margin_right = 55.7312
-margin_bottom = 42.0852
+margin_bottom = 46.0852
 custom_fonts/normal_font = SubResource( 16 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Right"
