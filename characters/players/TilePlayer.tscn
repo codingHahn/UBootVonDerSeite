@@ -4,8 +4,8 @@
 [ext_resource path="res://characters/players/TilePlayer.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 4.95128
-height = 4.60708
+radius = 17.8061
+height = 44.7213
 
 [sub_resource type="Animation" id=2]
 resource_name = "carry_left"
@@ -199,7 +199,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 7.3959, 9.93658 )
+extents = Vector2( 28.2458, 39.7987 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -207,12 +207,12 @@ collision_mask = 29
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -40 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -5.73074, -11.7567 )
-scale = Vector2( 0.066, 0.066 )
+position = Vector2( -28.3992, -54.2893 )
+scale = Vector2( 0.299497, 0.299497 )
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( -30, -64 )
@@ -233,8 +233,8 @@ anims/work_right = SubResource( 9 )
 [node name="InteractableArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
-position = Vector2( -0.0484943, -8.04849 )
+position = Vector2( 0, -40 )
 shape = SubResource( 10 )
 
 [node name="Holding" type="Sprite" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -32 )

@@ -17,6 +17,9 @@ export (Texture) onready var tooltip_texture
 # The item type this interactable generates
 export (World.Item) var item_type
 
+# The item value (e.g. Waterlevel for buckets)
+var value
+
 # The duration the tooltip is show to the player
 export (float) var show_duration = 0.5
 
@@ -68,4 +71,4 @@ func _on_tooltip_timeout():
 # TODO: Reimplement
 func interact_with_player(player):
 	if player.can_pickup():
-		player.set_holding(item_type)
+		player.set_holding(item_type, value)
