@@ -17,6 +17,7 @@ func _ready():
 	self.set_collision_mask(3)
 
 	asp = AudioStreamPlayer.new()
+	asp.set_bus("Soundeffects")
 	add_child(asp)
 	asp.stream = load("res://items/interactables/wc/Toilette.wav")
 
