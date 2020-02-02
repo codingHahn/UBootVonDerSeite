@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -10,7 +10,13 @@
 [ext_resource path="res://levels/ResumeGame.gd" type="Script" id=8]
 [ext_resource path="res://levels/RestartGame.gd" type="Script" id=9]
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=10]
-[ext_resource path="res://items/interactables/bed/Bed.png" type="Texture" id=11]
+[ext_resource path="res://levels/background_1.png" type="Texture" id=11]
+[ext_resource path="res://levels/background_2.png" type="Texture" id=12]
+[ext_resource path="res://levels/background_2.gd" type="Script" id=13]
+[ext_resource path="res://levels/background_3.gd" type="Script" id=14]
+[ext_resource path="res://levels/background_3.png" type="Texture" id=15]
+[ext_resource path="res://levels/background_4.png" type="Texture" id=16]
+[ext_resource path="res://levels/background_4.gd" type="Script" id=17]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -155,7 +161,7 @@ format = 1
 tile_data = PoolIntArray( -131064, 53, 0, -131063, 54, 0, -65528, 52, 0, 0, 17, 0, 1, 18, 0, 2, 19, 0, 3, 19, 0, 4, 19, 0, 5, 55, 0, 6, 19, 0, 7, 31, 0, 8, 19, 0, 9, 19, 0, 10, 19, 0, 11, 55, 0, 12, 19, 0, 13, 20, 0, 14, 21, 0, 65536, 22, 0, 65550, 30, 0, 131072, 10, 0, 131086, 51, 0, 196608, 22, 0, 196622, 30, 0, 262144, 10, 0, 262158, 51, 0, 327680, 22, 0, 327694, 30, 0, 393216, 24, 0, 393217, 25, 0, 393218, 26, 0, 393219, 42, 0, 393220, 26, 0, 393221, 37, 0, 393222, 26, 0, 393223, 26, 0, 393224, 42, 0, 393225, 26, 0, 393226, 26, 0, 393227, 26, 0, 393228, 26, 0, 393229, 27, 0, 393230, 28, 0 )
 
 [node name="Spawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 570.743, 236.487 )
+position = Vector2( 94.213, 226.414 )
 item_type = 2
 
 [node name="SpawnPoints" type="Node2D" parent="."]
@@ -184,9 +190,8 @@ script = ExtResource( 6 )
 [node name="Bounds" type="TextureRect" parent="risingwater"]
 modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 3.37195
 margin_right = 2041.0
-margin_bottom = 1788.37
+margin_bottom = 1785.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -215,6 +220,29 @@ text = "YOU DEAD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="background_1" type="Sprite" parent="."]
+position = Vector2( 815.365, 237.005 )
+scale = Vector2( 1.03124, 1.04039 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="background_2" type="Sprite" parent="."]
+position = Vector2( 1649.36, 235.319 )
+scale = Vector2( 1.03124, 1.04039 )
+z_index = -1
+texture = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="background_3" type="Sprite" parent="."]
+position = Vector2( 2401.58, 224.915 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+
+[node name="background_4" type="Sprite" parent="."]
+position = Vector2( 3201.71, 247.038 )
+texture = ExtResource( 16 )
+script = ExtResource( 17 )
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -269,11 +297,6 @@ bus = "Soundeffects"
 
 [node name="BrokenEnginePlayer" type="AudioStreamPlayer" parent="."]
 bus = "Soundeffects"
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 570.323, 250.921 )
-scale = Vector2( 0.222128, 0.558769 )
-texture = ExtResource( 11 )
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Panel/ResumeGame" to="Panel/ResumeGame" method="_on_ResumeGame_pressed"]
