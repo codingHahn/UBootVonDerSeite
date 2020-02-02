@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Motor_running.wav-f7351d4a5b32a5d7eb1eeb7996511453.sample"
+
+[deps]
+
+source_file="res://sounds/UBoot/Motor/Motor_running.wav"
+dest_files=[ "res://.import/Motor_running.wav-f7351d4a5b32a5d7eb1eeb7996511453.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

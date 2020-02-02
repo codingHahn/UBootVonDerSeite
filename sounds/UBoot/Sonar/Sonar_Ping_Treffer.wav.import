@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sonar_Ping_Treffer.wav-3002ef226539a83faa780daf7f38a2f2.sample"
+
+[deps]
+
+source_file="res://sounds/UBoot/Sonar/Sonar_Ping_Treffer.wav"
+dest_files=[ "res://.import/Sonar_Ping_Treffer.wav-3002ef226539a83faa780daf7f38a2f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

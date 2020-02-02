@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UBoot_Hinderniss.wav-99c1aba245bb7d26f5d91b46c19e7ae2.sample"
+
+[deps]
+
+source_file="res://sounds/UBoot/Hinderniss/UBoot_Hinderniss.wav"
+dest_files=[ "res://.import/UBoot_Hinderniss.wav-99c1aba245bb7d26f5d91b46c19e7ae2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
