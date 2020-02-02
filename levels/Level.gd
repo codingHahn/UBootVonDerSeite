@@ -4,6 +4,8 @@ const TILE_NONE = -1
 #const TILE_ROOM  = 0 # ??
 #const TILE_LEAK = 1 # ??
 const TILE_LADDER = 11 # ??
+const TILE_LADDER_TOP = 36
+const TILE_LADDER_BOTTOM = 37
 #const TILE_PLAYER = 3 # ??
 const TILE_BACKGROUND = 14
 const TILE_HOLE = 16
@@ -31,9 +33,9 @@ func _ready():
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
 	
-	place_new_hole(Vector2(140, 102))
-	create_bucket(Vector2(24, 42), 7)
-	create_bucket(Vector2(168, 102), 2)
+	place_new_hole(Vector2(640, 102))
+	create_bucket(Vector2(280, 248), 36)
+	create_bucket(Vector2(668, 120), 0)
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
@@ -133,7 +135,7 @@ func _process(_delta):
 	
 	for player in get_node(PlayerRoot).get_children():
 		var tile = $Tiles.get_cellv($Tiles.world_to_map(player.position))
-		player.is_on_ladder = tile == TILE_LADDER
+		player.is_on_ladder = tile == TILE_LADDER or tile == TILE_LADDER_TOP or tile == TILE_LADDER_BOTTOM
 
 func _on_Timer_timeout():
 	print("Decreased health")

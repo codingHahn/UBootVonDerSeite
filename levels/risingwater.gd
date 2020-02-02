@@ -10,5 +10,5 @@ func _ready():
 	
 	scale_fraction = scale.y
 	
-func _process(delta):
+func _process(_delta):
 	scale.y = scale_fraction * (1000 - $"../../Level".health)
