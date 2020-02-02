@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://levels/background_3.png" type="Texture" id=15]
 [ext_resource path="res://levels/background_4.png" type="Texture" id=16]
 [ext_resource path="res://levels/background_4.gd" type="Script" id=17]
+[ext_resource path="res://items/interactables/bed/Bed.png" type="Texture" id=18]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -160,8 +161,13 @@ tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( -131064, 53, 0, -131063, 54, 0, -65528, 52, 0, 0, 17, 0, 1, 18, 0, 2, 19, 0, 3, 19, 0, 4, 19, 0, 5, 55, 0, 6, 19, 0, 7, 31, 0, 8, 19, 0, 9, 19, 0, 10, 19, 0, 11, 55, 0, 12, 19, 0, 13, 20, 0, 14, 21, 0, 65536, 22, 0, 65550, 30, 0, 131072, 10, 0, 131086, 51, 0, 196608, 22, 0, 196622, 30, 0, 262144, 10, 0, 262158, 51, 0, 327680, 22, 0, 327694, 30, 0, 393216, 24, 0, 393217, 25, 0, 393218, 26, 0, 393219, 42, 0, 393220, 26, 0, 393221, 37, 0, 393222, 26, 0, 393223, 26, 0, 393224, 42, 0, 393225, 26, 0, 393226, 26, 0, 393227, 26, 0, 393228, 26, 0, 393229, 27, 0, 393230, 28, 0 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 564.544, 255.083 )
+scale = Vector2( 0.279636, 0.483437 )
+texture = ExtResource( 18 )
+
 [node name="Spawner" parent="." instance=ExtResource( 5 )]
-position = Vector2( 94.213, 226.414 )
+position = Vector2( 564.544, 232.613 )
 item_type = 2
 
 [node name="SpawnPoints" type="Node2D" parent="."]
