@@ -36,7 +36,7 @@ func _ready():
 	place_new_hole(Vector2(640, 102))
 	create_bucket(Vector2(280, 248), 36)
 	create_bucket(Vector2(668, 120), 0)
-	create_toilet(Vector2(768, 392))
+	create_toilet(Vector2(768, 414))
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
@@ -88,8 +88,7 @@ func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 	get_node("dropped_items").add_child(to_drop)
 
 func create_toilet(pos):
-	var to_drop = toilet.new(pos)
-	to_drop.level = self
+	var to_drop = wc.new(pos)
 	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_hole():

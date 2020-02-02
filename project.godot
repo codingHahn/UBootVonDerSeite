@@ -20,14 +20,14 @@ _global_script_classes=[ {
 "path": "res://items/pickupable.gd"
 }, {
 "base": "interactable",
-"class": "toilet",
+"class": "wc",
 "language": "GDScript",
-"path": "res://items/interactables/wc/Toilet.gd"
+"path": "res://items/interactables/wc/Wc.gd"
 } ]
 _global_script_class_icons={
 "interactable": "",
 "pickupable": "",
-"toilet": ""
+"wc": ""
 }
 
 [application]
