@@ -138,3 +138,7 @@ func _process(_delta):
 func _on_Timer_timeout():
 	print("Decreased health")
 	calculate_health()
+
+
+func _on_Level_draw():
+	pass
