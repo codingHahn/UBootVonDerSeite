@@ -55,7 +55,7 @@ func _ready():
 	
 	
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Check for overlapping players and display the tooltip to them
 	var overlapping_bodies = self.get_overlapping_bodies()
 	if !overlapping_bodies.empty():
