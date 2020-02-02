@@ -19,6 +19,7 @@ export (World.Item) var item_type
 
 # The item value (e.g. Waterlevel for buckets)
 var value
+var last_interaction_time = 0
 
 # The duration the tooltip is show to the player
 export (float) var show_duration = 0.5
@@ -70,9 +71,17 @@ func _physics_process(_delta):
 
 func _on_tooltip_timeout():
 	tooltip.hide()
+	
+func is_interaction_allowed_again():
+	var time = OS.get_ticks_msec()
+	if time - self.last_interaction_time > 125:
+		self.last_interaction_time = time
+		return true
+	else:
+		return false
 
 # From the old implementation, will be reimplemented sometime(TM)
 # TODO: Reimplement
 func interact_with_player(player):
-	if player.can_pickup():
+	if player.can_pickup() && self.is_interaction_allowed_again():
 		player.set_holding(item_type, value)
