@@ -16,4 +16,11 @@ __meta__ = {
 }
 
 [node name="Level" parent="UBoot" instance=ExtResource( 1 )]
+
+[node name="Score" type="Label" parent="."]
+margin_bottom = 14.0
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="draw" from="." to="." method="_on_Node2D_draw"]

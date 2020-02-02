@@ -40,6 +40,7 @@ func _ready():
 	create_wrench(Vector2(140, 414))
 	create_motor(Vector2(40, 396))
 	
+	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
 	for player in PlayerList:
