@@ -1,6 +1,7 @@
 extends Node2D
 
 const ItemSize = Vector2(32, 32)
+const ObstacleSize = Vector2(200, 200)
 
 enum Item {
 	Gasoline,

@@ -55,7 +55,7 @@ func create_bucket(pos, fillsize):
 	get_node("dropped_items").add_child(to_drop)
 
 func create_obstacle():
-	var to_drop = obstacle.new(Vector2(800, 100), World.ObstacleType.Car)
+	var to_drop = obstacle.new(Vector2(2000, 100), World.ObstacleType.Car)
 	get_node("obstacles").add_child(to_drop)
 
 func create_toilet(pos):
