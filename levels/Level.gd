@@ -54,6 +54,10 @@ func create_bucket(pos, fillsize):
 	var to_drop = bucket.new(pos, fillsize)
 	get_node("dropped_items").add_child(to_drop)
 
+func create_obstacle():
+	var to_drop = obstacle.new(Vector2(800, 100), World.ObstacleType.Car)
+	get_node("obstacles").add_child(to_drop)
+
 func create_toilet(pos):
 	var to_drop = wc.new(pos)
 	get_node("dropped_items").add_child(to_drop)
@@ -123,10 +127,11 @@ func _process(_delta):
 		player.is_on_ladder = tile == TILE_LADDER or tile == TILE_LADDER_TOP or tile == TILE_LADDER_BOTTOM
 
 func _on_Timer_timeout():
-	print("Decreased health")
 	calculate_health()
 	if randi()%101>95 && currentMotor.broken == false:
 		currentMotor.breakMotor()
+	if randi()%101>95:
+		create_obstacle()
 
 func _on_Level_draw():
 	pass

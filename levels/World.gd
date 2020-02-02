@@ -11,6 +11,10 @@ enum Item {
 	Motor
 }
 
+enum ObstacleType {
+	Car
+}
+
 static func load_texture_for_item(item):
 	var asset = "";
 	match item:

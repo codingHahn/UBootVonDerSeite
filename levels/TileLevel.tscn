@@ -135,13 +135,15 @@ position = Vector2( 747.695, 233.939 )
 
 [node name="PlayerRoot" type="Node2D" parent="."]
 
-[node name="dropped_items" type="Node2D" parent="."]
-
 [node name="holes" type="Node2D" parent="."]
+
+[node name="dropped_items" type="Node2D" parent="."]
 
 [node name="DamageTimer" type="Timer" parent="."]
 process_mode = 0
 autostart = true
+
+[node name="obstacles" type="Node2D" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
