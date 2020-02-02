@@ -24,11 +24,12 @@ func _physics_process(_delta):
 	
 	var tiles = currentLevel.get_node("ForegroundTiles")
 	var mapBounds = calculate_bounds(tiles)
-	var obstacleBounds = Rect2(position, World.ObstacleSize)
+	var obstRect = Vector2(World.ObstacleSize.x * tiles.scale.x, World.ObstacleSize.y * tiles.scale.y)
+	var obstacleBounds = Rect2(Vector2(position.x - World.ObstacleSize.x/2, position.y - World.ObstacleSize.y/2), obstRect)
 	if(obstacleBounds.intersects(mapBounds)):
 		for i in range(5):
 			currentLevel.generate_new_hole()
-		get_parent().queue_free()
+		get_parent().remove_child(self)
 		
 func calculate_bounds(tilemap):
 	var cell_bounds = tilemap.get_used_rect()

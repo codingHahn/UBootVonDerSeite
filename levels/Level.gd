@@ -44,8 +44,7 @@ func _ready():
 	# test code
 	place_new_hole(Vector2(740, 102))
 	create_obstacle()
-	
-	
+		
 	for player in PlayerList:
 		var newPlayer = PlayerScene.instance()
 		newPlayer.prefix = player
@@ -59,10 +58,11 @@ func create_bucket(pos, fillsize):
 	get_node("dropped_items").add_child(to_drop)
 
 func create_obstacle():
-	var to_drop = obstacle.new(Vector2(2000, randi() % 800), World.ObstacleType.Car)
-	to_drop.currentMotor = currentMotor
-	to_drop.currentLevel = self
-	get_node("obstacles").add_child(to_drop)
+	if(currentMotor.broken == false):
+		var to_drop = obstacle.new(Vector2(1800, (randi() % 1000) - 300), World.ObstacleType.Car)
+		to_drop.currentMotor = currentMotor
+		to_drop.currentLevel = self
+		get_node("obstacles").add_child(to_drop)
 
 func create_toilet(pos):
 	var to_drop = wc.new(pos)
@@ -136,7 +136,7 @@ func _process(_delta):
 
 func _on_Timer_timeout():
 	calculate_health()
-	if randi()%101>95 && currentMotor.broken == false:
+	if randi()%101>96 && currentMotor.broken == false:
 		currentMotor.breakMotor()
 	if randi()%101>95:
 		create_obstacle()
