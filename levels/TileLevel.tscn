@@ -278,9 +278,9 @@ __meta__ = {
 [node name="gameoverPanel" type="Panel" parent="."]
 visible = false
 margin_left = -15.0
-margin_top = -372.0
+margin_top = -374.158
 margin_right = 1629.0
-margin_bottom = 923.0
+margin_bottom = 920.842
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -307,7 +307,7 @@ margin_right = 1285.48
 margin_bottom = 565.142
 custom_fonts/normal_font = SubResource( 14 )
 tab_size = 1
-text = "Score: 0"
+text = "Distance: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
