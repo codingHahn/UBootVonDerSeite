@@ -46,10 +46,15 @@ func _process(_delta):
 	else:
 		gravity = 800
 
+	var currentSpeed = speed
+	var fire = level.find_fire(self)
+	if fire != null:
+		currentSpeed = 50
+
 	if Input.is_action_pressed(prefix + "_left"):
-		velocity.x = -speed
+		velocity.x = -currentSpeed
 	if Input.is_action_pressed(prefix + "_right"):
-		velocity.x = speed
+		velocity.x = currentSpeed
 	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or has_disabled_gravity):
 		velocity.y = -speed * 2
 		asp.stream = sounds["climb_ladder" if has_disabled_gravity else "jump"]

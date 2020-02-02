@@ -176,7 +176,7 @@ func find_bucket(hole):
 func find_fire(hole):
 	for element in get_node("dropped_items").get_children():
 		if element is interactable && element.item_type == World.Item.Fire:
-			if abs(element.position.x - (hole.position.x + 40))<40 && abs(element.position.y - hole.position.y)<160: 
+			if abs(element.position.x - (hole.position.x + 5))<32 && abs(element.position.y - (hole.position.y -16))<24: 
 				return element
 
 	return null
