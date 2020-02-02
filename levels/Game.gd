@@ -15,22 +15,15 @@ func _ready():
 	score_timer.set_one_shot(false)
 	score_timer.start()
 
+
 func update_score():
 	if $UBoot/Level.health <= 0:
 		return
 	if !$UBoot/Level.currentMotor.broken:
 		score += 1
-		$Score.text = "Score: " + str(score)
-	else:
-		$Score.text = "Score: " + str(score) + " (You need to repair the engine!)"
+	$Score.text = "Distance: " + str(score)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-	
 func _on_Node2D_draw():
 	var vsize = self.get_viewport_rect().size
 	var lsize = $UBoot.get_rect().size
