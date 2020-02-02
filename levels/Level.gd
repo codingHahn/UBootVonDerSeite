@@ -25,11 +25,13 @@ var currentMotor
 var max_size = null
 
 func _ready():
+	var PlayerList = get_node("/root/Global").PlayerList
 	randomize()
+	
 	var hole_timer = Timer.new()
 	add_child(hole_timer)
 	hole_timer.connect("timeout", self, "generate_new_hole")
-	hole_timer.set_wait_time(10.0)
+	hole_timer.set_wait_time((8.0 / PlayerList.size()) + 2)
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
 		
@@ -43,7 +45,6 @@ func _ready():
 	place_new_hole(Vector2(740, 102))
 	create_obstacle()
 	
-	var PlayerList = get_node("/root/Global").PlayerList
 	
 	for player in PlayerList:
 		var newPlayer = PlayerScene.instance()
