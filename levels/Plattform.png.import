@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character3.png-48fe5f09dc1ff2b1b9097cb5afaba942.stex"
+path="res://.import/Plattform.png-53366da7e8e9260213a1aaddb150dc47.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/players/Character3.png"
-dest_files=[ "res://.import/Character3.png-48fe5f09dc1ff2b1b9097cb5afaba942.stex" ]
+source_file="res://levels/Plattform.png"
+dest_files=[ "res://.import/Plattform.png-53366da7e8e9260213a1aaddb150dc47.stex" ]
 
 [params]
 

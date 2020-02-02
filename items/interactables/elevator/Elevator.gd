@@ -17,12 +17,8 @@ var tileset
 
 func _ready():
 	self.tileset = load("res://levels/tiles.tres")
-	$Door.region_enabled = true
 	self.update_texture()
-
-func initialize(location: Vector2, tiles: TileMap):
-	self.location = location
-	self.tiles = tiles
+	get_parent().set_cellv(get_parent().world_to_map(position), TILE_ELEVATOR_EMPTY)
 
 
 func interact_with_player(player):
@@ -49,9 +45,7 @@ func set_holding(item, value):
 	
 func update_texture():
 	if self.holding == null:
-		$Door.texture = self.tileset.tile_get_texture(TILE_ELEVATOR_EMPTY)
-		$Door.region_rect = self.tileset.tile_get_region(TILE_ELEVATOR_EMPTY)
+		get_parent().set_cellv(get_parent().world_to_map(position), TILE_ELEVATOR_EMPTY)
 	else:
-		$Door.texture = self.tileset.tile_get_texture(TILE_ELEVATOR_FILLED)
-		$Door.region_rect = self.tileset.tile_get_region(TILE_ELEVATOR_FILLED)
+		get_parent().set_cellv(get_parent().world_to_map(position), TILE_ELEVATOR_FILLED)
 	

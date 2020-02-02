@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/menu/goback_b_script.gd" type="Script" id=2]
@@ -8,7 +8,13 @@
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
 
-[sub_resource type="StyleBoxLine" id=2]
+[sub_resource type="InputEventAction" id=2]
+action = "stop"
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[sub_resource type="StyleBoxLine" id=4]
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
@@ -17,7 +23,7 @@ grow_begin = 0.0
 grow_end = 0.0
 thickness = 10
 
-[sub_resource type="StyleBoxLine" id=3]
+[sub_resource type="StyleBoxLine" id=5]
 content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
@@ -70,11 +76,12 @@ __meta__ = {
 }
 
 [node name="GO BACK" type="Button" parent="Background"]
-margin_left = 45.0
-margin_top = 700.0
-margin_right = 285.0
-margin_bottom = 870.0
+margin_left = 44.0
+margin_top = 730.0
+margin_right = 188.0
+margin_bottom = 871.0
 rect_pivot_offset = Vector2( 323.953, 131.269 )
+shortcut = SubResource( 3 )
 icon = ExtResource( 4 )
 flat = true
 expand_icon = true
@@ -88,8 +95,8 @@ margin_left = 543.929
 margin_top = 222.049
 margin_right = 1149.93
 margin_bottom = 366.049
-custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area = SubResource( 3 )
+custom_styles/slider = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 5 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

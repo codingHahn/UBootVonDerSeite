@@ -7,7 +7,12 @@ const TILE_LADDER = 11 # ??
 const TILE_LADDER_TOP = 36
 const TILE_LADDER_BOTTOM = 37
 #const TILE_PLAYER = 3 # ??
+
 const TILE_BACKGROUND = 14
+const TILE_WINDOW = 16
+const TILE_LIGHT = 43
+const TILE_PIPES_UP = 33
+
 const TILE_HOLE = 48
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
@@ -51,6 +56,7 @@ func _ready():
 	for player in PlayerList:
 		var newPlayer = PlayerScene.instance()
 		newPlayer.prefix = player
+		newPlayer.get_child(1).texture = load("res://characters/players/" + newPlayer.prefix + ".png")
 		newPlayer.position = get_node("SpawnPoints").get_child(int(player) - 1).position
 		newPlayer.drop_item_to = get_node("dropped_items").get_path()
 		newPlayer.level = self
@@ -114,7 +120,7 @@ func place_new_hole(pos):
 	var background_tile = $Tiles.get_cellv(cell)
 	var foreground_tile = $ForegroundTiles.get_cellv(cell)
 	
-	if background_tile == TILE_BACKGROUND && foreground_tile == TILE_NONE:
+	if self.is_hole_placable_on(background_tile) && foreground_tile == TILE_NONE:
 		var hole = load("res://items/hole/Hole.tscn");
 		var instance = hole.instance()
 		print(instance)
@@ -124,6 +130,9 @@ func place_new_hole(pos):
 		get_node(hole_holder).add_child(instance)
 
 		$ForegroundTiles.set_cellv(cell, TILE_HOLE)
+		
+func is_hole_placable_on(tile):
+	return tile == TILE_BACKGROUND || tile == TILE_WINDOW || tile == TILE_LIGHT || tile == TILE_PIPES_UP
 
 
 func calculate_health():
@@ -154,6 +163,7 @@ func _process(_delta):
 	if Input.is_action_pressed("stop"):
 		get_tree().paused = true
 		$"Panel".pause_mode = 2
+		$"Panel/ResumeGame".grab_focus()
 		
 		$"Panel".show()
 	
