@@ -137,5 +137,7 @@ func set_holding(item, value):
 
 
 func _physics_process(delta):
-	velocity.y += gravity * delta;
+	var scaled_node = self.get_parent().get_parent().get_parent()
+	velocity.y += gravity * delta
+	velocity *= scaled_node.rect_scale.length();
 	velocity = move_and_slide(velocity, Vector2.UP, true)
