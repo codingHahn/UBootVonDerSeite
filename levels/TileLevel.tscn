@@ -86,6 +86,7 @@ bump_strength = 10.0
 noise = SubResource( 7 )
 
 [sub_resource type="DynamicFontData" id=9]
+font_path = "res://ui/fonts/atwriter.ttf"
 
 [sub_resource type="DynamicFont" id=10]
 font_data = SubResource( 9 )
