@@ -91,8 +91,6 @@ func create_wrench(pos):
 	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_fire():
-	print("FIRE!")
-	print(max_size)
 	if self.max_size != null:
 		var tile_x = rand_range(0, self.max_size.x)
 		var tile_y = rand_range(0, self.max_size.y)
@@ -143,8 +141,13 @@ func calculate_health():
 			bucket.fill_bucket()
 		else:
 			dripping_holes += 1
+			
+		var fire = find_fire(hole)
+		if fire != null:
+			fire.extinguish()
 	
-	print(dripping_holes)
+	
+	
 	if health - dripping_holes > 0:
 		health -= dripping_holes
 	else:
@@ -154,6 +157,14 @@ func calculate_health():
 func find_bucket(hole):
 	for element in get_node("dropped_items").get_children():
 		if element is pickupable && element.item_type == World.Item.Bucket:
+			if abs(element.position.x - (hole.position.x + 40))<40 && abs(element.position.y - hole.position.y)<160: 
+				return element
+
+	return null
+
+func find_fire(hole):
+	for element in get_node("dropped_items").get_children():
+		if element is interactable && element.item_type == World.Item.Fire:
 			if abs(element.position.x - (hole.position.x + 40))<40 && abs(element.position.y - hole.position.y)<160: 
 				return element
 

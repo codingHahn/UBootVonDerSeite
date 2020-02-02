@@ -10,7 +10,8 @@ enum Item {
 	Toilet,
 	Wrench,
 	Motor,
-	Wheel
+	Wheel,
+	Fire
 }
 
 enum ObstacleType {
