@@ -144,7 +144,7 @@ item_type = 2
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="player_1" type="Node2D" parent="SpawnPoints"]
-position = Vector2( 182.002, 123.414 )
+position = Vector2( 142.714, 238.822 )
 
 [node name="player_2" type="Node2D" parent="SpawnPoints"]
 position = Vector2( 179.823, 237.132 )
