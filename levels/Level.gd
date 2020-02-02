@@ -8,7 +8,7 @@ const TILE_LADDER_TOP = 36
 const TILE_LADDER_BOTTOM = 37
 #const TILE_PLAYER = 3 # ??
 const TILE_BACKGROUND = 14
-const TILE_HOLE = 16
+const TILE_HOLE = 48
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 
@@ -40,6 +40,8 @@ func _ready():
 	create_toilet(Vector2(768, 414))
 	create_wrench(Vector2(140, 414))
 	create_motor(Vector2(40, 396))
+	create_wheel(Vector2(900, 120), true)
+	create_wheel(Vector2(80, 120), false)
 	
 	# test code
 	place_new_hole(Vector2(740, 102))
@@ -71,6 +73,11 @@ func create_toilet(pos):
 func create_motor(pos):
 	currentMotor = motor.new(pos)
 	get_node("dropped_items").add_child(currentMotor)
+	
+func create_wheel(pos, isUp):
+	var to_drop = wheel.new(pos, isUp)
+	to_drop.currentLevel = self
+	get_node("dropped_items").add_child(to_drop)
 
 func create_wrench(pos):
 	var to_drop = pickupable.new(pos, World.Item.Wrench)
@@ -144,3 +151,15 @@ func _on_Timer_timeout():
 
 func _on_Level_draw():
 	pass
+	
+func enableSteerUp():
+	currentMotor.steerUp = true
+
+func disableSteerUp():
+	currentMotor.steerUp = false
+	
+func enableSteerDown():
+	currentMotor.steerDown = true
+
+func disableSteerDown():
+	currentMotor.steerDown = false

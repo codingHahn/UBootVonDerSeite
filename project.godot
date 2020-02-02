@@ -43,6 +43,11 @@ _global_script_classes=[ {
 "class": "wc",
 "language": "GDScript",
 "path": "res://items/interactables/wc/Wc.gd"
+}, {
+"base": "interactable",
+"class": "wheel",
+"language": "GDScript",
+"path": "res://items/interactables/wheel/wheel.gd"
 } ]
 _global_script_class_icons={
 "Elevator": "",
@@ -51,7 +56,8 @@ _global_script_class_icons={
 "motor": "",
 "obstacle": "",
 "pickupable": "",
-"wc": ""
+"wc": "",
+"wheel": ""
 }
 
 [application]
