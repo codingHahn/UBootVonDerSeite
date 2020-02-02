@@ -1,4 +1,5 @@
 [gd_scene load_steps=22 format=2]
+
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
 [ext_resource path="res://ui/menu/start_b_pc_skript.gd" type="Script" id=3]
@@ -6,7 +7,7 @@
 [ext_resource path="res://ui/menu/player4_image_script.gd" type="Script" id=5]
 [ext_resource path="res://ui/menu/player2_image_script.gd" type="Script" id=6]
 [ext_resource path="res://ui/menu/player3_image_script.gd" type="Script" id=7]
-[ext_resource path="res://ui/menu/return_options_button.png" type="Texture" id=8]
+[ext_resource path="res://ui/menu/Return Button.png" type="Texture" id=8]
 [ext_resource path="res://ui/menu/return_from_player_select_script.gd" type="Script" id=9]
 [ext_resource path="res://characters/players/Character.png" type="Texture" id=10]
 [ext_resource path="res://ui/menu/PlayerAnimation.gd" type="Script" id=11]
@@ -37,7 +38,8 @@ tracks/0/keys = {
 [sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 4 )
-[sub_resource type="Animation" id=9]
+
+[sub_resource type="Animation" id=5]
 resource_name = "player_1_animation"
 length = 0.7
 tracks/0/type = "value"
@@ -57,7 +59,7 @@ tracks/0/keys = {
 size = 23
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 resource_name = "player_1_animation"
 length = 0.7
 tracks/0/type = "value"
@@ -73,7 +75,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "player_1_animation"
 length = 0.7
 tracks/0/type = "value"
@@ -196,7 +198,8 @@ hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_2_Panel/Player_2"]
-anims/player_1_animation = SubResource( 9 )
+anims/player_1_animation = SubResource( 5 )
+
 [node name="Player_2_Text" type="RichTextLabel" parent="Player_2_Panel"]
 margin_left = 60.5919
 margin_top = 382.592
@@ -247,7 +250,7 @@ hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_3_Panel/Player_3"]
-anims/player_1_animation = SubResource( 10 )
+anims/player_1_animation = SubResource( 7 )
 
 [node name="Player_3_Text" type="RichTextLabel" parent="Player_3_Panel"]
 margin_left = 60.5919
@@ -299,7 +302,7 @@ hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_4_Panel/Player_4"]
-anims/player_1_animation = SubResource( 11 )
+anims/player_1_animation = SubResource( 8 )
 
 [node name="Player_4_Text" type="RichTextLabel" parent="Player_4_Panel"]
 margin_left = 60.5919
@@ -325,10 +328,10 @@ __meta__ = {
 }
 
 [node name="return_from_player_select" type="Button" parent="."]
-margin_left = 55.0
-margin_top = 725.0
-margin_right = 192.0
-margin_bottom = 841.0
+margin_left = 45.0
+margin_top = 700.0
+margin_right = 285.0
+margin_bottom = 870.0
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true
