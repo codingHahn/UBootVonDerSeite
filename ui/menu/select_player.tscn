@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
@@ -17,6 +17,10 @@
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 40
+font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 
@@ -154,24 +158,25 @@ __meta__ = {
 }
 
 [node name="UBOOTREPAIR" type="RichTextLabel" parent="Background"]
-margin_left = 547.058
-margin_top = 30.6765
-margin_right = 1077.06
-margin_bottom = 129.676
+margin_left = 503.0
+margin_top = 32.0
+margin_right = 1143.0
+margin_bottom = 131.0
 size_flags_horizontal = 0
 size_flags_vertical = 2
 tab_size = 3
-text = "U BOOT REPAIR"
+text = "PLAYER SELECTION"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="start_button_pc" type="Button" parent="Background"]
-margin_left = 640.123
-margin_top = 775.443
-margin_right = 948.123
-margin_bottom = 866.443
-text = "START"
+margin_left = 664.0
+margin_top = 766.0
+margin_right = 972.0
+margin_bottom = 859.0
+custom_fonts/font = SubResource( 17 )
+text = "START GAME"
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
