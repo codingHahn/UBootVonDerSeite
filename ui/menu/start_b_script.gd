@@ -1,10 +1,10 @@
 extends Button
 
-var fast_mode = false
+export var fast_mode = false
 
 func _ready():
 	if (fast_mode):
-		_on_START_pressed()
+		get_tree().change_scene("res://levels/Game.tscn")
 	pass
 
 func _on_START_pressed():
