@@ -20,6 +20,8 @@ export (NodePath) onready var tilemap
 var holding
 var holdingValue
 
+var disable_interact = false
+
 const World = preload("res://levels/World.gd")
 
 func _ready():
@@ -43,6 +45,11 @@ func _process(_delta):
 	if Input.is_action_pressed(prefix + "_down") and is_on_ladder:
 		velocity.y = speed
 	
+	play_animation_danke_michael_ismir_egal()
+	handle_interaction()
+	handle_drop()
+
+func play_animation_danke_michael_ismir_egal():
 	if velocity.x == 0:
 		$Animation.play("idle")
 	elif velocity.x > 0:
@@ -50,18 +57,27 @@ func _process(_delta):
 	else:
 		$Animation.play("walk_left")
 
+func handle_interaction():
 	if Input.is_action_pressed(prefix + "_interact"):
-		var areas = $InteractableArea.get_overlapping_areas()
-		
-		if holding == null:
-			for element in areas:
-				if element is pickupable:
-					element.call("interact_with_player", self)
-		
-		for element in areas:
-			if (element is pickupable) == false && element.has_method("interact_with_player"):
-				element.call("interact_with_player", self)
+		if !disable_interact:
+			var areas = $InteractableArea.get_overlapping_areas()
 			
+			for element in areas:
+				if (element is pickupable) == false && element.has_method("interact_with_player"):
+					element.call("interact_with_player", self)
+					disable_interact = true
+					return		
+			
+			if holding == null:
+				for element in areas:
+					if element is pickupable:
+						element.call("interact_with_player", self)
+						disable_interact = true
+						return
+	else:
+		disable_interact = false
+
+func handle_drop():
 	if Input.is_action_pressed(prefix + "_drop_item"):
 		if holding != null:
 			var itemValue = self.get_item_value()
@@ -72,7 +88,7 @@ func _process(_delta):
 				var to_drop = pickupable.new(self.position + $Holding.position, item)
 				get_node(drop_item_to).add_child(to_drop)
 		self.set_holding(null, null)
-		
+	
 func can_pickup():
 	return holding == null
 
