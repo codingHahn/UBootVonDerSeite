@@ -24,17 +24,17 @@ constant = Color( 0, 0.207214, 0.757812, 1 )
 [sub_resource type="VisualShaderNodeScalarConstant" id=4]
 constant = 0.2
 
-[sub_resource type="VisualShaderNodeInput" id=9]
+[sub_resource type="VisualShaderNodeInput" id=5]
 input_name = "vertex"
 
-[sub_resource type="VisualShaderNodeVectorOp" id=10]
+[sub_resource type="VisualShaderNodeVectorOp" id=6]
 default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 2048, 1900, 0 ) ]
 operator = 7
 
-[sub_resource type="VisualShaderNodeVec3Uniform" id=11]
+[sub_resource type="VisualShaderNodeVec3Uniform" id=7]
 uniform_name = "height"
 
-[sub_resource type="VisualShader" id=5]
+[sub_resource type="VisualShader" id=8]
 code = "shader_type canvas_item;
 uniform vec3 height;
 
@@ -92,11 +92,11 @@ graph_offset = Vector2( -115.167, 0 )
 mode = 1
 flags/light_only = false
 nodes/vertex/0/position = Vector2( 660, 100 )
-nodes/vertex/3/node = SubResource( 9 )
+nodes/vertex/3/node = SubResource( 5 )
 nodes/vertex/3/position = Vector2( -100, 220 )
-nodes/vertex/4/node = SubResource( 10 )
+nodes/vertex/4/node = SubResource( 6 )
 nodes/vertex/4/position = Vector2( 200, 120 )
-nodes/vertex/5/node = SubResource( 11 )
+nodes/vertex/5/node = SubResource( 7 )
 nodes/vertex/5/position = Vector2( -100, 100 )
 nodes/vertex/connections = PoolIntArray( 4, 0, 0, 0, 3, 0, 4, 0, 5, 0, 4, 1 )
 nodes/fragment/0/position = Vector2( 1020, 20 )
@@ -110,21 +110,17 @@ nodes/fragment/5/node = SubResource( 4 )
 nodes/fragment/5/position = Vector2( 340, 240 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 3, 1, 4, 0, 3, 0, 3, 0, 0, 0, 5, 0, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 8 )
 shader_param/height = null
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=10]
 font_path = "res://ui/fonts/atwriter.ttf"
 
-[sub_resource type="DynamicFont" id=8]
-font_data = SubResource( 7 )
-
-[sub_resource type="InputEventAction" id=11]
-action = "stop"
+[sub_resource type="DynamicFont" id=11]
+font_data = SubResource( 10 )
 
 [sub_resource type="ShortCut" id=12]
-shortcut = SubResource( 11 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
@@ -175,27 +171,29 @@ position = Vector2( 746.308, 105.458 )
 [node name="player_4" type="Node2D" parent="SpawnPoints"]
 position = Vector2( 747.695, 233.939 )
 
-[node name="PlayerRoot" type="Node2D" parent="."]
-
-[node name="holes" type="Node2D" parent="."]
-
-[node name="dropped_items" type="Node2D" parent="."]
-
 [node name="risingwater" type="Polygon2D" parent="."]
-material = SubResource( 6 )
+material = SubResource( 9 )
 position = Vector2( 18.3649, 428.813 )
 scale = Vector2( 0.452406, -0.229792 )
 offset = Vector2( 58.9792, 210.291 )
 texture = ExtResource( 2 )
-polygon = PoolVector2Array( -30.8787, 1475.1, 7.02432, 1510.45, 42.9324, 1537.94, 84.8252, 1553.65, 128.713, 1565.44, 178.585, 1573.29, 1710.66, 1573.29, 1754.55, 1573.29, 1810.41, 1565.44, 1862.28, 1545.8, 1910.15, 1514.38, 1942.07, 1486.89, 1958.03, 1451.54, 1973.99, 1408.34, 1981.97, 1353.35, 1979.98, -9.4823, 1972, -68.3944, 1952.05, -107.669, 1918.13, -143.017, 1860.28, -182.291, 1798.44, -205.856, 1728.62, -209.784, 180.58, -205.856, 112.754, -198.001, 52.9069, -178.364, 5.02943, -146.944, -34.8685, -91.9594, -54.8174, -33.0471, -58.8072, 18.01, -54.8174, 1333.71, -54.8174, 1384.77, -46.8379, 1435.83 )
+polygon = PoolVector2Array( -30.8787, 1475.1, -9.76247, 1501.19, 12.2033, 1522.82, 41.4909, 1540.44, 81.5858, 1559.66, 124.297, 1570.87, 177.991, 1578.07, 1707.22, 1578.01, 1761.48, 1575.78, 1781.59, 1572.71, 1810.38, 1567.52, 1836.95, 1561.12, 1863.71, 1549.25, 1900.27, 1528.1, 1924.39, 1508.44, 1943.61, 1488.4, 1963.42, 1456.91, 1970.84, 1439, 1975.92, 1417.21, 1981.89, 1388.69, 1982.46, 1352.89, 1982.56, -8.63902, 1979.24, -42.2651, 1972, -68.3944, 1950.77, -113.254, 1921.83, -146.88, 1897.16, -166.495, 1861.1, -187.979, 1798.95, -208.528, 1731.1, -214.132, 183.913, -213.198, 137.418, -209.462, 112.672, -203.095, 92.5281, -198.757, 68.2921, -190.082, 29.5775, -170.252, 4.08251, -149.183, -24.8748, -120.059, -37.7797, -97.7502, -48.1665, -72.3437, -58.5534, -34.5434, -61.4686, 21.2307, -59.3888, 1326.61, -59.3888, 1378.67, -55.7278, 1406.69, -47.9991, 1438.73 )
 script = ExtResource( 6 )
 
 [node name="Bounds" type="TextureRect" parent="risingwater"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 2041.0
 margin_bottom = 1785.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PlayerRoot" type="Node2D" parent="."]
+
+[node name="holes" type="Node2D" parent="."]
+
+[node name="dropped_items" type="Node2D" parent="."]
 
 [node name="DamageTimer" type="Timer" parent="."]
 process_mode = 0
@@ -209,7 +207,7 @@ margin_left = 25.5199
 margin_top = 27.4592
 margin_right = 132.52
 margin_bottom = 67.4592
-custom_fonts/mono_font = SubResource( 8 )
+custom_fonts/mono_font = SubResource( 11 )
 custom_colors/default_color = Color( 0.568627, 1, 0.0941176, 1 )
 text = "YOU DEAD"
 __meta__ = {
