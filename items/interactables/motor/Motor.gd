@@ -15,6 +15,7 @@ func _ready():
 	self.set_collision_mask(3)
 
 func _init(position: Vector2):
+	name = "motor"
 	var item = World.Item.Motor
 	self.position = position
 	self.item_type = item

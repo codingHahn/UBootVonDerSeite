@@ -25,22 +25,26 @@ var currentMotor
 var max_size = null
 
 func _ready():
+	var PlayerList = get_node("/root/Global").PlayerList
 	randomize()
+	
 	var hole_timer = Timer.new()
 	add_child(hole_timer)
 	hole_timer.connect("timeout", self, "generate_new_hole")
-	hole_timer.set_wait_time(10.0)
+	hole_timer.set_wait_time((8.0 / PlayerList.size()) + 2)
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
-	
-	place_new_hole(Vector2(740, 102))
+		
 	create_bucket(Vector2(280, 248), 36)
 	create_bucket(Vector2(768, 120), 0)
 	create_toilet(Vector2(768, 414))
 	create_wrench(Vector2(140, 414))
 	create_motor(Vector2(40, 396))
 	
-	var PlayerList = get_node("/root/Global").PlayerList
+	# test code
+	place_new_hole(Vector2(740, 102))
+	create_obstacle()
+	
 	
 	for player in PlayerList:
 		var newPlayer = PlayerScene.instance()
@@ -55,7 +59,9 @@ func create_bucket(pos, fillsize):
 	get_node("dropped_items").add_child(to_drop)
 
 func create_obstacle():
-	var to_drop = obstacle.new(Vector2(800, 100), World.ObstacleType.Car)
+	var to_drop = obstacle.new(Vector2(2000, randi() % 800), World.ObstacleType.Car)
+	to_drop.currentMotor = currentMotor
+	to_drop.currentLevel = self
 	get_node("obstacles").add_child(to_drop)
 
 func create_toilet(pos):

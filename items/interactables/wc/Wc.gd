@@ -29,9 +29,9 @@ func unbreakWc():
 	updateIcon(World.load_texture_for_item(World.Item.Toilet))
 
 func interact_with_player(player):
-	if player.holding == World.Item.Bucket && broken == false:
-		player.holdingValue = 0
-		if randi()%101>85:
+	if player.holding == World.Item.Bucket && broken == false && self.is_interaction_allowed_again() && player.holdingValue > 0:
+		player.holdingValue = 0 
+		if rand_range(0,100)>75:
 			breakWc()
 	if player.holding == World.Item.Wrench:
 		unbreakWc()
