@@ -32,10 +32,7 @@ onready var timer = Timer.new()
 func _ready():
 	
 	if icon != null:
-		texture.texture = icon
-		var sx = World.ItemSize.x / texture.texture.get_size().x
-		var sy = World.ItemSize.y / texture.texture.get_size().y
-		texture.scale = Vector2(sx, sy)
+		updateIcon(icon)
 		add_child(texture)
 	# Initializes the tooltip texture
 	tooltip.texture = tooltip_texture
@@ -53,7 +50,13 @@ func _ready():
 	timer.connect("timeout", self, "_on_tooltip_timeout")
 	add_child(timer)
 	
-	
+func updateIcon(ico):
+	icon = ico
+	texture.texture = icon
+	if icon!=null:
+		var sx = World.ItemSize.x / texture.texture.get_size().x
+		var sy = World.ItemSize.y / texture.texture.get_size().y
+		texture.scale = Vector2(sx, sy)
 	
 func _physics_process(_delta):
 	# Check for overlapping players and display the tooltip to them

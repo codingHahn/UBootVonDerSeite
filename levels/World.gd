@@ -7,7 +7,8 @@ enum Item {
 	Bucket,
 	Bedsheet,
 	Toilet,
-	Wrench
+	Wrench,
+	Motor
 }
 
 static func load_texture_for_item(item):
@@ -22,5 +23,7 @@ static func load_texture_for_item(item):
 		Item.Toilet:
 			asset = "wc/wc.png"
 		Item.Wrench:
-			asset = "wrench/wrench.png"
+			asset = "wrench/wrench.png"	
+		Item.Motor:
+			asset = "motor/motor.png"
 	return load("res://items/interactables/" + asset)

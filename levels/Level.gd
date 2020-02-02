@@ -20,6 +20,8 @@ export (NodePath) onready var PlayerRoot
 
 export (int) var health = 1000
 
+var currentMotor
+
 var max_size = null
 
 func _ready():
@@ -36,6 +38,7 @@ func _ready():
 	create_bucket(Vector2(768, 120), 0)
 	create_toilet(Vector2(768, 414))
 	create_wrench(Vector2(140, 414))
+	create_motor(Vector2(40, 396))
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
@@ -47,13 +50,17 @@ func _ready():
 		newPlayer.level = self
 		get_node(PlayerRoot).add_child(newPlayer)
 
-func create_bucket(pos, fillsize): # fillsize in litre (10l max)
+func create_bucket(pos, fillsize):
 	var to_drop = bucket.new(pos, fillsize)
 	get_node("dropped_items").add_child(to_drop)
 
 func create_toilet(pos):
 	var to_drop = wc.new(pos)
 	get_node("dropped_items").add_child(to_drop)
+
+func create_motor(pos):
+	currentMotor = motor.new(pos)
+	get_node("dropped_items").add_child(currentMotor)
 
 func create_wrench(pos):
 	var to_drop = pickupable.new(pos, World.Item.Wrench)
@@ -118,7 +125,8 @@ func _process(_delta):
 func _on_Timer_timeout():
 	print("Decreased health")
 	calculate_health()
-
+	if randi()%101>95 && currentMotor.broken == false:
+		currentMotor.breakMotor()
 
 func _on_Level_draw():
 	pass

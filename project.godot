@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://items/interactable.gd"
 }, {
 "base": "interactable",
+"class": "motor",
+"language": "GDScript",
+"path": "res://items/interactables/motor/Motor.gd"
+}, {
+"base": "interactable",
 "class": "pickupable",
 "language": "GDScript",
 "path": "res://items/pickupable.gd"
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "bucket": "",
 "interactable": "",
+"motor": "",
 "pickupable": "",
 "wc": ""
 }

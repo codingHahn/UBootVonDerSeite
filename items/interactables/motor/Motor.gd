@@ -1,5 +1,5 @@
 extends interactable
-class_name wc
+class_name motor
 
 onready var collision = CollisionShape2D.new()
 onready var shape = CircleShape2D.new()
@@ -15,23 +15,20 @@ func _ready():
 	self.set_collision_mask(3)
 
 func _init(position: Vector2):
-	var item = World.Item.Toilet
+	var item = World.Item.Motor
 	self.position = position
 	self.item_type = item
 	self.icon = World.load_texture_for_item(item)
 
-func breakWc():
+func breakMotor():
+	print("MOTOR BROKEN")
 	broken = true
-	updateIcon(load("res://items/interactables/wc/BrokenWc.png"))
+	updateIcon(load("res://items/interactables/motor/motorBroken.png"))
 
-func unbreakWc():
+func unbreakMotor():
 	broken = false
-	updateIcon(World.load_texture_for_item(World.Item.Toilet))
+	updateIcon(World.load_texture_for_item(World.Item.Motor))
 
 func interact_with_player(player):
-	if player.holding == World.Item.Bucket && broken == false:
-		player.holdingValue = 0
-		if randi()%101>85:
-			breakWc()
 	if player.holding == World.Item.Wrench:
-		unbreakWc()
+		unbreakMotor()
