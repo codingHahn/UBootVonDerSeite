@@ -34,6 +34,7 @@ func _ready():
 	self.add_to_group("players")
 
 	asp = AudioStreamPlayer.new()
+	asp.set_bus("Soundeffects")
 	add_child(asp)
 	
 func _process(_delta):
