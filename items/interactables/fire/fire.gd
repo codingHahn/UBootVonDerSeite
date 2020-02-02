@@ -36,11 +36,8 @@ func updateIconState():
 
 func interact_with_player(player):
 	if player.holding == World.Item.Bucket:
-		if player.holdingValue > 70:
-			fireLevel -= 3
-		else:
-			if player.holdingValue > 30:
-				fireLevel -= 1
+		var redLevel = player.holdingValue / 20
+		fireLevel -= redLevel
 		player.holdingValue = 0
 		
 	if fireLevel <= 0:

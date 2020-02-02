@@ -173,10 +173,12 @@ func _process(_delta):
 
 func _on_Timer_timeout():
 	calculate_health()
-	if randi()%101>96 && currentMotor.broken == false:
+	if randi()%101>98 && currentMotor.broken == false:
 		currentMotor.breakMotor()
-	if randi()%101>95:
+	if randi()%101>98:
 		create_obstacle()
+	if randi()%101>95:
+		generate_new_fire()
 
 func _on_Level_draw():
 	pass
