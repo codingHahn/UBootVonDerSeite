@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/return_options_button.png-1b9d3cb4de590dd57493406b77900678.stex"
+path="res://.import/Return Button.png-9d8ed531202ee80416bed51469bb33f2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/menu/return_options_button.png"
-dest_files=[ "res://.import/return_options_button.png-1b9d3cb4de590dd57493406b77900678.stex" ]
+source_file="res://ui/menu/Return Button.png"
+dest_files=[ "res://.import/Return Button.png-9d8ed531202ee80416bed51469bb33f2.stex" ]
 
 [params]
 
