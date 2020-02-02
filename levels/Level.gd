@@ -31,9 +31,9 @@ func _ready():
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
 	
-	place_new_hole(Vector2(140, 102))
-	create_bucket(Vector2(24, 42), 7)
-	create_bucket(Vector2(168, 102), 2)
+	place_new_hole(Vector2(640, 102))
+	create_bucket(Vector2(280, 248), 36)
+	create_bucket(Vector2(668, 120), 0)
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
