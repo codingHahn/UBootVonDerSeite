@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://levels/ResumeGame.gd" type="Script" id=8]
 [ext_resource path="res://levels/RestartGame.gd" type="Script" id=9]
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://levels/BackTOMenu.gd" type="Script" id=12]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -95,6 +97,20 @@ font_path = "res://ui/fonts/atwriter.ttf"
 
 [sub_resource type="DynamicFont" id=10]
 font_data = SubResource( 9 )
+
+[sub_resource type="Theme" id=11]
+
+[sub_resource type="DynamicFont" id=12]
+size = 150
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 70
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 80
+font_data = ExtResource( 11 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
@@ -191,9 +207,9 @@ __meta__ = {
 }
 
 [node name="ResumeGame" type="Button" parent="Panel"]
-margin_left = 430.958
+margin_left = 433.747
 margin_top = 248.984
-margin_right = 1089.96
+margin_right = 1092.75
 margin_bottom = 457.984
 custom_fonts/font = ExtResource( 10 )
 text = "Resume"
@@ -222,6 +238,56 @@ margin_bottom = 954.466
 custom_fonts/font = ExtResource( 10 )
 text = "Back To Main Menu"
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gameoverPanel" type="Panel" parent="."]
+visible = false
+margin_left = 13.4115
+margin_top = -352.736
+margin_right = 1620.41
+margin_bottom = 899.264
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gameoverPanel"]
+margin_left = 294.238
+margin_top = 182.167
+margin_right = 1305.24
+margin_bottom = 392.167
+theme = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 12 )
+meta_underlined = false
+tab_size = 1
+text = " GAME OVER"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="gameoverPanel"]
+margin_left = 471.335
+margin_top = 498.499
+margin_right = 1287.33
+margin_bottom = 585.499
+custom_fonts/normal_font = SubResource( 14 )
+tab_size = 1
+text = "Score: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackTOMenu" type="Button" parent="gameoverPanel"]
+margin_left = 443.25
+margin_top = 785.207
+margin_right = 1100.25
+margin_bottom = 992.207
+custom_fonts/font = SubResource( 13 )
+text = "Back To Menu"
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

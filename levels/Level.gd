@@ -113,7 +113,8 @@ func calculate_health():
 		health -= dripping_holes
 	else:
 		health = 0
-		$"RichTextLabel".show()
+		$"gameoverPanel".show()
+		$"gameoverPanel/RichTextLabel2".sha1_text("../../Score")
 
 func find_bucket(hole):
 	for element in get_node("dropped_items").get_children():
