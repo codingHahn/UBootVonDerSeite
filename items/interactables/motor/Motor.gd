@@ -4,6 +4,8 @@ class_name motor
 onready var collision = CollisionShape2D.new()
 onready var shape = CircleShape2D.new()
 var broken
+var steerUp
+var steerDown
 
 func _ready():
 	shape.radius = World.ItemSize.length() / 2

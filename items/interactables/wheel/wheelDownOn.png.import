@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character3.png-48fe5f09dc1ff2b1b9097cb5afaba942.stex"
+path="res://.import/wheelDownOn.png-cd29daa735dcacf0eb4acd647013ede2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/players/Character3.png"
-dest_files=[ "res://.import/Character3.png-48fe5f09dc1ff2b1b9097cb5afaba942.stex" ]
+source_file="res://items/interactables/wheel/wheelDownOn.png"
+dest_files=[ "res://.import/wheelDownOn.png-cd29daa735dcacf0eb4acd647013ede2.stex" ]
 
 [params]
 
