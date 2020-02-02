@@ -33,10 +33,11 @@ func _ready():
 	hole_timer.set_one_shot(false)
 	hole_timer.start()
 	
-	place_new_hole(Vector2(640, 102))
+	place_new_hole(Vector2(740, 102))
 	create_bucket(Vector2(280, 248), 36)
-	create_bucket(Vector2(668, 120), 0)
+	create_bucket(Vector2(768, 120), 0)
 	create_toilet(Vector2(768, 414))
+	create_wrench(Vector2(140, 414))
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
@@ -89,6 +90,10 @@ func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 
 func create_toilet(pos):
 	var to_drop = wc.new(pos)
+	get_node("dropped_items").add_child(to_drop)
+
+func create_wrench(pos):
+	var to_drop = pickupable.new(pos, World.Item.Wrench)
 	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_hole():
