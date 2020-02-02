@@ -1,8 +1,10 @@
 extends HSlider
 
-onready var controller = $"/root/Global/AudioController"
+onready var controller = $"/root/Global/AudioManager"
 
 func _ready():
-	connect("value_changed", controller, "_on_volume_changed")
-	controller.set_bus("Music")
-	value = controller.volume_db * 2 + 80
+	connect("value_changed", controller, "_on_music_slider_changed")
+	value = controller.get_music_volume()
+	
+	
+

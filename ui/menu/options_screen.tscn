@@ -63,6 +63,8 @@ margin_right = 1092.53
 margin_bottom = 342.132
 custom_styles/slider = SubResource( 2 )
 custom_styles/grabber_area = SubResource( 3 )
+min_value = -80.0
+max_value = 0.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

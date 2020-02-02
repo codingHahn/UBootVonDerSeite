@@ -20,6 +20,9 @@ export (NodePath) onready var PlayerRoot
 
 export (int) var health = 1000
 
+var music_stage_2 = false
+var music_stage_3 = false
+
 var currentMotor
 
 var max_size = null
@@ -111,6 +114,14 @@ func calculate_health():
 	print(dripping_holes)
 	if health - dripping_holes > 0:
 		health -= dripping_holes
+		if(health < 600 && health >= 300 && !music_stage_2):
+			music_stage_2 = true
+			music_stage_3 = false
+			$"/root/Global/AudioManager".call("_music_stage_2")
+		if(health < 300 && health <= 600  && !music_stage_3):
+			music_stage_3 = true
+			music_stage_2 = false
+			$"/root/Global/AudioManager".call("_music_stage_3")
 	else:
 		health = 0
 		$"RichTextLabel".show()
