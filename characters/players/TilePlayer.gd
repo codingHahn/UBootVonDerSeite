@@ -52,9 +52,15 @@ func _process(_delta):
 
 	if Input.is_action_pressed(prefix + "_interact"):
 		var areas = $InteractableArea.get_overlapping_areas()
-		if areas.size() > 0 && areas[0].has_method("interact_with_player"):
-			print("Interacting with ", areas[0]);
-			areas[0].call("interact_with_player", self)
+		
+		if holding == null:
+			for element in areas:
+				if element is pickupable:
+					element.call("interact_with_player", self)
+		
+		for element in areas:
+			if (element is pickupable) == false && element.has_method("interact_with_player"):
+				element.call("interact_with_player", self)
 			
 	if Input.is_action_pressed(prefix + "_drop_item"):
 		if holding != null:
