@@ -8,7 +8,7 @@ const TILE_LADDER_TOP = 36
 const TILE_LADDER_BOTTOM = 37
 #const TILE_PLAYER = 3 # ??
 const TILE_BACKGROUND = 14
-const TILE_HOLE = 16
+const TILE_HOLE = 48
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 
