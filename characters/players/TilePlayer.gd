@@ -29,8 +29,10 @@ func _ready():
 
 	
 func _process(_delta):
+	var has_disabled_gravity = is_on_ladder and holding == null
+
 	velocity.x = 0
-	if is_on_ladder:
+	if has_disabled_gravity:
 		gravity = 0
 		velocity.y = 0
 	else:
@@ -40,9 +42,9 @@ func _process(_delta):
 		velocity.x = -speed
 	if Input.is_action_pressed(prefix + "_right"):
 		velocity.x = speed
-	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or is_on_ladder):
+	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or has_disabled_gravity):
 		velocity.y = -speed * 2
-	if Input.is_action_pressed(prefix + "_down") and is_on_ladder:
+	if Input.is_action_pressed(prefix + "_down") and has_disabled_gravity:
 		velocity.y = speed
 	
 	play_animation_danke_michael_ismir_egal()
