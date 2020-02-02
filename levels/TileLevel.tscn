@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://levels/Button2.gd" type="Script" id=7]
 [ext_resource path="res://levels/ResumeGame.gd" type="Script" id=8]
 [ext_resource path="res://levels/RestartGame.gd" type="Script" id=9]
+[ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=10]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -172,10 +173,11 @@ __meta__ = {
 }
 
 [node name="ResumeGame" type="Button" parent="Panel"]
-margin_left = 431.958
+margin_left = 430.958
 margin_top = 248.984
-margin_right = 1090.96
+margin_right = 1089.96
 margin_bottom = 457.984
+custom_fonts/font = ExtResource( 10 )
 text = "Resume"
 script = ExtResource( 8 )
 __meta__ = {
@@ -183,10 +185,11 @@ __meta__ = {
 }
 
 [node name="RestartGame" type="Button" parent="Panel"]
-margin_left = 433.714
+margin_left = 430.714
 margin_top = 520.028
-margin_right = 1092.71
+margin_right = 1089.71
 margin_bottom = 729.028
+custom_fonts/font = ExtResource( 10 )
 text = "Restart"
 script = ExtResource( 9 )
 __meta__ = {
@@ -194,10 +197,11 @@ __meta__ = {
 }
 
 [node name="BackToMainMenu" type="Button" parent="Panel"]
-margin_left = 433.594
+margin_left = 430.594
 margin_top = 745.466
-margin_right = 1092.59
+margin_right = 1089.59
 margin_bottom = 954.466
+custom_fonts/font = ExtResource( 10 )
 text = "Back To Main Menu"
 script = ExtResource( 7 )
 __meta__ = {
