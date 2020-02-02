@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hintergrund_32Bars_2.wav-dfdb9893d52a9c55d8b99ea609644904.sample"
+
+[deps]
+
+source_file="res://Hintergrund_32Bars_2.wav"
+dest_files=[ "res://.import/Hintergrund_32Bars_2.wav-dfdb9893d52a9c55d8b99ea609644904.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
