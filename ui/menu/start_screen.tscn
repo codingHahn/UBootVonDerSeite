@@ -1,16 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/menu/options_b_script.gd" type="Script" id=1]
 [ext_resource path="res://ui/menu/start_b_script.gd" type="Script" id=2]
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ui/by-sa.png" type="Texture" id=4]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 100
-font_data = ExtResource( 4 )
 
 [node name="START SCREEN" type="Control"]
 anchor_right = 1.0
@@ -22,34 +18,33 @@ __meta__ = {
 }
 
 [node name="Background" type="Panel" parent="."]
+margin_top = 1.10803
 margin_right = 1600.0
-margin_bottom = 900.0
+margin_bottom = 901.108
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UBOOTREPAIR" type="RichTextLabel" parent="Background"]
-margin_left = 396.0
-margin_top = 89.0
-margin_right = 1232.0
-margin_bottom = 208.0
+margin_left = 476.0
+margin_top = 101.0
+margin_right = 1089.0
+margin_bottom = 200.0
 size_flags_horizontal = 0
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 2 )
 tab_size = 3
 text = "UNDER PRESSURE"
-scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PLAY" type="Button" parent="Background"]
+[node name="START" type="Button" parent="Background"]
 margin_left = 568.123
 margin_top = 351.675
 margin_right = 1003.12
 margin_bottom = 525.675
 rect_pivot_offset = Vector2( 323.953, 131.269 )
-text = "PLAY"
+text = "START"
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,5 +61,37 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Background/PLAY" to="Background/PLAY" method="_on_START_pressed"]
+
+[node name="CCLabel" type="RichTextLabel" parent="Background"]
+margin_left = 1322.76
+margin_top = 665.379
+margin_right = 1556.76
+margin_bottom = 764.379
+size_flags_horizontal = 0
+size_flags_vertical = 2
+tab_size = 3
+text = "Assets:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CCLabel2" type="RichTextLabel" parent="Background"]
+margin_left = 48.948
+margin_top = 665.379
+margin_right = 444.948
+margin_bottom = 838.379
+size_flags_horizontal = 0
+size_flags_vertical = 2
+tab_size = 3
+text = "Code:
+MIT License"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( 1444.91, 804.149 )
+scale = Vector2( 0.461186, 0.461186 )
+texture = ExtResource( 4 )
+[connection signal="pressed" from="Background/START" to="Background/START" method="_on_START_pressed"]
 [connection signal="pressed" from="Background/OPTIONS" to="Background/OPTIONS" method="_on_OPTIONS_pressed"]

@@ -52,9 +52,9 @@ func _ready():
 	create_wheel(Vector2(80, 120), false)
 	
 	# test code
-	place_new_hole(Vector2(740, 102))
-	create_fire(Vector2(300, 128))
-	create_obstacle()
+#	place_new_hole(Vector2(740, 102))
+#	create_fire(Vector2(300, 128))
+#	create_obstacle()
 		
 	for player in PlayerList:
 		var newPlayer = PlayerScene.instance()
@@ -81,7 +81,8 @@ func create_toilet(pos):
 	get_node("dropped_items").add_child(to_drop)
 
 func create_motor(pos):
-	currentMotor = motor.new(pos)
+	currentMotor = motor.new(pos, $BrokenEnginePlayer)
+	currentMotor.connect("", self, "generate_new_hole")
 	get_node("dropped_items").add_child(currentMotor)
 	
 func create_wheel(pos, isUp):
@@ -94,8 +95,6 @@ func create_wrench(pos):
 	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_fire():
-	print("FIRE!")
-	print(max_size)
 	if self.max_size != null:
 		var tile_x = rand_range(0, self.max_size.x)
 		var tile_y = rand_range(0, self.max_size.y)
@@ -145,9 +144,13 @@ func calculate_health():
 		if bucket != null && !bucket.is_bucket_full():
 			bucket.fill_bucket()
 		else:
-			dripping_holes += 100
+			dripping_holes += 1
+			
+		var fire = find_fire(hole)
+		if fire != null:
+			fire.extinguish()
+
 	
-	print(dripping_holes)
 	if health - dripping_holes > 0:
 		health -= dripping_holes
 		if(health < 600 && health >= 300 && !music_stage_2):
@@ -170,6 +173,14 @@ func find_bucket(hole):
 				return element
 
 	return null
+
+func find_fire(hole):
+	for element in get_node("dropped_items").get_children():
+		if element is interactable && element.item_type == World.Item.Fire:
+			if abs(element.position.x - (hole.position.x + 5))<32 && abs(element.position.y - (hole.position.y -16))<24: 
+				return element
+
+	return null
 	
 func _process(_delta):
 	if Input.is_action_pressed("stop"):
@@ -189,7 +200,7 @@ func _on_Timer_timeout():
 		currentMotor.breakMotor()
 	if randi()%101>98:
 		create_obstacle()
-	if randi()%101>95:
+	if randi()%101>99:
 		generate_new_fire()
 
 func _on_Level_draw():
