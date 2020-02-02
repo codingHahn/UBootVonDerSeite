@@ -5,6 +5,7 @@ const World = preload("res://levels/World.gd")
 
 var obstacle_type
 var texture
+var currentMotor
 
 func _init(position: Vector2, item):
 	self.position = position
@@ -17,4 +18,5 @@ func _init(position: Vector2, item):
 	add_child(texture)
 
 func _physics_process(_delta):
-	position.x -= 10*_delta
+	if currentMotor != null && currentMotor.broken == false:
+		position.x -= 10*_delta
