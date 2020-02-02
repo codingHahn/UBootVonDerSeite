@@ -1,3 +1,4 @@
+extends Node2D
 
 const ItemSize = Vector2(32, 32)
 
