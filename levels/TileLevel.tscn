@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -10,6 +10,13 @@
 [ext_resource path="res://levels/ResumeGame.gd" type="Script" id=8]
 [ext_resource path="res://levels/RestartGame.gd" type="Script" id=9]
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://levels/background_1.png" type="Texture" id=11]
+[ext_resource path="res://levels/background_2.png" type="Texture" id=12]
+[ext_resource path="res://levels/background_2.gd" type="Script" id=13]
+[ext_resource path="res://levels/background_3.gd" type="Script" id=14]
+[ext_resource path="res://levels/background_3.png" type="Texture" id=15]
+[ext_resource path="res://levels/background_4.png" type="Texture" id=16]
+[ext_resource path="res://levels/background_4.gd" type="Script" id=17]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -213,6 +220,29 @@ text = "YOU DEAD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="background_1" type="Sprite" parent="."]
+position = Vector2( 815.365, 237.005 )
+scale = Vector2( 1.03124, 1.04039 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="background_2" type="Sprite" parent="."]
+position = Vector2( 1649.36, 235.319 )
+scale = Vector2( 1.03124, 1.04039 )
+z_index = -1
+texture = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="background_3" type="Sprite" parent="."]
+position = Vector2( 2401.58, 224.915 )
+texture = ExtResource( 15 )
+script = ExtResource( 14 )
+
+[node name="background_4" type="Sprite" parent="."]
+position = Vector2( 3201.71, 247.038 )
+texture = ExtResource( 16 )
+script = ExtResource( 17 )
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
