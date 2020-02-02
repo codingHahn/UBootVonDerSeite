@@ -18,6 +18,4 @@ func _process(_delta):
 	var percentage_destroyed = (max_health - $"../../Level".health) / max_health
 	var height = bounds.y * percentage_destroyed
 	
-	print(self.material.get_shader_param("height"), " ", bounds.y, " ", percentage_destroyed)
-	
 	self.material.set_shader_param("height", Vector3(bounds.x, height, 4096))
