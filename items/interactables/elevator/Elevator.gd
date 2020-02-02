@@ -19,13 +19,14 @@ func initialize(location: Vector2, tiles: TileMap):
 
 func interact_with_player(player):
 	print("Player wants to interact ", player)
-	if holding == null:
-		var value = player.get_item_value()
-		var item = player.take_item()
-		set_holding(item, value)
-	elif player.can_pickup():
-		player.set_holding(holding, holdingValue)
-		self.set_holding(null, null)
+	if self.is_interaction_allowed_again():
+		if holding == null:
+			var value = player.get_item_value()
+			var item = player.take_item()
+			set_holding(item, value)
+		elif player.can_pickup():
+			player.set_holding(holding, holdingValue)
+			self.set_holding(null, null)
 
 
 func set_holding(item, value):
