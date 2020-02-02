@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Repair_Hammer.wav-e313550e72e94c1f30dd7553e3150899.sample"
+
+[deps]
+
+source_file="res://sounds/Repair/Repair_Hammer.wav"
+dest_files=[ "res://.import/Repair_Hammer.wav-e313550e72e94c1f30dd7553e3150899.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
