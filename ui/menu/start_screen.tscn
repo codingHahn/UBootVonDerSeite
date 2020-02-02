@@ -1,16 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/menu/options_b_script.gd" type="Script" id=1]
 [ext_resource path="res://ui/menu/start_b_script.gd" type="Script" id=2]
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 100
-font_data = ExtResource( 4 )
 
 [node name="START SCREEN" type="Control"]
 anchor_right = 1.0
@@ -22,34 +17,34 @@ __meta__ = {
 }
 
 [node name="Background" type="Panel" parent="."]
+margin_top = 1.10803
 margin_right = 1600.0
-margin_bottom = 900.0
+margin_bottom = 901.108
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="UBOOTREPAIR" type="RichTextLabel" parent="Background"]
-margin_left = 396.0
-margin_top = 89.0
-margin_right = 1232.0
-margin_bottom = 208.0
+margin_left = 523.0
+margin_top = 101.0
+margin_right = 1053.0
+margin_bottom = 200.0
 size_flags_horizontal = 0
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 2 )
 tab_size = 3
-text = "UNDER PRESSURE"
-scroll_active = false
+text = "U BOOT REPAIR"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PLAY" type="Button" parent="Background"]
+[node name="START" type="Button" parent="Background"]
 margin_left = 568.123
 margin_top = 351.675
 margin_right = 1003.12
 margin_bottom = 525.675
 rect_pivot_offset = Vector2( 323.953, 131.269 )
-text = "PLAY"
+text = "START"
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,5 +62,5 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Background/PLAY" to="Background/PLAY" method="_on_START_pressed"]
+[connection signal="pressed" from="Background/START" to="Background/START" method="_on_START_pressed"]
 [connection signal="pressed" from="Background/OPTIONS" to="Background/OPTIONS" method="_on_OPTIONS_pressed"]

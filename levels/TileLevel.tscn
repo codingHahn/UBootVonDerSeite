@@ -290,6 +290,13 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="EnginePlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = "Soundeffects"
+
+[node name="BrokenEnginePlayer" type="AudioStreamPlayer" parent="."]
+bus = "Soundeffects"
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Panel/ResumeGame" to="Panel/ResumeGame" method="_on_ResumeGame_pressed"]

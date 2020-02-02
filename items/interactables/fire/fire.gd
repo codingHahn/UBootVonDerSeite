@@ -1,6 +1,7 @@
 extends interactable
 class_name fire
 
+const GRAVITY = 120
 onready var collision = CollisionShape2D.new()
 onready var shape = CircleShape2D.new()
 var currentLevel
@@ -17,7 +18,7 @@ func _ready():
 	self.set_collision_mask(3)
 
 func _init(position: Vector2):
-	var item = World.Item.Wheel
+	var item = World.Item.Fire
 	self.position = position
 	self.item_type = item
 	counter = 0
@@ -36,14 +37,25 @@ func updateIconState():
 
 func interact_with_player(player):
 	if player.holding == World.Item.Bucket:
-		var redLevel = player.holdingValue / 20
+		var redLevel = player.holdingValue / 12
 		fireLevel -= redLevel
 		player.holdingValue = 0
 		
 	if fireLevel <= 0:
-		get_parent().remove_child(self)
+		extinguish()
+
+func extinguish():
+	get_parent().remove_child(self)
 
 func _physics_process(_delta):
+	var velocity = Vector2(0,0)
+	velocity.y += GRAVITY * _delta
+	var overlapping_bodies = get_overlapping_bodies()
+	if !overlapping_bodies.empty():
+		velocity = Vector2(0,0)
+	
+	position += velocity
+	
 	counter += _delta
 	if counter > 25:
 		fireLevel += 1
