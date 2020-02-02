@@ -1,11 +1,16 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
+[ext_resource path="res://levels/Panel.gd" type="Script" id=11]
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
 [ext_resource path="res://items/interactables/elevator/Elevator.tscn" type="PackedScene" id=3]
 [ext_resource path="res://levels/Level.gd" type="Script" id=4]
 [ext_resource path="res://items/ItemSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/risingwater.gd" type="Script" id=6]
+[ext_resource path="res://levels/Button2.gd" type="Script" id=7]
+[ext_resource path="res://levels/ResumeGame.gd" type="Script" id=8]
+[ext_resource path="res://levels/RestartGame.gd" type="Script" id=9]
+[ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=10]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -175,5 +180,54 @@ text = "YOU DEAD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_top = -355.0
+margin_right = 1607.0
+margin_bottom = 900.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeGame" type="Button" parent="Panel"]
+margin_left = 430.958
+margin_top = 248.984
+margin_right = 1089.96
+margin_bottom = 457.984
+custom_fonts/font = ExtResource( 10 )
+text = "Resume"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartGame" type="Button" parent="Panel"]
+margin_left = 430.714
+margin_top = 520.028
+margin_right = 1089.71
+margin_bottom = 729.028
+custom_fonts/font = ExtResource( 10 )
+text = "Restart"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackToMainMenu" type="Button" parent="Panel"]
+margin_left = 430.594
+margin_top = 745.466
+margin_right = 1089.59
+margin_bottom = 954.466
+custom_fonts/font = ExtResource( 10 )
+text = "Back To Main Menu"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Panel/ResumeGame" to="Panel/ResumeGame" method="_on_ResumeGame_pressed"]
+[connection signal="pressed" from="Panel/RestartGame" to="Panel/RestartGame" method="_on_RestartGame_pressed"]
+[connection signal="pressed" from="Panel/BackToMainMenu" to="Panel/BackToMainMenu" method="_on_Button2_pressed"]
