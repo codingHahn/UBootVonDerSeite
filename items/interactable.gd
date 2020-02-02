@@ -52,11 +52,12 @@ func _ready():
 	
 func updateIcon(ico):
 	icon = ico
-	texture.texture = icon
-	if icon!=null:
-		var sx = World.ItemSize.x / texture.texture.get_size().x
-		var sy = World.ItemSize.y / texture.texture.get_size().y
-		texture.scale = Vector2(sx, sy)
+	if texture != null:
+		texture.texture = icon
+		if icon!=null:
+			var sx = World.ItemSize.x / texture.texture.get_size().x
+			var sy = World.ItemSize.y / texture.texture.get_size().y
+			texture.scale = Vector2(sx, sy)
 	
 func _physics_process(_delta):
 	# Check for overlapping players and display the tooltip to them

@@ -2,6 +2,7 @@ extends pickupable
 class_name bucket
 
 const BUCKET_SIZE = 50.0
+var wasFull
 
 func _init(position: Vector2, fillsize).(position, World.Item.Bucket):
 	value = fillsize
@@ -34,5 +35,21 @@ func fill_bucket():
 
 func update_bucket_bar():
 	var rect = get_node("Progress")
-	rect.color = Color(1,0,0)
+	if is_bucket_full():
+		rect.color = Color(1,0,0)
+	else:
+		if value/BUCKET_SIZE > 0.7:
+			rect.color = Color(1,1,0)
+		else:
+			rect.color = Color(0,1,0)
+				
 	rect.set_size(Vector2(value / BUCKET_SIZE * 32, 4))
+	if !wasFull:
+		if is_bucket_full():
+			wasFull = true
+			updateIcon(load("res://items/interactables/bucket/BucketWater.png"))
+	else:
+		if is_bucket_full() == false:
+			wasFull = false
+			updateIcon(World.load_texture_for_item(World.Item.Bucket))
+			
