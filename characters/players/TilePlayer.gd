@@ -64,18 +64,18 @@ func handle_interaction():
 		if !disable_interact:
 			var areas = $InteractableArea.get_overlapping_areas()
 			
-			for element in areas:
-				if (element is pickupable) == false && element.has_method("interact_with_player"):
-					element.call("interact_with_player", self)
-					disable_interact = true
-					return		
-			
 			if holding == null:
 				for element in areas:
 					if element is pickupable:
 						element.call("interact_with_player", self)
 						disable_interact = true
 						return
+						
+			for element in areas:
+				if (element is pickupable) == false && element.has_method("interact_with_player"):
+					element.call("interact_with_player", self)
+					disable_interact = true
+					return
 	else:
 		disable_interact = false
 
