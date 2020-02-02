@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -24,13 +24,37 @@ constant = Color( 0, 0.207214, 0.757812, 1 )
 [sub_resource type="VisualShaderNodeScalarConstant" id=4]
 constant = 0.2
 
+[sub_resource type="VisualShaderNodeInput" id=9]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeVectorOp" id=10]
+default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 2048, 1900, 0 ) ]
+operator = 7
+
+[sub_resource type="VisualShaderNodeVec3Uniform" id=11]
+uniform_name = "height"
+
 [sub_resource type="VisualShader" id=5]
 code = "shader_type canvas_item;
+uniform vec3 height;
 
 
 
 void vertex() {
+// Input:3
+	vec3 n_out3p0;
+	n_out3p0 = vec3(VERTEX,0.0);
+
+// VectorUniform:5
+	vec3 n_out5p0;
+	n_out5p0 = height;
+
+// VectorOp:4
+	vec3 n_out4p0;
+	n_out4p0 = min( n_out3p0 , n_out5p0 );
+
 // Output:0
+	VERTEX = n_out4p0.xy;
 
 }
 
@@ -64,9 +88,17 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 0, -75 )
+graph_offset = Vector2( -115.167, 0 )
 mode = 1
 flags/light_only = false
+nodes/vertex/0/position = Vector2( 660, 100 )
+nodes/vertex/3/node = SubResource( 9 )
+nodes/vertex/3/position = Vector2( -100, 220 )
+nodes/vertex/4/node = SubResource( 10 )
+nodes/vertex/4/position = Vector2( 200, 120 )
+nodes/vertex/5/node = SubResource( 11 )
+nodes/vertex/5/position = Vector2( -100, 100 )
+nodes/vertex/connections = PoolIntArray( 4, 0, 0, 0, 3, 0, 4, 0, 5, 0, 4, 1 )
 nodes/fragment/0/position = Vector2( 1020, 20 )
 nodes/fragment/2/node = SubResource( 1 )
 nodes/fragment/2/position = Vector2( 100, 140 )
@@ -80,21 +112,19 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 3, 1, 4, 0, 3, 0, 3, 0, 0, 0, 5
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
+shader_param/height = null
 
-[sub_resource type="OpenSimplexNoise" id=7]
-seed = 4154545
-
-[sub_resource type="NoiseTexture" id=8]
-seamless = true
-as_normalmap = true
-bump_strength = 10.0
-noise = SubResource( 7 )
-
-[sub_resource type="DynamicFontData" id=9]
+[sub_resource type="DynamicFontData" id=7]
 font_path = "res://ui/fonts/atwriter.ttf"
 
-[sub_resource type="DynamicFont" id=10]
-font_data = SubResource( 9 )
+[sub_resource type="DynamicFont" id=8]
+font_data = SubResource( 7 )
+
+[sub_resource type="InputEventAction" id=11]
+action = "stop"
+
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
@@ -121,16 +151,6 @@ other = NodePath("../Elevator4")
 [node name="Elevator4" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 861.902, 224 )
 other = NodePath("../Elevator3")
-
-[node name="risingwater" type="Sprite" parent="."]
-visible = false
-material = SubResource( 6 )
-position = Vector2( 45.0474, 380.49 )
-scale = Vector2( 0.452406, -0.229792 )
-texture = ExtResource( 2 )
-normal_map = SubResource( 8 )
-centered = false
-script = ExtResource( 6 )
 
 [node name="ForegroundTiles" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -161,6 +181,22 @@ position = Vector2( 747.695, 233.939 )
 
 [node name="dropped_items" type="Node2D" parent="."]
 
+[node name="risingwater" type="Polygon2D" parent="."]
+material = SubResource( 6 )
+position = Vector2( 18.3649, 428.813 )
+scale = Vector2( 0.452406, -0.229792 )
+offset = Vector2( 58.9792, 210.291 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( -30.8787, 1475.1, 7.02432, 1510.45, 42.9324, 1537.94, 84.8252, 1553.65, 128.713, 1565.44, 178.585, 1573.29, 1710.66, 1573.29, 1754.55, 1573.29, 1810.41, 1565.44, 1862.28, 1545.8, 1910.15, 1514.38, 1942.07, 1486.89, 1958.03, 1451.54, 1973.99, 1408.34, 1981.97, 1353.35, 1979.98, -9.4823, 1972, -68.3944, 1952.05, -107.669, 1918.13, -143.017, 1860.28, -182.291, 1798.44, -205.856, 1728.62, -209.784, 180.58, -205.856, 112.754, -198.001, 52.9069, -178.364, 5.02943, -146.944, -34.8685, -91.9594, -54.8174, -33.0471, -58.8072, 18.01, -54.8174, 1333.71, -54.8174, 1384.77, -46.8379, 1435.83 )
+script = ExtResource( 6 )
+
+[node name="Bounds" type="TextureRect" parent="risingwater"]
+margin_right = 2041.0
+margin_bottom = 1785.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DamageTimer" type="Timer" parent="."]
 process_mode = 0
 autostart = true
@@ -173,7 +209,7 @@ margin_left = 25.5199
 margin_top = 27.4592
 margin_right = 132.52
 margin_bottom = 67.4592
-custom_fonts/mono_font = SubResource( 10 )
+custom_fonts/mono_font = SubResource( 8 )
 custom_colors/default_color = Color( 0.568627, 1, 0.0941176, 1 )
 text = "YOU DEAD"
 __meta__ = {
@@ -196,6 +232,7 @@ margin_top = 248.984
 margin_right = 1089.96
 margin_bottom = 457.984
 custom_fonts/font = ExtResource( 10 )
+shortcut = SubResource( 12 )
 text = "Resume"
 script = ExtResource( 8 )
 __meta__ = {

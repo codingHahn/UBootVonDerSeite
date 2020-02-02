@@ -21,6 +21,10 @@ func _init(position: Vector2, item):
 func _physics_process(_delta):
 	if currentMotor != null && currentMotor.broken == false:
 		position.x -= 5*_delta
+		if currentMotor.steerUp:
+			position.y -= 2*_delta
+		if currentMotor.steerDown:
+			position.y += 2*_delta
 	
 	var tiles = currentLevel.get_node("ForegroundTiles")
 	var mapBounds = calculate_bounds(tiles)
