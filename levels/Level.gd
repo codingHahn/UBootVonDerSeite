@@ -34,6 +34,7 @@ func _ready():
 	place_new_hole(Vector2(640, 102))
 	create_bucket(Vector2(280, 248), 36)
 	create_bucket(Vector2(668, 120), 0)
+	create_toilet(Vector2(768, 392))
 	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
@@ -47,10 +48,18 @@ func _ready():
 
 func is_bucket_full(bucket):
 	return bucket.value >= BUCKET_SIZE
+
+func empty_bucket(bucket):
+	bucket.value = 0
+	update_bucket_bar(bucket)
 	
 func fill_bucket(bucket):
 	bucket.value += 1
+	update_bucket_bar(bucket)
+
+func update_bucket_bar(bucket):
 	var rect = bucket.get_node("Progress")
+	rect.color = Color(1,0,0)
 	rect.set_size(Vector2(bucket.value / BUCKET_SIZE * 32, 4))
 
 func create_bucket(pos, fillsize): # fillsize in litre (10l max)
@@ -71,10 +80,14 @@ func create_bucket(pos, fillsize): # fillsize in litre (10l max)
 	rect = ColorRect.new()
 	rect.name = "Progress"
 	rect.set_position(Vector2(-16, 20))
-	rect.set_size(Vector2(fillsize / BUCKET_SIZE * 32, 4))
-	rect.color = Color(1,0,0)	
 	to_drop.add_child(rect)
+	update_bucket_bar(to_drop)
 	
+	get_node("dropped_items").add_child(to_drop)
+
+func create_toilet(pos):
+	var to_drop = toilet.new(pos)
+	to_drop.level = self
 	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_hole():

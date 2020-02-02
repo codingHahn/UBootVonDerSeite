@@ -5,7 +5,8 @@ const ItemSize = Vector2(32, 32)
 enum Item {
 	Gasoline,
 	Bucket,
-	Bedsheet
+	Bedsheet,
+	Toilet
 }
 
 static func load_texture_for_item(item):
@@ -17,4 +18,6 @@ static func load_texture_for_item(item):
 			asset = "bucket/Bucket.png"
 		Item.Bedsheet:
 			asset = "bed/Bedsheet.png"
+		Item.Toilet:
+			asset = "wc/wc.png"
 	return load("res://items/interactables/" + asset)
