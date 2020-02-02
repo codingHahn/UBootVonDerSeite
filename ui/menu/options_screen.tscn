@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/menu/goback_b_script.gd" type="Script" id=2]
-[ext_resource path="res://ui/menu/sound_slider_skript.gd" type="Script" id=3]
-[ext_resource path="res://ui/menu/Return Button.png" type="Texture" id=4]
+[ext_resource path="res://ui/menu/music_slider_skript.gd" type="Script" id=3]
+[ext_resource path="res://ui/menu/return_options_button.png" type="Texture" id=4]
+[ext_resource path="res://ui/menu/sound_slider.gd" type="Script" id=5]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
@@ -55,11 +56,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="SOUND" type="RichTextLabel" parent="Background"]
 margin_left = 264.832
 margin_top = 255.66
 margin_right = 535.832
 margin_bottom = 354.66
+=======
+[node name="music_slider" type="HSlider" parent="Background"]
+margin_left = 486.529
+margin_top = 198.132
+margin_right = 1092.53
+margin_bottom = 342.132
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MUSIC" type="RichTextLabel" parent="Background"]
+margin_left = 200.257
+margin_top = 222.177
+margin_right = 471.257
+margin_bottom = 321.177
+>>>>>>> Work on Audio
+rect_pivot_offset = Vector2( 271, 76.1 )
+size_flags_horizontal = 0
+size_flags_vertical = 2
+tab_size = 3
+text = "MUSIC:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sound_slider" type="HSlider" parent="Background"]
+margin_left = 486.529
+margin_top = 318.087
+margin_right = 1092.53
+margin_bottom = 462.087
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="RichTextLabel" parent="Background"]
+margin_left = 200.257
+margin_top = 342.132
+margin_right = 471.257
+margin_bottom = 441.132
 rect_pivot_offset = Vector2( 271, 76.1 )
 size_flags_horizontal = 0
 size_flags_vertical = 2
@@ -82,6 +129,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+<<<<<<< HEAD
 
 [node name="sound_slider" type="HSlider" parent="Background"]
 margin_left = 543.929
@@ -94,4 +142,6 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+=======
+>>>>>>> Work on Audio
 [connection signal="pressed" from="Background/GO BACK" to="Background/GO BACK" method="_on_GO_BACK_pressed"]
