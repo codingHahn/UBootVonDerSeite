@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=27 format=2]
-
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://levels/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/water.png" type="Texture" id=2]
@@ -126,9 +124,7 @@ font_data = SubResource( 10 )
 
 [sub_resource type="ShortCut" id=12]
 
-[sub_resource type="Theme" id=11]
-
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 150
 font_data = ExtResource( 11 )
 
@@ -136,7 +132,7 @@ font_data = ExtResource( 11 )
 size = 70
 font_data = ExtResource( 11 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=15]
 size = 80
 font_data = ExtResource( 11 )
 
@@ -281,21 +277,20 @@ __meta__ = {
 
 [node name="gameoverPanel" type="Panel" parent="."]
 visible = false
-margin_left = 13.4115
-margin_top = -352.736
-margin_right = 1620.41
-margin_bottom = 899.264
+margin_left = -15.0
+margin_top = -372.0
+margin_right = 1629.0
+margin_bottom = 923.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="gameoverPanel"]
-margin_left = 294.238
-margin_top = 182.167
-margin_right = 1305.24
-margin_bottom = 392.167
-theme = SubResource( 11 )
-custom_fonts/normal_font = SubResource( 12 )
+margin_left = 307.192
+margin_top = 185.868
+margin_right = 1318.19
+margin_bottom = 395.868
+custom_fonts/normal_font = SubResource( 13 )
 meta_underlined = false
 tab_size = 1
 text = " GAME OVER"
@@ -306,13 +301,13 @@ __meta__ = {
 }
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="gameoverPanel"]
-margin_left = 471.335
-margin_top = 498.499
-margin_right = 1287.33
-margin_bottom = 585.499
+margin_left = 469.484
+margin_top = 478.142
+margin_right = 1285.48
+margin_bottom = 565.142
 custom_fonts/normal_font = SubResource( 14 )
 tab_size = 1
-text = "Score: "
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -322,7 +317,7 @@ margin_left = 443.25
 margin_top = 785.207
 margin_right = 1100.25
 margin_bottom = 992.207
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 15 )
 text = "Back To Menu"
 script = ExtResource( 12 )
 __meta__ = {
@@ -333,3 +328,4 @@ __meta__ = {
 [connection signal="pressed" from="Panel/ResumeGame" to="Panel/ResumeGame" method="_on_ResumeGame_pressed"]
 [connection signal="pressed" from="Panel/RestartGame" to="Panel/RestartGame" method="_on_RestartGame_pressed"]
 [connection signal="pressed" from="Panel/BackToMainMenu" to="Panel/BackToMainMenu" method="_on_Button2_pressed"]
+[connection signal="pressed" from="gameoverPanel/BackTOMenu" to="gameoverPanel/BackTOMenu" method="_on_BackTOMenu_pressed"]

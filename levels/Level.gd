@@ -114,7 +114,7 @@ func calculate_health():
 		if bucket != null && !bucket.is_bucket_full():
 			bucket.fill_bucket()
 		else:
-			dripping_holes += 1
+			dripping_holes += 100
 	
 	print(dripping_holes)
 	if health - dripping_holes > 0:
@@ -122,7 +122,7 @@ func calculate_health():
 	else:
 		health = 0
 		$"gameoverPanel".show()
-		$"gameoverPanel/RichTextLabel2".sha1_text("../../Score")
+		$"gameoverPanel/RichTextLabel2".text = $"../../Score".text
 
 func find_bucket(hole):
 	for element in get_node("dropped_items").get_children():

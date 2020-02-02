@@ -22,7 +22,7 @@ func update_score():
 		score += 1
 		$Score.text = "Score: " + str(score)
 	else:
-		$Score.text = "Score: " + str(score) + " (You need to repair the engine!)"
+		$Score.text = "Score: " + str(score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
