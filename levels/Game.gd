@@ -5,9 +5,24 @@ extends Node2D
 # var b = "text"
 
 
+var score = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var score_timer = Timer.new()
+	add_child(score_timer)
+	score_timer.connect("timeout", self, "update_score")
+	score_timer.set_wait_time(1.0)
+	score_timer.set_one_shot(false)
+	score_timer.start()
+
+func update_score():
+	if $UBoot/Level.health <= 0:
+		return
+	if !$UBoot/Level.currentMotor.broken:
+		score += 1
+		$Score.text = "Score: " + str(score)
+	else:
+		$Score.text = "Score: " + str(score) + " (You need to repair the engine!)"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -43,7 +43,6 @@ func _ready():
 	place_new_hole(Vector2(740, 102))
 	create_obstacle()
 	
-	
 	var PlayerList = get_node("/root/Global").PlayerList
 	
 	for player in PlayerList:
