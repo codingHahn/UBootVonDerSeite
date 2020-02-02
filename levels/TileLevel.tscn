@@ -10,8 +10,6 @@
 [ext_resource path="res://levels/ResumeGame.gd" type="Script" id=8]
 [ext_resource path="res://levels/RestartGame.gd" type="Script" id=9]
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=10]
-[ext_resource path="res://items/interactables/motor/running.wav" type="AudioStream" id=11]
-[ext_resource path="res://items/interactables/motor/broken.wav" type="AudioStream" id=12]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "uv"
@@ -264,11 +262,11 @@ __meta__ = {
 }
 
 [node name="EnginePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
 autoplay = true
+bus = "Soundeffects"
 
 [node name="BrokenEnginePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+bus = "Soundeffects"
 [connection signal="draw" from="." to="." method="_on_Level_draw"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Panel/ResumeGame" to="Panel/ResumeGame" method="_on_ResumeGame_pressed"]
