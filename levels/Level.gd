@@ -81,7 +81,8 @@ func create_toilet(pos):
 	get_node("dropped_items").add_child(to_drop)
 
 func create_motor(pos):
-	currentMotor = motor.new(pos)
+	currentMotor = motor.new(pos, $BrokenEnginePlayer)
+	currentMotor.connect("", self, "generate_new_hole")
 	get_node("dropped_items").add_child(currentMotor)
 	
 func create_wheel(pos, isUp):
