@@ -6,6 +6,7 @@ const World = preload("res://levels/World.gd")
 var obstacle_type
 var texture
 var currentMotor
+var currentLevel
 
 func _init(position: Vector2, item):
 	self.position = position
@@ -19,4 +20,17 @@ func _init(position: Vector2, item):
 
 func _physics_process(_delta):
 	if currentMotor != null && currentMotor.broken == false:
-		position.x -= 10*_delta
+		position.x -= 5*_delta
+	
+	var tiles = currentLevel.get_node("ForegroundTiles")
+	var mapBounds = calculate_bounds(tiles)
+	var obstacleBounds = Rect2(position, World.ObstacleSize)
+	if(obstacleBounds.intersects(mapBounds)):
+		for i in range(5):
+			currentLevel.generate_new_hole()
+		get_parent().queue_free()
+		
+func calculate_bounds(tilemap):
+	var cell_bounds = tilemap.get_used_rect()
+	var cell_to_pixel = Transform2D(Vector2(tilemap.cell_size.x * tilemap.scale.x, 0), Vector2(0, tilemap.cell_size.y * tilemap.scale.y), Vector2())
+	return Rect2(cell_to_pixel * cell_bounds.position, cell_to_pixel * cell_bounds.size)

@@ -60,6 +60,7 @@ func create_bucket(pos, fillsize):
 func create_obstacle():
 	var to_drop = obstacle.new(Vector2(2000, randi() % 800), World.ObstacleType.Car)
 	to_drop.currentMotor = currentMotor
+	to_drop.currentLevel = self
 	get_node("obstacles").add_child(to_drop)
 
 func create_toilet(pos):
