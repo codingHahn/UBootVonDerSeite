@@ -10,8 +10,6 @@ const TILE_LADDER_BOTTOM = 37
 const TILE_BACKGROUND = 14
 const TILE_HOLE = 16
 
-const BUCKET_SIZE = 50.0
-
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 
 export (NodePath) onready var hole_holder
@@ -49,43 +47,8 @@ func _ready():
 		newPlayer.level = self
 		get_node(PlayerRoot).add_child(newPlayer)
 
-func is_bucket_full(bucket):
-	return bucket.value >= BUCKET_SIZE
-
-func empty_bucket(bucket):
-	bucket.value = 0
-	update_bucket_bar(bucket)
-	
-func fill_bucket(bucket):
-	bucket.value += 1
-	update_bucket_bar(bucket)
-
-func update_bucket_bar(bucket):
-	var rect = bucket.get_node("Progress")
-	rect.color = Color(1,0,0)
-	rect.set_size(Vector2(bucket.value / BUCKET_SIZE * 32, 4))
-
 func create_bucket(pos, fillsize): # fillsize in litre (10l max)
-	var to_drop = pickupable.new(pos, World.Item.Bucket)
-	to_drop.value = fillsize
-	
-	if is_bucket_full(to_drop):
-		fillsize = BUCKET_SIZE
-		to_drop.value = fillsize
-
-	var rect = ColorRect.new()
-	rect.name = "Back"
-	rect.set_position(Vector2(-16, 20))
-	rect.set_size(Vector2(32, 4))
-	rect.color = Color(0.5,0.5,0.5)
-	to_drop.add_child(rect)
-
-	rect = ColorRect.new()
-	rect.name = "Progress"
-	rect.set_position(Vector2(-16, 20))
-	to_drop.add_child(rect)
-	update_bucket_bar(to_drop)
-	
+	var to_drop = bucket.new(pos, fillsize)
 	get_node("dropped_items").add_child(to_drop)
 
 func create_toilet(pos):
@@ -123,10 +86,8 @@ func calculate_health():
 	var dripping_holes = 0
 	for hole in get_node(hole_holder).get_children():
 		var bucket = find_bucket(hole)
-		print("found: ")
-		print(bucket)
-		if bucket != null && !is_bucket_full(bucket):
-			fill_bucket(bucket)
+		if bucket != null && !bucket.is_bucket_full():
+			bucket.fill_bucket()
 		else:
 			dripping_holes += 1
 	

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "pickupable",
+"class": "bucket",
+"language": "GDScript",
+"path": "res://items/interactables/bucket/bucket.gd"
+}, {
 "base": "Area2D",
 "class": "interactable",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://items/interactables/wc/Wc.gd"
 } ]
 _global_script_class_icons={
+"bucket": "",
 "interactable": "",
 "pickupable": "",
 "wc": ""
