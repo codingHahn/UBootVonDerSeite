@@ -52,9 +52,9 @@ func _ready():
 	create_wheel(Vector2(80, 120), false)
 	
 	# test code
-	place_new_hole(Vector2(740, 102))
-	create_fire(Vector2(300, 128))
-	create_obstacle()
+#	place_new_hole(Vector2(740, 102))
+#	create_fire(Vector2(300, 128))
+#	create_obstacle()
 		
 	for player in PlayerList:
 		var newPlayer = PlayerScene.instance()
@@ -200,7 +200,7 @@ func _on_Timer_timeout():
 		currentMotor.breakMotor()
 	if randi()%101>98:
 		create_obstacle()
-	if randi()%101>95:
+	if randi()%101>99:
 		generate_new_fire()
 
 func _on_Level_draw():
