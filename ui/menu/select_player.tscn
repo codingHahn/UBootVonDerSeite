@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
@@ -137,6 +137,12 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=16]
 size = 10
 font_data = ExtResource( 4 )
+
+[sub_resource type="InputEventAction" id=17]
+action = "stop"
+
+[sub_resource type="ShortCut" id=18]
+shortcut = SubResource( 17 )
 
 [node name="START SCREEN" type="Control"]
 anchor_right = 1.0
@@ -1122,6 +1128,7 @@ margin_left = 45.0
 margin_top = 700.0
 margin_right = 285.0
 margin_bottom = 870.0
+shortcut = SubResource( 18 )
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true
