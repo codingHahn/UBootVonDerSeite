@@ -13,4 +13,5 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Door" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 2 )

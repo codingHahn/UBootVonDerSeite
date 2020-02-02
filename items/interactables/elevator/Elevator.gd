@@ -5,16 +5,20 @@ class_name Elevator
 export (NodePath) onready var other
 
 const TILE_NONE = -1
+const TILE_ELEVATOR_EMPTY = 38
+const TILE_ELEVATOR_FILLED = 39
 
 var holding
 var holdingValue
 
 var location: Vector2
 var tiles: TileMap
+var tileset
 
-func initialize(location: Vector2, tiles: TileMap):
-	self.location = location
-	self.tiles = tiles
+func _ready():
+	self.tileset = load("res://levels/tiles.tres")
+	self.update_texture()
+	get_parent().set_cellv(get_parent().world_to_map(position), TILE_ELEVATOR_EMPTY)
 
 
 func interact_with_player(player):
@@ -36,10 +40,12 @@ func set_holding(item, value):
 	holding = item
 	holdingValue = value
 	
-	if item == null:
-		$Door.texture = load("res://items/interactables/elevator/empty.png")
-	else:
-		$Door.texture = load("res://items/interactables/elevator/filled.png")
-
-	print(get_node(other))
+	self.update_texture()
 	get_node(other).set_holding(item, value)
+	
+func update_texture():
+	if self.holding == null:
+		get_parent().set_cellv(get_parent().world_to_map(position), TILE_ELEVATOR_EMPTY)
+	else:
+		get_parent().set_cellv(get_parent().world_to_map(position), TILE_ELEVATOR_FILLED)
+	

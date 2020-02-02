@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://ui/fonts/Standardfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://characters/players/Character3.png" type="Texture" id=2]
+[ext_resource path="res://characters/players/player_3.png" type="Texture" id=2]
 [ext_resource path="res://ui/menu/start_b_pc_skript.gd" type="Script" id=3]
 [ext_resource path="res://ui/fonts/atwriter.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://ui/menu/player4_image_script.gd" type="Script" id=5]
@@ -9,38 +9,26 @@
 [ext_resource path="res://ui/menu/player3_image_script.gd" type="Script" id=7]
 [ext_resource path="res://ui/menu/Return Button.png" type="Texture" id=8]
 [ext_resource path="res://ui/menu/return_from_player_select_script.gd" type="Script" id=9]
-[ext_resource path="res://characters/players/Character.png" type="Texture" id=10]
+[ext_resource path="res://characters/players/player_1.png" type="Texture" id=10]
 [ext_resource path="res://ui/menu/PlayerAnimation.gd" type="Script" id=11]
-[ext_resource path="res://characters/players/Character4.png" type="Texture" id=12]
-[ext_resource path="res://characters/players/Character2.png" type="Texture" id=13]
+[ext_resource path="res://characters/players/player_4.png" type="Texture" id=12]
+[ext_resource path="res://characters/players/player_2.png" type="Texture" id=13]
+[ext_resource path="res://levels/Plattform.png" type="Texture" id=14]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
-
-[sub_resource type="Animation" id=3]
-resource_name = "player_1_animation"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6 ]
-}
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 4 )
 
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 31
+font_data = ExtResource( 4 )
+
 [sub_resource type="Animation" id=5]
-resource_name = "player_1_animation"
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -55,12 +43,56 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = false
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 28
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=10]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="DynamicFont" id=11]
 size = 23
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "player_1_animation"
+[sub_resource type="Animation" id=12]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -75,8 +107,11 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "player_1_animation"
+[sub_resource type="DynamicFont" id=13]
+size = 12
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=14]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -90,6 +125,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
+
+[sub_resource type="DynamicFont" id=15]
+size = 14
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 11
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 10
+font_data = ExtResource( 4 )
+
+[sub_resource type="ShortCut" id=18]
 
 [node name="START SCREEN" type="Control"]
 anchor_right = 1.0
@@ -103,54 +152,80 @@ __meta__ = {
 }
 
 [node name="Background" type="Panel" parent="."]
-margin_top = 13.0
-margin_right = 1600.0
-margin_bottom = 913.0
+margin_top = 14.0
+margin_right = 1600.01
+margin_bottom = 914.001
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UBOOTREPAIR" type="RichTextLabel" parent="Background"]
-margin_left = 547.058
-margin_top = 30.6765
-margin_right = 1077.06
-margin_bottom = 129.676
+margin_left = 503.0
+margin_top = 32.0
+margin_right = 1143.0
+margin_bottom = 131.0
 size_flags_horizontal = 0
 size_flags_vertical = 2
 tab_size = 3
-text = "U BOOT REPAIR"
+text = "PLAYER SELECTION"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="start_button_pc" type="Button" parent="Background"]
-margin_left = 640.123
-margin_top = 775.443
-margin_right = 948.123
-margin_bottom = 866.443
-text = "START"
+margin_left = 660.592
+margin_top = 736.203
+margin_right = 968.592
+margin_bottom = 829.203
+custom_fonts/font = SubResource( 2 )
+text = "START GAME"
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player_1_Panel" type="Panel" parent="."]
-margin_left = 181.329
-margin_top = 194.786
-margin_right = 478.33
-margin_bottom = 656.786
+margin_left = 181.25
+margin_top = 197.786
+margin_right = 478.251
+margin_bottom = 659.786
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="platform_p1" type="TextureRect" parent="Player_1_Panel"]
+margin_left = 91.6817
+margin_top = 213.397
+margin_right = 213.682
+margin_bottom = 270.397
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player_1_Text" type="RichTextLabel" parent="Player_1_Panel"]
+margin_left = 88.4875
+margin_top = 14.8775
+margin_right = 243.487
+margin_bottom = 74.8775
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+tab_size = 3
+text = "Player 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player_1" type="KinematicBody2D" parent="Player_1_Panel"]
+position = Vector2( 0, 57.7039 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_1_Panel/Player_1"]
-position = Vector2( 33.3586, 106.844 )
-scale = Vector2( 1.17114, 1.13015 )
+position = Vector2( 91.0908, 74.6403 )
+scale = Vector2( 0.66, 0.64 )
 texture = ExtResource( 10 )
 centered = false
 offset = Vector2( -30, -64 )
@@ -158,27 +233,225 @@ vframes = 8
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_1_Panel/Player_1"]
-anims/player_1_animation = SubResource( 3 )
+anims/player_1_animation = SubResource( 5 )
 
-[node name="Player_1_Text" type="RichTextLabel" parent="Player_1_Panel"]
-margin_left = 60.5919
-margin_top = 382.592
-margin_right = 242.592
-margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 4 )
-text = "Player 1"
+[node name="Keys_and_text_p1" type="Panel" parent="Player_1_Panel"]
+margin_left = 13.1702
+margin_top = 253.733
+margin_right = 285.171
+margin_bottom = 456.733
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="W_key" type="Panel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 198.25
+margin_top = 21.7386
+margin_right = 233.25
+margin_bottom = 56.7386
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="w_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1/W_key"]
+margin_left = 10.6796
+margin_top = 2.9191
+margin_right = 31.6796
+margin_bottom = 29.9191
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "W"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A_key" type="Panel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 161.528
+margin_top = 57.7381
+margin_right = 196.528
+margin_bottom = 92.7381
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="a_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1/A_key"]
+margin_left = 11.0
+margin_top = 3.0
+margin_right = 32.0
+margin_bottom = 30.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "A"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S_key" type="Panel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 197.723
+margin_top = 58.1748
+margin_right = 232.723
+margin_bottom = 93.1748
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="s_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1/S_key"]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 33.0
+margin_bottom = 31.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "S"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D_key" type="Panel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 233.584
+margin_top = 58.2117
+margin_right = 268.584
+margin_bottom = 93.2117
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="d_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1/D_key"]
+margin_left = 11.0
+margin_top = 3.0
+margin_right = 32.0
+margin_bottom = 30.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "D"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F_key" type="Panel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 161.996
+margin_top = 154.724
+margin_right = 196.996
+margin_bottom = 189.724
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="f_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1/F_key"]
+margin_left = 11.0
+margin_top = 3.0
+margin_right = 32.0
+margin_bottom = 30.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "F"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E_key" type="Panel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 161.556
+margin_top = 105.43
+margin_right = 196.556
+margin_bottom = 140.43
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="e_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1/E_key"]
+margin_left = 11.0
+margin_top = 3.0
+margin_right = 32.0
+margin_bottom = 30.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "E"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 10.4743
+margin_top = 58.962
+margin_right = 149.474
+margin_bottom = 102.962
+custom_fonts/normal_font = SubResource( 9 )
+text = "Movement:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 10.4743
+margin_top = 110.348
+margin_right = 149.474
+margin_bottom = 154.348
+custom_fonts/normal_font = SubResource( 9 )
+text = "Interact:"
+
+[node name="Drop_item_text" type="RichTextLabel" parent="Player_1_Panel/Keys_and_text_p1"]
+margin_left = 11.7323
+margin_top = 156.002
+margin_right = 155.732
+margin_bottom = 200.002
+custom_fonts/normal_font = SubResource( 9 )
+text = "Drop Item:"
+
 [node name="Player_2_Panel" type="Panel" parent="."]
-margin_left = 507.107
-margin_top = 196.456
-margin_right = 804.107
-margin_bottom = 658.456
+margin_left = 507.441
+margin_top = 198.004
+margin_right = 804.441
+margin_bottom = 660.004
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="platform " type="TextureRect" parent="Player_2_Panel"]
+margin_left = 90.2186
+margin_top = 213.179
+margin_right = 212.219
+margin_bottom = 270.179
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player_2_Text" type="RichTextLabel" parent="Player_2_Panel"]
+margin_left = 88.3674
+margin_top = 11.952
+margin_right = 243.367
+margin_bottom = 71.952
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+tab_size = 3
+text = "Player 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -188,40 +461,210 @@ position = Vector2( -325.778, -1.67 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_2_Panel/Player_2"]
-position = Vector2( 362.708, 106.844 )
-scale = Vector2( 1.17114, 1.13015 )
+position = Vector2( 417.22, 134.192 )
+scale = Vector2( 0.66, 0.64 )
 texture = ExtResource( 13 )
 centered = false
 offset = Vector2( -30, -64 )
 vframes = 8
 hframes = 8
-frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_2_Panel/Player_2"]
-anims/player_1_animation = SubResource( 5 )
-
-[node name="Player_2_Text" type="RichTextLabel" parent="Player_2_Panel"]
-margin_left = 60.5919
-margin_top = 382.592
-margin_right = 242.592
-margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 4 )
-text = "Player 2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anims/player_1_animation = SubResource( 10 )
 
 [node name="Join_Player2_Text" type="RichTextLabel" parent="Player_2_Panel"]
-margin_left = 48.2527
-margin_top = 292.505
-margin_right = 274.253
-margin_bottom = 337.505
-custom_fonts/normal_font = SubResource( 6 )
+margin_left = 52.2527
+margin_top = 305.757
+margin_right = 278.253
+margin_bottom = 350.757
+custom_fonts/normal_font = SubResource( 11 )
 tab_size = 2
 text = "Press \"I\" to join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Keys_and_text_p2" type="Panel" parent="Player_2_Panel"]
+visible = false
+margin_left = 7.94284
+margin_top = 253.029
+margin_right = 279.943
+margin_bottom = 456.029
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="U_key" type="Panel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 203.25
+margin_top = 22.7386
+margin_right = 238.25
+margin_bottom = 57.7386
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="u_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2/U_key"]
+margin_left = 10.6796
+margin_top = 0.919098
+margin_right = 31.6796
+margin_bottom = 27.9191
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "U"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="H_key" type="Panel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 166.528
+margin_top = 58.7381
+margin_right = 201.528
+margin_bottom = 93.7381
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2/H_key"]
+margin_left = 11.0
+margin_top = 2.0
+margin_right = 32.0
+margin_bottom = 29.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "H"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="J_key" type="Panel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 202.723
+margin_top = 59.1748
+margin_right = 237.723
+margin_bottom = 94.1748
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="j_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2/J_key"]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 33.0
+margin_bottom = 31.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "J"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="K_key" type="Panel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 238.584
+margin_top = 59.2117
+margin_right = 273.584
+margin_bottom = 94.2117
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="k_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2/K_key"]
+margin_left = 11.0
+margin_top = 3.0
+margin_right = 32.0
+margin_bottom = 30.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "K"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="L_key" type="Panel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 166.996
+margin_top = 155.724
+margin_right = 201.996
+margin_bottom = 190.724
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2/L_key"]
+margin_left = 11.0
+margin_top = 3.0
+margin_right = 32.0
+margin_bottom = 30.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "L"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="I_key" type="Panel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 166.556
+margin_top = 106.43
+margin_right = 201.556
+margin_bottom = 141.43
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="i_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2/I_key"]
+margin_left = 13.0
+margin_top = 3.0
+margin_right = 34.0
+margin_bottom = 30.0
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "I"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 16.2265
+margin_top = 59.8999
+margin_right = 155.226
+margin_bottom = 103.9
+custom_fonts/normal_font = SubResource( 9 )
+text = "Movement:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 15.7347
+margin_top = 109.236
+margin_right = 154.735
+margin_bottom = 153.237
+custom_fonts/normal_font = SubResource( 9 )
+text = "Interact:"
+
+[node name="Drop_item_text" type="RichTextLabel" parent="Player_2_Panel/Keys_and_text_p2"]
+margin_left = 16.6912
+margin_top = 156.176
+margin_right = 160.691
+margin_bottom = 200.176
+custom_fonts/normal_font = SubResource( 9 )
+text = "Drop Item:"
 
 [node name="Player_3_Panel" type="Panel" parent="."]
 margin_left = 827.87
@@ -229,8 +672,32 @@ margin_top = 196.456
 margin_right = 1124.87
 margin_bottom = 658.456
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="platform_p3" type="TextureRect" parent="Player_3_Panel"]
+margin_left = 85.7906
+margin_top = 214.727
+margin_right = 207.791
+margin_bottom = 271.727
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player_3_Text" type="RichTextLabel" parent="Player_3_Panel"]
+margin_left = 80.3993
+margin_top = 13.5
+margin_right = 235.399
+margin_bottom = 73.5
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+tab_size = 3
+text = "Player 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -240,40 +707,211 @@ position = Vector2( -646.541, -1.67 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_3_Panel/Player_3"]
-position = Vector2( 677.847, 106.844 )
-scale = Vector2( 1.17114, 1.13015 )
+position = Vector2( 730.896, 134.871 )
+scale = Vector2( 0.674651, 0.657152 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -30, -64 )
 vframes = 8
 hframes = 8
-frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_3_Panel/Player_3"]
-anims/player_1_animation = SubResource( 7 )
-
-[node name="Player_3_Text" type="RichTextLabel" parent="Player_3_Panel"]
-margin_left = 60.5919
-margin_top = 382.592
-margin_right = 242.592
-margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 4 )
-text = "Player 3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anims/player_1_animation = SubResource( 12 )
 
 [node name="Join_Player3_Text" type="RichTextLabel" parent="Player_3_Panel"]
-margin_left = 17.2748
-margin_top = 291.339
-margin_right = 269.274
-margin_bottom = 360.339
-custom_fonts/normal_font = SubResource( 6 )
+margin_left = 27.9399
+margin_top = 308.496
+margin_right = 279.939
+margin_bottom = 377.496
+custom_fonts/normal_font = SubResource( 11 )
 tab_size = 2
 text = "Press \"Num 9\" to join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Keys_and_text_p3" type="Panel" parent="Player_3_Panel"]
+visible = false
+margin_left = 9.4483
+margin_top = 256.214
+margin_right = 281.448
+margin_bottom = 459.214
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Num8_key" type="Panel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 204.25
+margin_top = 21.7386
+margin_right = 239.25
+margin_bottom = 56.7386
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num8_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3/Num8_key"]
+margin_left = 7.0
+margin_right = 35.0
+margin_bottom = 34.0
+custom_fonts/normal_font = SubResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 0
+text = "NUM 
+ 8"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Num4_key" type="Panel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 167.528
+margin_top = 57.7381
+margin_right = 202.528
+margin_bottom = 92.7381
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num4_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3/Num4_key"]
+margin_left = 7.0
+margin_right = 35.0
+margin_bottom = 38.0
+custom_fonts/normal_font = SubResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 0
+text = "NUM 
+ 4"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Num5_key" type="Panel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 203.723
+margin_top = 58.1748
+margin_right = 238.723
+margin_bottom = 93.1748
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num5_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3/Num5_key"]
+margin_left = 7.0
+margin_right = 32.0
+margin_bottom = 34.0
+custom_fonts/normal_font = SubResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 0
+text = "NUM
+ 5"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Num6_key" type="Panel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 240.441
+margin_top = 57.9265
+margin_right = 275.441
+margin_bottom = 92.9265
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num6_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3/Num6_key"]
+margin_left = 7.0
+margin_right = 36.0
+margin_bottom = 39.0
+custom_fonts/normal_font = SubResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 0
+text = "NUM 
+ 6"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Num+_key" type="Panel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 167.996
+margin_top = 154.724
+margin_right = 202.996
+margin_bottom = 189.724
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num+_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3/Num+_key"]
+margin_left = 4.0
+margin_right = 65.0
+margin_bottom = 48.0
+custom_fonts/normal_font = SubResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 0
+text = " NUM 
+PLUS"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num9_key" type="Panel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 167.556
+margin_top = 105.43
+margin_right = 202.556
+margin_bottom = 140.43
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="num9_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3/num9_key"]
+margin_left = 7.43994
+margin_top = 1.29404
+margin_right = 68.4399
+margin_bottom = 49.294
+custom_fonts/normal_font = SubResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 0
+text = "NUM
+ 9"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 16.2265
+margin_top = 59.8999
+margin_right = 155.226
+margin_bottom = 103.9
+custom_fonts/normal_font = SubResource( 9 )
+text = "Movement:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 15.7347
+margin_top = 109.236
+margin_right = 154.735
+margin_bottom = 153.237
+custom_fonts/normal_font = SubResource( 9 )
+text = "Interact:"
+
+[node name="Drop_item_text" type="RichTextLabel" parent="Player_3_Panel/Keys_and_text_p3"]
+margin_left = 16.6912
+margin_top = 156.176
+margin_right = 160.691
+margin_bottom = 200.176
+custom_fonts/normal_font = SubResource( 9 )
+text = "Drop Item:"
 
 [node name="Player_4_Panel" type="Panel" parent="."]
 margin_left = 1150.5
@@ -281,8 +919,32 @@ margin_top = 196.456
 margin_right = 1447.5
 margin_bottom = 658.456
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="platform_p4" type="TextureRect" parent="Player_4_Panel"]
+margin_left = 89.1617
+margin_top = 214.727
+margin_right = 211.162
+margin_bottom = 271.727
+texture = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player_4_Text" type="RichTextLabel" parent="Player_4_Panel"]
+margin_left = 87.7701
+margin_top = 13.5
+margin_right = 242.77
+margin_bottom = 73.5
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+tab_size = 3
+text = "Player 4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -292,8 +954,8 @@ position = Vector2( -969.171, -1.67 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Player_4_Panel/Player_4"]
-position = Vector2( 1002.61, 104.327 )
-scale = Vector2( 1.17114, 1.13015 )
+position = Vector2( 1050.35, 125.982 )
+scale = Vector2( 0.706143, 0.714178 )
 texture = ExtResource( 12 )
 centered = false
 offset = Vector2( -30, -64 )
@@ -302,36 +964,200 @@ hframes = 8
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player_4_Panel/Player_4"]
-anims/player_1_animation = SubResource( 8 )
-
-[node name="Player_4_Text" type="RichTextLabel" parent="Player_4_Panel"]
-margin_left = 60.5919
-margin_top = 382.592
-margin_right = 242.592
-margin_bottom = 443.592
-custom_fonts/normal_font = SubResource( 4 )
-text = "Player 4"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anims/player_1_animation = SubResource( 14 )
 
 [node name="Join_Player4_Text" type="RichTextLabel" parent="Player_4_Panel"]
-margin_left = 35.1095
-margin_top = 294.374
-margin_right = 297.11
-margin_bottom = 332.374
-custom_fonts/normal_font = SubResource( 6 )
+margin_left = 40.6357
+margin_top = 307.562
+margin_right = 302.636
+margin_bottom = 345.562
+custom_fonts/normal_font = SubResource( 11 )
 tab_size = 2
 text = "Press \"DEL\" to join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Keys_and_text_p4" type="Panel" parent="Player_4_Panel"]
+visible = false
+margin_left = 6.76367
+margin_top = 254.738
+margin_right = 278.763
+margin_bottom = 457.738
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up_key" type="Panel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 204.25
+margin_top = 22.7386
+margin_right = 239.25
+margin_bottom = 57.7386
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="up_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4/Up_key"]
+margin_left = 9.0
+margin_top = 5.0
+margin_right = 33.0
+margin_bottom = 28.0
+custom_fonts/normal_font = SubResource( 15 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "UP"
+scroll_active = false
+
+[node name="Left_key" type="Panel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 167.528
+margin_top = 58.7381
+margin_right = 202.528
+margin_bottom = 93.7381
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4/Left_key"]
+margin_left = 6.03284
+margin_top = 9.59457
+margin_right = 30.0328
+margin_bottom = 32.5946
+custom_fonts/normal_font = SubResource( 16 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+tab_size = 1
+text = "Left"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Down_key" type="Panel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 203.723
+margin_top = 59.1748
+margin_right = 238.723
+margin_bottom = 94.1748
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="down_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4/Down_key"]
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 37.0
+margin_bottom = 32.0
+custom_fonts/normal_font = SubResource( 16 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Down"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right_key" type="Panel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 239.584
+margin_top = 59.2117
+margin_right = 274.584
+margin_bottom = 94.2117
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4/Right_key"]
+margin_left = 4.7312
+margin_top = 10.0852
+margin_right = 55.7312
+margin_bottom = 46.0852
+custom_fonts/normal_font = SubResource( 17 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Right"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="END_key" type="Panel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 167.996
+margin_top = 155.724
+margin_right = 202.996
+margin_bottom = 190.724
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="end_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4/END_key"]
+margin_left = 3.90491
+margin_top = 5.61719
+margin_right = 54.9049
+margin_bottom = 41.6172
+custom_fonts/normal_font = SubResource( 15 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "END"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DEL_key" type="Panel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 167.556
+margin_top = 106.43
+margin_right = 202.556
+margin_bottom = 141.43
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="del_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4/DEL_key"]
+margin_left = 3.57092
+margin_top = 5.61533
+margin_right = 54.5709
+margin_bottom = 41.6153
+custom_fonts/normal_font = SubResource( 15 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "DEL"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Movement_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 16.2265
+margin_top = 59.8999
+margin_right = 155.226
+margin_bottom = 103.9
+custom_fonts/normal_font = SubResource( 9 )
+text = "Movement:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 15.7347
+margin_top = 109.236
+margin_right = 154.735
+margin_bottom = 153.237
+custom_fonts/normal_font = SubResource( 9 )
+text = "Interact:"
+
+[node name="Drop_item_text" type="RichTextLabel" parent="Player_4_Panel/Keys_and_text_p4"]
+margin_left = 16.6912
+margin_top = 156.176
+margin_right = 160.691
+margin_bottom = 200.176
+custom_fonts/normal_font = SubResource( 9 )
+text = "Drop Item:"
+
 [node name="return_from_player_select" type="Button" parent="."]
-margin_left = 45.0
-margin_top = 700.0
-margin_right = 285.0
-margin_bottom = 870.0
+margin_left = 44.0
+margin_top = 730.0
+margin_right = 188.0
+margin_bottom = 871.0
+shortcut = SubResource( 18 )
 icon = ExtResource( 8 )
 flat = true
 expand_icon = true

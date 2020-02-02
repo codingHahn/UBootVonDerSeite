@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character3.png-48fe5f09dc1ff2b1b9097cb5afaba942.stex"
+path="res://.import/fireSmall0.png-c9ae696c021b49df30327b6c7fb03b9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/players/Character3.png"
-dest_files=[ "res://.import/Character3.png-48fe5f09dc1ff2b1b9097cb5afaba942.stex" ]
+source_file="res://items/interactables/fire/fireSmall0.png"
+dest_files=[ "res://.import/fireSmall0.png-c9ae696c021b49df30327b6c7fb03b9a.stex" ]
 
 [params]
 

@@ -7,8 +7,13 @@ const TILE_LADDER = 11 # ??
 const TILE_LADDER_TOP = 36
 const TILE_LADDER_BOTTOM = 37
 #const TILE_PLAYER = 3 # ??
+
 const TILE_BACKGROUND = 14
-const TILE_HOLE = 16
+const TILE_WINDOW = 16
+const TILE_LIGHT = 43
+const TILE_PIPES_UP = 33
+
+const TILE_HOLE = 48
 
 onready var PlayerScene = preload("res://characters/players/TilePlayer.tscn")
 
@@ -43,15 +48,18 @@ func _ready():
 	create_toilet(Vector2(768, 414))
 	create_wrench(Vector2(140, 414))
 	create_motor(Vector2(40, 396))
+	create_wheel(Vector2(900, 120), true)
+	create_wheel(Vector2(80, 120), false)
 	
 	# test code
 	place_new_hole(Vector2(740, 102))
+	create_fire(Vector2(300, 128))
 	create_obstacle()
-	
-	
+		
 	for player in PlayerList:
 		var newPlayer = PlayerScene.instance()
 		newPlayer.prefix = player
+		newPlayer.get_child(1).texture = load("res://characters/players/" + newPlayer.prefix + ".png")
 		newPlayer.position = get_node("SpawnPoints").get_child(int(player) - 1).position
 		newPlayer.drop_item_to = get_node("dropped_items").get_path()
 		newPlayer.level = self
@@ -62,10 +70,11 @@ func create_bucket(pos, fillsize):
 	get_node("dropped_items").add_child(to_drop)
 
 func create_obstacle():
-	var to_drop = obstacle.new(Vector2(2000, randi() % 800), World.ObstacleType.Car)
-	to_drop.currentMotor = currentMotor
-	to_drop.currentLevel = self
-	get_node("obstacles").add_child(to_drop)
+	if(currentMotor.broken == false):
+		var to_drop = obstacle.new(Vector2(1800, (randi() % 1000) - 300), World.ObstacleType.Car)
+		to_drop.currentMotor = currentMotor
+		to_drop.currentLevel = self
+		get_node("obstacles").add_child(to_drop)
 
 func create_toilet(pos):
 	var to_drop = wc.new(pos)
@@ -74,9 +83,33 @@ func create_toilet(pos):
 func create_motor(pos):
 	currentMotor = motor.new(pos)
 	get_node("dropped_items").add_child(currentMotor)
+	
+func create_wheel(pos, isUp):
+	var to_drop = wheel.new(pos, isUp)
+	to_drop.currentLevel = self
+	get_node("dropped_items").add_child(to_drop)
 
 func create_wrench(pos):
 	var to_drop = pickupable.new(pos, World.Item.Wrench)
+	get_node("dropped_items").add_child(to_drop)
+
+func generate_new_fire():
+	print("FIRE!")
+	print(max_size)
+	if self.max_size != null:
+		var tile_x = rand_range(0, self.max_size.x)
+		var tile_y = rand_range(0, self.max_size.y)
+		create_fire(Vector2(tile_x, tile_y))
+
+func create_fire(pos):
+	var fireBounds = Rect2(Vector2(pos.x, pos.y), World.ItemSize)
+	for element in get_node("dropped_items").get_children():
+		var elemenBounds = Rect2(element.position, World.ItemSize)
+		if(fireBounds.intersects(elemenBounds)):
+			return
+	
+	var to_drop = fire.new(pos)
+	to_drop.currentLevel = self
 	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_hole():
@@ -90,7 +123,7 @@ func place_new_hole(pos):
 	var background_tile = $Tiles.get_cellv(cell)
 	var foreground_tile = $ForegroundTiles.get_cellv(cell)
 	
-	if background_tile == TILE_BACKGROUND && foreground_tile == TILE_NONE:
+	if self.is_hole_placable_on(background_tile) && foreground_tile == TILE_NONE:
 		var hole = load("res://items/hole/Hole.tscn");
 		var instance = hole.instance()
 		print(instance)
@@ -100,6 +133,9 @@ func place_new_hole(pos):
 		get_node(hole_holder).add_child(instance)
 
 		$ForegroundTiles.set_cellv(cell, TILE_HOLE)
+		
+func is_hole_placable_on(tile):
+	return tile == TILE_BACKGROUND || tile == TILE_WINDOW || tile == TILE_LIGHT || tile == TILE_PIPES_UP
 
 
 func calculate_health():
@@ -138,6 +174,7 @@ func _process(_delta):
 	if Input.is_action_pressed("stop"):
 		get_tree().paused = true
 		$"Panel".pause_mode = 2
+		$"Panel/ResumeGame".grab_focus()
 		
 		$"Panel".show()
 	
@@ -147,10 +184,24 @@ func _process(_delta):
 
 func _on_Timer_timeout():
 	calculate_health()
-	if randi()%101>95 && currentMotor.broken == false:
+	if randi()%101>98 && currentMotor.broken == false:
 		currentMotor.breakMotor()
-	if randi()%101>95:
+	if randi()%101>98:
 		create_obstacle()
+	if randi()%101>95:
+		generate_new_fire()
 
 func _on_Level_draw():
 	pass
+	
+func enableSteerUp():
+	currentMotor.steerUp = true
+
+func disableSteerUp():
+	currentMotor.steerUp = false
+	
+func enableSteerDown():
+	currentMotor.steerDown = true
+
+func disableSteerDown():
+	currentMotor.steerDown = false

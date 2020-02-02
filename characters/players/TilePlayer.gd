@@ -24,13 +24,23 @@ var disable_interact = false
 
 const World = preload("res://levels/World.gd")
 
+var asp: AudioStreamPlayer
+var sounds = {
+	"climb_ladder": load("res://characters/players/climb_ladder.wav"),
+	"jump": load("res://characters/players/jump.wav")
+}
+
 func _ready():
 	self.add_to_group("players")
 
+	asp = AudioStreamPlayer.new()
+	add_child(asp)
 	
 func _process(_delta):
+	var has_disabled_gravity = is_on_ladder and holding == null
+
 	velocity.x = 0
-	if is_on_ladder:
+	if has_disabled_gravity:
 		gravity = 0
 		velocity.y = 0
 	else:
@@ -40,10 +50,14 @@ func _process(_delta):
 		velocity.x = -speed
 	if Input.is_action_pressed(prefix + "_right"):
 		velocity.x = speed
-	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or is_on_ladder):
+	if Input.is_action_pressed(prefix + "_up") and (is_on_floor() or has_disabled_gravity):
 		velocity.y = -speed * 2
-	if Input.is_action_pressed(prefix + "_down") and is_on_ladder:
+		asp.stream = sounds["climb_ladder" if has_disabled_gravity else "jump"]
+		asp.play(0)
+	if Input.is_action_pressed(prefix + "_down") and has_disabled_gravity:
 		velocity.y = speed
+		asp.stream = sounds["climb_ladder"]
+		asp.play(0)
 	
 	play_animation_danke_michael_ismir_egal()
 	handle_interaction()
@@ -62,18 +76,18 @@ func handle_interaction():
 		if !disable_interact:
 			var areas = $InteractableArea.get_overlapping_areas()
 			
-			for element in areas:
-				if (element is pickupable) == false && element.has_method("interact_with_player"):
-					element.call("interact_with_player", self)
-					disable_interact = true
-					return		
-			
 			if holding == null:
 				for element in areas:
 					if element is pickupable:
 						element.call("interact_with_player", self)
 						disable_interact = true
 						return
+						
+			for element in areas:
+				if (element is pickupable) == false && element.has_method("interact_with_player"):
+					element.call("interact_with_player", self)
+					disable_interact = true
+					return
 	else:
 		disable_interact = false
 
@@ -123,5 +137,7 @@ func set_holding(item, value):
 
 
 func _physics_process(delta):
-	velocity.y += gravity * delta;
+	var scaled_node = self.get_parent().get_parent().get_parent()
+	velocity.y += gravity * delta
+	velocity.x *= scaled_node.rect_scale.length();
 	velocity = move_and_slide(velocity, Vector2.UP, true)

@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/interactables/bucket/bucket.gd"
 }, {
+"base": "interactable",
+"class": "fire",
+"language": "GDScript",
+"path": "res://items/interactables/fire/fire.gd"
+}, {
 "base": "Area2D",
 "class": "interactable",
 "language": "GDScript",
@@ -43,15 +48,22 @@ _global_script_classes=[ {
 "class": "wc",
 "language": "GDScript",
 "path": "res://items/interactables/wc/Wc.gd"
+}, {
+"base": "interactable",
+"class": "wheel",
+"language": "GDScript",
+"path": "res://items/interactables/wheel/wheel.gd"
 } ]
 _global_script_class_icons={
 "Elevator": "",
 "bucket": "",
+"fire": "",
 "interactable": "",
 "motor": "",
 "obstacle": "",
 "pickupable": "",
-"wc": ""
+"wc": "",
+"wheel": ""
 }
 
 [application]
