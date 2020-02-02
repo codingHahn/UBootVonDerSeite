@@ -79,13 +79,14 @@ func take_item():
 	return item
 	
 func take_item_if_eq(item):
-	var holding = self.holding
-	if holding == item:
-		self.set_holding(null, null)
-		return holding
-	else:
+	if holding != item:
 		return null
-		
+
+	var tmp_holding = holding
+	self.set_holding(null, null)
+	return tmp_holding
+
+
 func set_holding(item, value):
 	holding = item
 	holdingValue = value
