@@ -40,6 +40,8 @@ func _ready():
 	create_toilet(Vector2(768, 414))
 	create_wrench(Vector2(140, 414))
 	create_motor(Vector2(40, 396))
+	create_wheel(Vector2(900, 120), true)
+	create_wheel(Vector2(80, 120), false)
 	
 	# test code
 	place_new_hole(Vector2(740, 102))
@@ -71,6 +73,11 @@ func create_toilet(pos):
 func create_motor(pos):
 	currentMotor = motor.new(pos)
 	get_node("dropped_items").add_child(currentMotor)
+	
+func create_wheel(pos, isUp):
+	var to_drop = wheel.new(pos, isUp)
+	to_drop.currentLevel = self
+	get_node("dropped_items").add_child(to_drop)
 
 func create_wrench(pos):
 	var to_drop = pickupable.new(pos, World.Item.Wrench)
@@ -142,4 +149,12 @@ func _on_Timer_timeout():
 		create_obstacle()
 
 func _on_Level_draw():
+	pass
+	
+func steerUp():
+	print("UP")
+	pass
+
+func steerDown():
+	print("Down")
 	pass

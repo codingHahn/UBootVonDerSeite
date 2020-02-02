@@ -9,7 +9,8 @@ enum Item {
 	Bedsheet,
 	Toilet,
 	Wrench,
-	Motor
+	Motor,
+	Wheel
 }
 
 enum ObstacleType {
