@@ -50,6 +50,7 @@ func _ready():
 	
 	# test code
 	place_new_hole(Vector2(740, 102))
+	create_fire(Vector2(300, 128))
 	create_obstacle()
 		
 	for player in PlayerList:
@@ -87,6 +88,25 @@ func create_wheel(pos, isUp):
 
 func create_wrench(pos):
 	var to_drop = pickupable.new(pos, World.Item.Wrench)
+	get_node("dropped_items").add_child(to_drop)
+
+func generate_new_fire():
+	print("FIRE!")
+	print(max_size)
+	if self.max_size != null:
+		var tile_x = rand_range(0, self.max_size.x)
+		var tile_y = rand_range(0, self.max_size.y)
+		create_fire(Vector2(tile_x, tile_y))
+
+func create_fire(pos):
+	var fireBounds = Rect2(Vector2(pos.x, pos.y), World.ItemSize)
+	for element in get_node("dropped_items").get_children():
+		var elemenBounds = Rect2(element.position, World.ItemSize)
+		if(fireBounds.intersects(elemenBounds)):
+			return
+	
+	var to_drop = fire.new(pos)
+	to_drop.currentLevel = self
 	get_node("dropped_items").add_child(to_drop)
 
 func generate_new_hole():
